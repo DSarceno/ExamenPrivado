@@ -1,0 +1,5 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Termodinámica}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Conceptos Básicos}{2}{section.1.1}%
+\contentsline {paragraph}{Propósito: }{2}{section*.2}%
+\contentsline {section}{\numberline {1.2}Sistemas Termodinámicos y Cantidades de Estado}{2}{section.1.2}%
