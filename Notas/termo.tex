@@ -1,8 +1,14 @@
-\chapter{Termodinámica}
+\part{Termodinámica}
 
-\textit{La termodinámica es el estudio de las restricciones a las posibles propiedades de la materia que se derivan de las propiedades de simetría de las leyes fundamentales de la física.}
+\vspace*{\fill}
 
-\section{Conceptos Básicos}
+\begin{center}
+	\textit{La termodinámica es el estudio de las restricciones a las posibles propiedades de la materia que se derivan de las propiedades de simetría de las leyes fundamentales de la física.}
+\end{center}
+
+\vspace*{\fill}
+
+\chapter{Conceptos Básicos}
 
 \paragraph{Propósito: } La termodinámica busca describir sistemas de muchas partículas ($10^{23}$ típicamente). Gases, líquidos, cristales, estrellas, universo, \ldots ,  \underline{sistemas macroscópicos} y en particular, estudiar los procesos de transferencia de energía (trabajo y calor) entre cuerpos macroscópicos\footnote{Más adelante se tratará la parte microscópica con la Mecánica Estadística, poder explicativo y predictivo sobre propiedades macroscópicas de la materia, partiendo de una descripción microscópica.}. 
 
@@ -24,7 +30,7 @@
 
 Es importante mencionar que la termodinámica clásica macroscópica no puede explicar porqué una ecuación de estado describe un sistema partícular.
 
-
+\newpage
 
 \section{Sistemas Termodinámicos y Cantidades de Estado}
 
@@ -39,13 +45,89 @@ Es importante mencionar que la termodinámica clásica macroscópica no puede ex
 	
 	\item Tipos de Sistemas: (depende de la frontera)
 	\begin{itemize}
-		\item Sistemas aislados: No intercambian energía con el entorno.
-		\item Sistemas cerrados
+		\item Sistemas aislados: No intercambian energía con el entorno. Los sistemas rígidos no pueden intercambiar trabajo y los adiabáticos no pueden intercambiar calor.
+		\item Sistemas cerrados: Aquel que intercambia energía y trabajo con su entorno pero la masa permanece constante. Este intercambio de energía puede ser fluctuante aunque la caracterización de estas fluctuaciones no es de interes para la termodinámica.
+		\item Sistemas abiertos: Aquel que intercambia tanto energía como materia con su entorno.
+	\end{itemize}
+	\item Variables de estado: Cualquier cantidad macroscópica que pueda describir el sistema. $E,V,N,T,P,S$, viscocidad $\mu$, composición química, etc. \textbf{no} $\{ \vec{r}_i , \vec{p} _i \}$. 
+	\begin{itemize}
+		\item Cantidades de estado extensivas: estas son aditivas (dependen de la cantidad de sustancia/moles o masa). Ejemplo: volumen, energía o entropía.
+		\item Cantidades de estado intensivas: son independientes de la cantidad de sustancia del sistema, como la densiada, índice de refracción, presión o temperatura.
 	\end{itemize}
 \end{enumerate}
 
 
 
+\section{Equilibrio y Temperatura (Ley Cero de la Termodinámica):}
+
+\begin{enumerate}
+	\item Estado de un sistema: Se define por un conjunto particular de \underline{valores} de sus variables termodinámicas.
+	\begin{itemize}
+		\item Como cada variable describe el sistema como un todo, en general son constantes en el espacio.
+		\item Las variables pueden variar (lentamente en el tiempo).
+	\end{itemize}
+	\item Estado de equilibrio: cada variable tiene un único valor y este valor no cambia en el tiempo.
+	\item Procesos cuasi-estáticos y no cuasi-estáticos: un proceso $\equiv$ un cambio de estado. (normalmente un proceso cuasi-estático se toma como un proceso reversible, aquí haremos una distinción). Un proceso no cuasi-estático puede ser una expansión muy rápida de un gas. Mientras que un proceso cuasi-estático puede ser reversible o irreversible como la expansión muy lenta de un gas con un pistón ($\delta V$ es muy pequeña). 
+\end{enumerate}
+
+\paragraph{Temperatura y Ley Cero: } La temperatura es una cantidad "desconocida" para la mecánica y electrodinámica, es una cantidad de estado especial para la termodinámica. Esta se define clásicametne mediante un proceso (\dsnote{no hay definición matemática...aún, se verá en la parte de mecánica estadística}). \\
+La Ley Cero es una definición de la temperatura: Variable intensiva que es igual en dos sistemas en contacto, en equilibrio sin importar la forma y ubicación de este contacto. \\
+Otra definición de la Ley Cero: "Cuando el contacto térmico entre A y B produce que B se caliente y A se enfríe, sin importar donde está este contacto, entonces no hay proceso que pueda calentar A y enfriar B que no induce un trabajo". \\
+
+\" ESTADO DE EQUILIBRIO" $\neq$ \" ESTADO ESTACIONARIO", estar en equilibrio implica ser estado estacionario, pero no al contrario.
+
+
+\section{Presión, Ecuación de Estado}
+\begin{enumerate}
+	\item Presión: En términos mecánicos es lo que ya se conoce $F/A$ y en términos microscópicos es la suma de las fuerzas que realizan todas las particulas del sistema sobre $A$.
+	\item Ecuación de Estado: Relación entre variables independietes y la temperatura:
+		$$ F (X,Y,T) = 0 $$
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{./img/PVT_diagram.png}
+		\label{PVT}
+		\caption{Diagrama PVT.}
+	\end{figure}
+	Por ejemplo: Ecuación del gas ideal $pV = nRT$, la ecuación de gas real (expansión del Virial) $pV = Nk_B T + B(T) p + C(T) p^2 + \cdots$, donde $B(T), C(T), \ldots$ son los coeficientes del Virial o la de Van der Waals.
+	\item Diferenciales Exactos (e Inexactos): Suponemos una ecuación de estado $z = f(x,y)$. Diferenciación $\dd{f(\vec{r})} = \vec{\nabla} f(\vec{r}) \cdot \dd{\vec{r}}$. $\dd{f}$ es un diferencial total si su integral no depende del contorno y solo de los extremos. Y este es exacto si $f$ es totalmente diferenciable, es decir, se pueden intercambiar las derivadas cruzadas (\dsnote{Básicamente, el teorema de Clairaut}). La implicación que esta tiene en termodinámica son las transformaciones reversibles (que pasan por estados de equilibrio), en estas la ecuación de estado el valor de las variables de estado es independiente del proceso que sigue para llegar a otro estado y esto es válido para cualquier variable de estado.
+\end{enumerate}
 
 
 
+\chapter{Primera Ley de la Termodinámia}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
