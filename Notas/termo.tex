@@ -97,8 +97,57 @@ Otra definición de la Ley Cero: "Cuando el contacto térmico entre A y B produc
 \chapter{Primera Ley de la Termodinámia}
 
 
+\section{Trabajo y Calor}
+La energía total de un sistema puede variar si recibe (cede) trabajo o calor.
 
+\begin{enumerate}
+	\item Trabajo: Sistema sujeto a fuerzas externas. El sistema recibe energía durante una compresión. Con esta idea se tiene la convensión general (\dsnote{Bastante lógico}) $\delta W > 0$ si el sistema recibe trabajo y $\delta W < 0$ si el sistema realiza trabajo. \\
+	Caso particular\footnote{Para más ejemplos ver p9 de \href{https://github.com/DSarceno/ExamenPrivado/blob/main/material_\%C3\%BAtil/termodinamica/Notas\%20Boyer.pdf}{Notas Boyer}} procesos cuasi-estáticos, $\dd{\vec{l}}$ es infinitesimal, es decir muy lento, entonces la aceleración del pistón es despresiable $\vec{F} _e + \vec{F}_i = 0$, donde $F_i$ es la fuerza ejercida por el sistema (fuerza interna) entonces $\delta W = - \vec{F} _i \cdot \dd{\vec{l}}$. Como el proceso es cuasi-estático, el sistema está en equilibrio $\leftarrow \, \exists$ presión en el sistema $\vec{F} _i = PA \vu{z}$. Reemplazando en la definición de trabajo $\delta W = -P\dd{V}$ ($P$ cantidad intensiva, $\dd{V}$ cantidad extensiva). \faExclamationTriangle $\,$ Durante el trabajo infinitesimal la presión es aproximadamente constante en el intervalo $[V,V + \dd{V}]$, pero si $\Delta V$ es grande, entonces
+		$$ \Delta W = - \int _{V_1} ^{V_2} P(V) \dd{V}. $$
+	\item Calor: Es una forma partícular de energía distinta al trabajo, por ejemplo en el calentamiento por entrega de calor no hay un trabajo visible. \\
+	\textbf{Experimento de Joule: } Este fue crucial para demostrar la equivalencia entre trabajo mecánico y calor, sentando las bases de la primera Ley de la Termodinámica. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{./img/experimentoJoule.jpeg}
+		\label{expJoule}
+		\caption{Este consiste en un contenedor de agua aislado térmicamente, un sistema de paletas y un peso y una cuerda los cuales pasan por una polea.}
+	\end{figure}
+	El procedimiento es:
+	\begin{enumerate}
+		\item Elevación del peso: El peso se levanta a una cierta altura almacenando energía potencial gravitacional.
+		\item Al liberar el peso, este desciende, la cuerda hace girar el eje el cual, a su vez, hace girar las paletas.
+		\item Las paletas agitan el agua, creando fricción y generando calor.
+	\end{enumerate}
+	Joule encontró que el aumento de la temperatura del agua estaba directamente relacionado con la cantidad de trabajo mecánico realizado. Específicamente, pudo determinar la equivalencia entre unidades de trabajo (joules) y unidades de calor (calorías). La relación que encontró es aproximadamente $4.184$ joules por caloría. \\
+	Joule demostró que el calor podía generarse mediante trabajo mecánico y viceversa, consolidado el concepto moderno de energía. \\
+	Además podemos concluir que $\delta Q$ y $\delta W$ no son cantidades de estado, dependen del proceso, del camino ($Q$ y $W$ no son diferenciales exactos).
+\end{enumerate}
 
+\subsection{Naturaleza del Calor}
+\" Energá distribuída de manera desordenada entre partículas. \" Es mucho más fácil convertir trabajo en calor que al revés. \\
+Convensión: Misma que para el trabajo: $\delta Q = \delta Q_{\text{entorno} \leftarrow \text{ sistema}}$
+\begin{itemize}
+	\item $\delta Q > 0$ para un sistema que recibe calor del entorno.
+	\item $\delta Q < 0$ para un sistema que cede calor al entorno.
+\end{itemize}
+
+\section{Energía Interna y Primera Ley}
+
+\begin{enumerate}
+	\item Energía interna: (definición microscópica) $U$ esta es la energía total del sistema, en el sentido mecánico-newtoniano, con  $N$ partículas
+		$$ U = \sum _{i=1} ^N \frac{1}{2} m_i v_i ^2 + \sum _{i=1} ^N \sum _{j > i} ^N V(\vec{r}_i ,\vec{r}_j) + \sum _{i=1} ^N \vec{F} _e ^i \cdot \vec{r}_i . $$
+	Donde se tiene la energía cinética, la potencial y las fuerzas externas. En general es imposible calcular esta energía y tampoco es el propósito de este curso. \dsnote{como siempre, a esperar a mecánica estadística} \\
+	(definición macroscópica): Es equivalente a la definición de microscópica si $N\to \infty$. Cantidad de estado que varía cuando el sistema recibe trabajo o calor y que tiene dimensión de energía.
+	\item Primera Ley de la Termodinámica: Conservación de la energía $U$ (\dsnote{Es básicamente una conservación de la energía, como se ve en física 1, pero con esteroides}) 
+		$$ \dd{U} = \delta Q + \delta W. $$
+	Formas estándares de la primera ley:
+	\begin{itemize}
+		\item Sistemas aislados: $\dd{U} = 0$
+		\item Sistemas cerrados: $\dd{U} = \delta Q - P\dd{V}$
+		\item Sistemas abiertos: $\dd{U} = \delta Q - P\dd{V} + \mu \dd{N}$\footnote{En transformaciones cuasi-estáticas}.
+	\end{itemize}
+	\item Implicaciones de la Primera Ley: 
+\end{enumerate}
 
 
 
