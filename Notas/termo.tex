@@ -146,30 +146,147 @@ Convensión: Misma que para el trabajo: $\delta Q = \delta Q_{\text{entorno} \le
 		\item Sistemas cerrados: $\dd{U} = \delta Q - P\dd{V}$
 		\item Sistemas abiertos: $\dd{U} = \delta Q - P\dd{V} + \mu \dd{N}$\footnote{En transformaciones cuasi-estáticas}.
 	\end{itemize}
-	\item Implicaciones de la Primera Ley: 
+\end{enumerate}
+
+
+\section{Implicaciones de la Primera Ley}
+
+\begin{enumerate}
+	\item La energía interna es una variable de estado y un diferencial exacto:
+		$$ \dd{U} = \qty(\pdv{U}{T})_{V,N} \dd{T} + \qty(\pdv{U}{V})_{T,N} \dd{V} + \qty(\pdv{U}{N})_{V,T} \dd{N}. $$
+		Y $f(V,T,N)$ se conoce como la ecuación de estado.
+	\item Procesos Cíclicos: Son procesos de partícular interés. En estos procesos $U_f = U_o$ o, en otras palabras
+		$$ \oint \dd{U} = 0, $$
+	esto implica $\Delta W + \Delta Q = 0 \qquad \Delta W = - \Delta Q \neq 0$, en esto se tienen dos casos importantes
+		\begin{itemize}
+			\item Caso $\Delta W < 0$: \underline{motor}, fuente de calor en el entorno, pero necesitamos $\Delta Q > 0$.
+			\item Caso $\Delta Q < 0$: \underline{refrigerador}, trabajo sobre el sistema, pero se necesita $\Delta W > 0$.
+		\end{itemize}
+\end{enumerate}
+
+
+\section{Capacidad Calorífica}
+
+Se define como $\delta Q = c \dd{T}$, un incremento o decremento de temperatura, donde la constante $c$ es la capacidad calorífica. Recordemos que $\dd{U} = \delta Q - P\dd{V}$ para un sistema cerrado sin fuerzas externas.
+
+		$$ C_V = \qty(\frac{\delta Q}{\delta T}) _V, \quad \text{Volumen constante,} $$
+		$$ C_P = \qty(\frac{\delta Q}{\delta T}) _P, \quad \text{presión constante,} $$
+
+	y como consecuencia de la primera ley: $V=\text{cte}$ entonces $\dd{U} = \delta Q$ por ende $C_V = \qty(\dv{U}{T})_V$. $C_V$ y $C_P$ son cantidades extensivas, en algunos libros $C_v = \frac{1}{N} \qty(\dv{U}{T})_V$ capacidad por partícula o por mol (en este caso sería una cantidad intensiva).
+	
+\paragraph{Gas Ideal} se tienen dos casos, para un gas monoatómico y diatómico
+	$$ \text{Monoatómico} \qquad U = \frac{3}{2} N k_B T, $$
+	$$ \text{Diatómico} \qquad U = \frac{5}{2} N k_B T. $$
+
+Para todo material en equilibrio se tiene la siguiente relación entre $C_V$ y $C_P$. Para ello se considerará $N=cte$ (sistema cerrado), como variables se tienen $P,V,T$; sin embargo, $f(P,V,T) = 0$ es la ecuación de estado de equilibrio. Por ello se toman dos variables independientes $U = U(P,V) = U(P,T) = U(V,T)$. Además se tienen dos maneras de escribir el diferencial de energía interna: la primera ley y el diferencial total. Con esto:
+	$$ \delta Q - p\dd{V} = \qty(\pdv{U}{T})_{V} \dd{T} + \qty(\pdv{U}{V})_{T} \dd{V} $$
+	$$ \delta Q = \qty(\pdv{U}{T})_{V} \dd{T} + \qty[p + \qty(\pdv{U}{V})_{T}] \dd{V} $$
+dividiendo entre $\dd{T}$ se tiene
+	$$ C_P = \underbrace{\qty(\pdv{U}{T})_{V}}_{C_V} + \qty[p + \qty(\pdv{U}{V})_{T}] \qty(\frac{\delta Q}{\delta T}) _P $$
+	$$ \boxed{ C_P - C_V = \qty[p + \qty(\pdv{U}{V})_{T}] \qty(\frac{\delta Q}{\delta T}) _P. } $$
+	
+	Esta siempre es positiva. Para un gas ideal $\qty(\pdv{U}{V})_{T} = 0$, $p = \frac{Nk_B T}{V}$, $\qty(\frac{\delta Q}{\delta T}) _P = \frac{V}{T}$.
+	$$ \boxed{ C_p - C_V = Nk_B } $$
+	
+
+
+\section{Procesos Adiabáticos}
+Es aquel proceso reversible en un sistema térmicamente aislado, por lo que no existe un intercambio de calor entre él y el entorno $\delta Q = 0$. Por lo que $\dd{U} = -p\dd{V}$, y en un gas ideal $\dd{U} = \qty(\pdv{U}{T})_V \dd{T} = C_V \dd{T}.$ Lo que implica que
+	$$ \frac{\dd{T}}{T} = \frac{C_p - C_V}{C_V} \frac{\dd{V}}{V}. $$
+	
+Donde $\frac{C_P}{C_V} = \gamma$, número adimensional. Integrando \dsnote{Y haciendo calculito del kinder, como diría Damián} se tienen las siguientes equivalencias
+	$$ \boxed{ T V ^{\gamma - 1} = PV^\gamma = T^\gamma P^{1 - \gamma} = \text{cte}. } $$
+	
+\subsection{Trabajo Adiabático}
+
+
+Teniendo $\delta W = -p\dd{V}$, las equivalencias anteriores y nuevamente calculito del kinder y se llegamos a lo siguiente
+	$$ \boxed{ \Delta W = \frac{1}{\gamma - 1} \qty[P_1 V_1 - P_o V_o] = \frac{Nk_B}{\gamma - 1} [T_1 - T_o] = C_v [T_1 - T_o]. } $$
+	
+Es claro que se puede llegar a este resultado directamente desde la primera ley.
+
+
+
+\chapter{Procesos Cíclicos}
+
+\section{Tipos de Procesos}
+El primer tipo es aquel que tiene una variable de estado constante: isotérmicos, isocóricos, isobáricos y adiabáticos \dsnote{el nombre es bastante claro con lo que implica cada proceso}. 
+
+
+\subsection{Procesos Reversibles e Irreversibles}
+Un proceso se dice reversible cuando estados sucesivos del mismo procesos difieren infinitesimalmente de estados de equilibrio. Dado esto, existen procesos reversibles termodinámicamente, los cuales cumplen con dos condiciones: ser cuasi-estático y un proceso no disipativo.
+
+\section{Ciclo de Carnot}
+El \textbf{ciclo de Carnot} se produce en un equipo o máquina cuando trabaja absorbiendo una cantidad de calor $Q_1$ de una fuente de mayor temperatura y cendiendo una cantidad de calor $Q_2$ a la de menor temperatura produciendo un trabajo sobre el exterior.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.1]{./img/carnot.png}
+		\label{carnot}
+		\caption{Esquema de una máquina de Carnot.}
+	\end{figure}
+
+El rendimiento del ciclo está definido por
+	$$ \eta = 1 - \frac{Q_2}{Q_1}. $$
+Y, como se verá más adelante, es el mayor producido por cualquier máquina que funcione cíclicamente entre las mismas fuentes de temperatura. \\
+Como todos los procesos que tienen lugar en el ciclo ideal son reversibles, el ciclo puede invertirse y la máquina absorbería calor de la fuente fría y cedería calor a la fuente caliente, teniendo que suministrar trabajo a la máquina. Si el objetivo de esta máquina es extraer calor de la fuente fría (para mantenerla fría) se denomina máquina frigorífica, y si es ceder calor a la fuente caliente, bomba de calor. \\
+
+El ciclo de Carnot\footnote{Ver \href{https://es.wikipedia.org/wiki/Ciclo_de_Carnot}{wikipeeeediaaa} para la explicación detallada de cada paso.} consta de cuatro etapas: dos procesos isotermos y dos adiabáticos, como se muestra en el siguiente diagrama P-V
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.15]{./img/PV_Ciclo_de_Carnot.png}
+		\label{clapeyronCarnot}
+		\caption{Ciclo de carnot en el diagrama de Clapeyron.}
+	\end{figure}
+
+\begin{itemize}
+	\item AB: Expansión isoterma;
+	\item BC: Expansión adiabática;
+	\item CD: Comprensión isoterma;
+	\item DA: Comprensión adiabática.
+\end{itemize}
+
+\subsection{Teoremas de Carnot}
+
+\begin{enumerate}
+	\item No puede existir una máquina térmica que funcionando entre dos fuentes térmicas dadas tenga mayor rendimiento que una de Carnot que funcione entre esas mismas fuentes térmicas.
+	\item Dos máquinas reversibles operando entre las mismas fuentes térmicas tienen el mismo rendimiento.
 \end{enumerate}
 
 
 
+\chapter{Segunda Ley de la Termodinámica}
+
+\section{Kelvin-Planck}
+Es imposible construir un motor que opere en ciclos y extraiga calor de una fuente que convierta el calor extraído exclusivamente en trabajo.
+
+\section{Clauius}
+Es imposible construir un frigorífico que, operando en un ciclo, transferencia completamente el calor de una fuente de menor temperatura a una fuente de temperatura mayor.
+
+\dsnote{Raras tus formulaciones pue.}
+
+\section{La que te venden los divulgadores}
+\textit{La cantidad de entropía del universo tiende a incrementarse en el tiempo.} Este principio establece la irreversibilidad de los procesos físicos, especialmente durante el intercambio de calor.
+
+\section{Reversibilidad e Irreversibilidad}
+Un proceso reversible es un proceso que realiza de tal forma que el sistema y su entorno pueden regresara su sestados iniciales sin producir ningún cambio en el resto del universo. (\dsnote{Si, es otra forma de redactar la reversibilidad.})
 
 
 
+\chapter{Entropía}
+
+La entropía es posiblemente el más importante e insuficientemente conocido concepto en fisiología. Es una magnitud física que permite determinar la parte de la energía que no puede utilizarse para producir trabajo y está ligada con el grado de desorden de un sistema.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\section{Definición de Entropía}
+Ya se introdujo la integral $\oint \dbar Q / T = 0$. Esto implica que la integral
+	$$ \int _A ^B \frac{\dbar Q}{T} $$
+es independiente del camino; por ende, se define entropía como el diferencial exacto 
+	$$ \boxed{ \dd{S} = \frac{\dbar Q}{T}, } $$
+tal que
+	$$ S(B) - S(A) = \int _A ^B \frac{\dbar Q}{T}, $$
+y $S$ es una función de estado. Para un proceso adiabático se tiene que $\dbar Q = 0$. Por eso un proceso adiabático no presenta cambios en la entropía (los procesos adiabáticos también son llamados isoentrópicos).
 
 
 
