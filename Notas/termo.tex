@@ -289,6 +289,145 @@ tal que
 y $S$ es una función de estado. Para un proceso adiabático se tiene que $\dbar Q = 0$. Por eso un proceso adiabático no presenta cambios en la entropía (los procesos adiabáticos también son llamados isoentrópicos).
 
 
+\section{Cambios Irreversibles}
+Ya se tiene la definición de entropía en términos de cambios reversiles. Dado que $S$ es una función de estado
+	$$ \oint \frac{\dbar Q_{rev}}{T} = 0. $$
+Entonces
+	$$ \dd{S} = \frac{\dbar Q_{rev}}{T} \geq \frac{\dbar Q}{T}. $$
+Consideremos un sistema térmicamente aislado $\dbar Q = 0$; por lo tanto $\dbar S \geq 0$. \\
+
+La entropía solo puede mantenerse igual (cambios reversibles) o aumentar (cambios irreversibles). Tomando al universo como un sistema térmicamente aislado.
+
+
+\section{Regresando a la Primera Ley}
+Ahora podermos mostrar una forma más elegante y útil de la 1ra ley
+	$$ \dd{U} = \dbar Q + \dbar W, $$
+pero $\dbar Q = T\dd{S}$ y $\dbar W = -p\dd{V}$.
+	$$ \dd{U} = T\dd{S} - p\dd{V} $$
+en esto se asume un proceso reversible. Pero para uno irreversible se tiene que $\dbar Q \leq T\dd{S}$ y $\dbar W \geq -\dd{V}$. Lo que se nivela y siempre se llega a lo visto para procesos reversibles. \\
+
+$S,V$ son extensivas y $T,p$ son intensivas\footnote{Esto funciona por el teorema recíproco y por el teorema de reciprocidad: $\qty(\pdv{x}{y})_z \qty(\pdv{y}{z})_x \qty(\pdv{z}{x})_y = -1$.}
+	$$ \dd{U} = \underbrace{\qty(\pdv{U}{S})_V}_{T} \dd{S} + \underbrace{\qty(\pdv{U}{V})_S}_{-p} \dd{V}. $$
+	
+\dsnote{Ahora toca profanar la matemática.}
+
+	$$ \frac{p}{T} = \qty(\pdv{S}{V})_U. $$
+	
+
+
+{\Large \textbf{Resumen}} \\
+\begin{itemize}
+	\item $\dd{U} = \dbar Q + \dbar W$ siempre es cierto
+	\item $\dbar Q = T\dd{S}$ reversibles
+	\item $\dbar W = -p\dd{V}$ reversibles
+	\item $\dbar W \geq -p\dd{V}$ y $\dbar Q \leq T\dd{S}$ irreversibles.
+\end{itemize}
+
+
+\section{Expansión de Joule (Expansión Libre)}
+Es un proceso irreversible en el cual un gas se expande en un recipiente vacío y aislado. Los gases experimentan un cambio de temperatura durante la expansión libre.
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.25]{./img/expansionJoule.jpg}
+		\label{expansionJoule}
+		\caption{También se puede lograr moviendo el pistón hacia fuera más rápido que los átomos del gas.}
+	\end{figure}
+	
+Durante la expansión libre, ningún trabajo es realizado por el gas. El bas pasa a través de los estados que no están en equilibrio termodinámico antes de llegar a su estado fina, lo que implica que no se pueden definir parámetros termodinámicos como valores del gas en su conjunto. \\
+
+Una expansión libre se consigue típicamente mediante la apertura de una llave de paso que permite que el gas se expanda en un vacío. Aunque sería difícil de lograr en la realidad, es instructivo imaginar una expansión libre causada por un pistón en movimiento más rápido que prácticamente cualquier átomo. Ningún trabajo se hace porque no hay presión sobre el pistón. Sin energía térmica que sale o entra en el pistón. Sin embargo, hay un cambio de entropía.
+
+	$$ \Delta S = \int _i ^f \dd{S} = \int _{V_o} ^{2V_o} \frac{p\dd{V}}{T} = \int _{V_o} ^{2V_o} \frac{R\dd{V}}{V} = R\ln{2}. $$
+
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{./img/expansionJoule2.png}
+		\label{expansionJoule}
+	\end{figure}
+
+Luego de que suceda la expansión de Joule, solo se puede poner el gas a la izquierda comprimiendolo. El método que involucra la menor cantidad de trabajo es una compresión isotérmica, cuyo trabajo para 1 mol de gas es
+	$$ \Delta W = - \int _{2V_o} ^{V_o} p\dd{V} = - \int _{2V_o} ^{V_o} \frac{RT}{V} \dd{V} = RT\ln{2} = T \Delta S_{gas}. $$
+El incremento de entropía en una expansión de Joule es $\Delta W/T$.
+
+
+{\Large \textbf{Paradoja?}} \\
+\begin{itemize}
+	\item En la expansión de Joule, el sistema es aislado térmicamente, por lo que no hay flujo/intercambio de calor: $\Delta Q = 0$.
+	\item No hay trabajo realizado: $\Delta W = 0$.
+	\item Por ello $\Delta U = 0$ (para un gas ideal, $\Delta T = 0$).
+	\item Pero si $\Delta Q = 0$, esto implica que $\Delta S = \Delta Q/T = 0$?
+\end{itemize}
+ El razonamiento anterior es correcto hasta la última parte: la respuesta a la ultima preguna es \textbf{NO!} La ecuación $\dbar Q = T\dd{S}$ es cierto solamente para procesos reversibles. En general $\dbar Q \leq T\dd{S}$, y se tiene $\Delta Q = 0$ y $\Delta S = R \ln{2}$, entonces se tiene que $\Delta Q \leq T \dd{S}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
