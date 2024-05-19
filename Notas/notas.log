@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.4.8)  18 MAY 2024 09:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.4.8)  18 MAY 2024 23:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -713,25 +713,26 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.36 ....1.2}Entalpía, $H$}{20}{subsection.6.1.2}
+                                                  % [1
+
+])
 \tf@toc=\write5
 \openout5 = `notas.toc'.
 
- (./termo.texpdfTeX warning (ext4): destination with the same identifier (name{
-page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1 \part
-         {Termodinámica} [1
-
-] [2] [3
+ (./termo.tex [2]
+[3
 
 ] [4]
 Cap\'{\i }tulo 1.
 [5
 
 ]
-<./img/thermodynamicSystem.png, id=221, 408.52625pt x 244.915pt>
+<./img/thermodynamicSystem.png, id=251, 408.52625pt x 244.915pt>
 File: ./img/thermodynamicSystem.png Graphic file (type png)
 <use ./img/thermodynamicSystem.png>
 Package pdftex.def Info: ./img/thermodynamicSystem.png  used on input line 41.
@@ -753,7 +754,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--76
  []
 
 [6 <./img/thermodynamicSystem.png>]
-<./img/PVT_diagram.png, id=239, 869.2475pt x 975.645pt>
+<./img/PVT_diagram.png, id=269, 869.2475pt x 975.645pt>
 File: ./img/PVT_diagram.png Graphic file (type png)
 <use ./img/PVT_diagram.png>
 Package pdftex.def Info: ./img/PVT_diagram.png  used on input line 87.
@@ -765,7 +766,7 @@ FiXme Note: 'Bastante lógico' on input line 104.
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
 nput line 105.
 (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd)
-<./img/experimentoJoule.jpeg, id=255, 213.79875pt x 236.885pt>
+<./img/experimentoJoule.jpeg, id=285, 213.79875pt x 236.885pt>
 File: ./img/experimentoJoule.jpeg Graphic file (type jpg)
 <use ./img/experimentoJoule.jpeg>
 Package pdftex.def Info: ./img/experimentoJoule.jpeg  used on input line 111.
@@ -785,7 +786,7 @@ e 197.
 Cap\'{\i }tulo 3.
 FiXme Note: 'el nombre es bastante claro con lo que implica cada proceso' on in
 put line 213.
-<./img/carnot.png, id=293, 1027.84pt x 1027.84pt>
+<./img/carnot.png, id=324, 1027.84pt x 1027.84pt>
 File: ./img/carnot.png Graphic file (type png)
 <use ./img/carnot.png>
 Package pdftex.def Info: ./img/carnot.png  used on input line 224.
@@ -798,7 +799,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 230--233
 [13
 
  <./img/carnot.png>]
-<./img/PV_Ciclo_de_Carnot.png, id=301, 1284.8pt x 1001.7425pt>
+<./img/PV_Ciclo_de_Carnot.png, id=332, 1284.8pt x 1001.7425pt>
 File: ./img/PV_Ciclo_de_Carnot.png Graphic file (type png)
 <use ./img/PV_Ciclo_de_Carnot.png>
 Package pdftex.def Info: ./img/PV_Ciclo_de_Carnot.png  used on input line 238.
@@ -830,7 +831,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 318--319
 
  []
 
-<./img/expansionJoule.jpg, id=321, 359.54324pt x 422.7795pt>
+<./img/expansionJoule.jpg, id=351, 359.54324pt x 422.7795pt>
 File: ./img/expansionJoule.jpg Graphic file (type jpg)
 <use ./img/expansionJoule.jpg>
 Package pdftex.def Info: ./img/expansionJoule.jpg  used on input line 333.
@@ -840,11 +841,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
-<./img/expansionJoule2.png, id=330, 318.18875pt x 243.91125pt>
+<./img/expansionJoule2.png, id=360, 318.18875pt x 243.91125pt>
 File: ./img/expansionJoule2.png Graphic file (type png)
 <use ./img/expansionJoule2.png>
 Package pdftex.def Info: ./img/expansionJoule2.png  used on input line 348.
-(pdftex.def)             Requested size: 79.54698pt x 60.97766pt.
+(pdftex.def)             Requested size: 111.36772pt x 85.37021pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--355
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 357--358
 
@@ -856,27 +862,56 @@ Overfull \hbox (5.59pt too wide) in paragraph at lines 359--360
 mi-ca-men-te, por lo que no hay flu-jo/intercambio
  []
 
-[18 <./img/expansionJoule.jpg> <./img/expansionJoule2.png>]) (./stat-mec.tex
-[19] [20
+[18 <./img/expansionJoule.jpg> <./img/expansionJoule2.png>] [19]
+Cap\'{\i }tulo 6.
+FiXme Note: 'que triste' on input line 372.
 
-]) (./electro.tex [21
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 383.
 
-]) (./classical.tex [22
 
-]) (./quantum.tex [23
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 383.
+
+[20
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 401.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 401.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 416.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 416.
+
+) (./stat-mec.tex [21] [22] [23
+
+]) (./electro.tex [24
+
+]) (./classical.tex
+[25
+
+]) (./quantum.tex [26
+
+]) (./data-red.tex [27
+
+]) (./cond-mat.tex [28
 
 ])
-(./data-red.tex [24
 
-]) (./cond-mat.tex [25
-
-])
-
-FiXme Summary: Number of notes: 10,
+FiXme Summary: Number of notes: 11,
 (FiXme)        Number of warnings: 0,
 (FiXme)        Number of errors: 0,
 (FiXme)        Number of fatal errors: 0,
-(FiXme)        Total: 10.
+(FiXme)        Total: 11.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
@@ -887,7 +922,7 @@ LaTeX Info: Redefining \% on input line 24.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
 Package rerunfilecheck Info: File `notas.out' has not changed.
-(rerunfilecheck)             Checksum: F3AC91CB57DFACD536129E8F805A2186;2383.
+(rerunfilecheck)             Checksum: 81DC0AFD34E4B51E02C5EBE1FB9842F4;2826.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -895,13 +930,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
  ) 
 Here is how much of TeX's memory you used:
- 15518 strings out of 481239
- 252743 string characters out of 5920378
+ 15543 strings out of 481239
+ 253059 string characters out of 5920378
  533531 words of memory out of 5000000
- 30354 multiletter control sequences out of 15000+600000
- 553201 words of font info for 74 fonts, out of 8000000 for 9000
+ 30367 multiletter control sequences out of 15000+600000
+ 555053 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,10n,79p,999b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,10n,79p,999b,668s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/us
 r/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texm
 f-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb></usr/share/t
@@ -909,27 +944,28 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fo
-nts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-
-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on notas.pdf (26 pages, 638872 bytes).
+nts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+frm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on notas.pdf (29 pages, 654886 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 407 compressed objects within 5 object streams
- 100 named destinations out of 1000 (max. 500000)
- 308 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 525 PDF objects out of 1000 (max. 8388607)
+ 452 compressed objects within 5 object streams
+ 109 named destinations out of 1000 (max. 500000)
+ 356 words of extra memory for PDF output out of 10000 (max. 10000000)
 

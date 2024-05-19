@@ -351,7 +351,7 @@ Una expansión libre se consigue típicamente mediante la apertura de una llave 
 
 Luego de que suceda la expansión de Joule, solo se puede poner el gas a la izquierda comprimiendolo. El método que involucra la menor cantidad de trabajo es una compresión isotérmica, cuyo trabajo para 1 mol de gas es
 	$$ \Delta W = - \int _{2V_o} ^{V_o} p\dd{V} = - \int _{2V_o} ^{V_o} \frac{RT}{V} \dd{V} = RT\ln{2} = T \Delta S_{gas}. $$
-El incremento de entropía en una expansión de Joule es $\Delta W/T$.
+El incremento de entropía en una expansión de Joule es $\Delta W/T$.\\
 
 
 {\Large \textbf{Paradoja?}} \\
@@ -366,16 +366,54 @@ El incremento de entropía en una expansión de Joule es $\Delta W/T$.
 
 
 
+\chapter{Termodinámica en Acción}
+
+\section{Potenciales Termodinámicos}
+La energía interna es muy útil, es una función de estado la cual se mantiene  cambiando de la misma forma con forme el sistema pase de un estado de equilibrio a otro; sin embargo, a pesar de ser útil, no es única (\dsnote{que triste}). Se pueden crear otras funciones de estado dependientes de $p, V,T$ y $S$ en algúna combinación que de como resultado unidades de energía; obviamente, muchas de estas combinaciones no reperesentarán ningún sistema físico, pero algunas si tales como: $H = U + pV$, $F = U - TS$ y $G = U + pV - TS$.
+
+\subsection{Energía Interna}
+Directamente, para procesos isocóricos
+	$$ \dd{U} = T\dd{S}, $$
+y por procesos isocóricos reversibles
+	$$ \dd{U} = \dbar Q_{rev} = C_V \dd{T}, $$
+por ende
+	$$ \Delta U = \int _{T_1} ^{T_2} C_V \dd{T}. $$
+Esto solo es válido para sistemas a volumen constantes, esto se extenderá a sistemas a volumen constante pero para ello se utilizará lo que veremos a continuación.
+
+\subsection{Entalpía, $H$}
+La entalpía se define como: el flujo de energía térmica en los procesos químicos efectuados a presión constante cuando el único trabajo es de presión-volumen
+	$$ H = U + PV. $$
+Esta definición junto con la primera ley, implica que
+	$$ \dd{H} = T\dd{S} + V \dd{p}. $$
+Las variables naturales de $H$ son la entropía y la presión. Por lo que podemos dar una forma para un proceso isobárico
+	$$ \dd{H} = T\dd{S}, $$
+y para un proceso reversible
+	$$ \dd{H} = \dbar Q_{rev} = C_p \dd{T}, $$
+de modo que
+	$$ \Delta H = \int _{T_1} ^{T_2} C_p \dd{T}. $$
+
+Esto muestra la importancia de $H$ para procesos isobáricos reversibles la entalpía representa el calor absorbido por el sistema. También podemos concluir que si $S$ y $p$ son constantes, se tiene $\dd{H} = 0$. Y de la segunda ecuación mostrada se concluye que
+	$$ T = \qty(\pdv{H}{S})_p, $$
+y
+	$$ V = \qty(\pdv{H}{p})_S. $$
 
 
+\subsection{Función de Helmholtz, $F$}
+También llamada \textbf{energía de Helmholtz}, \textbf{energía libre de Helmholtz} o \textbf{función trabajo}. Es una magnitud extensiva, función de estado y potencial termodinámico, de un sistema termodinámico que mide el trabajo obtenible en un sistema cerrado, en condiciones de temperatura constante. No depende del proceso sufrido, sino del estado final e inicial del sistema. Se usa para ver qué procesos son espontáneos en condiciones de temperatura y volumen constantes. Si el volumen no se mantiene constante, parte del trabajo se efectua en el entorno.
+	$$ F = U - TS. $$
+Mismo procedimiento que la subsección anterior, se tiene que
+	$$ \dd{F} = -S\dd{T} - p\dd{V}. $$
+Las varibles naturales de $F$ son el volumen y la temperatura, por lo que para un proceso isotérmico se puede escribir
+	$$ \dd{F} = -p\dd{V}, $$
+por ende
+	$$ \Delta F = \int _{V_1} ^{V_2} p\dd{V}. $$
+$F$ también representa la cantidad máxima de trabajo que puede llegarse a tener de un sistema a temperatura constante. Dado lo anterior, se tienen las siguientes representaciones
+	$$ S = -\qty(\pdv{F}{T})_V, $$
+	$$ p = -\qty(\pdv{F}{V})_T. $$
+Si $T$ y $V$ son constantes, entonces $\dd{F} = 0$.
 
 
-
-
-
-
-
-
+\subsection{Función de Gibbs, $G$}
 
 
 
