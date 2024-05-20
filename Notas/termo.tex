@@ -89,7 +89,7 @@ Otra definición de la Ley Cero: "Cuando el contacto térmico entre A y B produc
 		\caption{Diagrama PVT.}
 	\end{figure}
 	Por ejemplo: Ecuación del gas ideal $pV = nRT$, la ecuación de gas real (expansión del Virial) $pV = Nk_B T + B(T) p + C(T) p^2 + \cdots$, donde $B(T), C(T), \ldots$ son los coeficientes del Virial o la de Van der Waals.
-	\item Diferenciales Exactos (e Inexactos): Suponemos una ecuación de estado $z = f(x,y)$. Diferenciación $\dd{f(\vec{r})} = \vec{\nabla} f(\vec{r}) \cdot \dd{\vec{r}}$. $\dd{f}$ es un diferencial total si su integral no depende del contorno y solo de los extremos. Y este es exacto si $f$ es totalmente diferenciable, es decir, se pueden intercambiar las derivadas cruzadas (\dsnote{Básicamente, el teorema de Clairaut}). La implicación que esta tiene en termodinámica son las transformaciones reversibles (que pasan por estados de equilibrio), en estas la ecuación de estado el valor de las variables de estado es independiente del proceso que sigue para llegar a otro estado y esto es válido para cualquier variable de estado.
+	\item Diferenciales Exactos\footnote{Un diferencial es exacto ssi $\qty(\pdv{f}{x})_y = \qty(\pdv{f}{y})_x$.} (e Inexactos): Suponemos una ecuación de estado $z = f(x,y)$. Diferenciación $\dd{f(\vec{r})} = \vec{\nabla} f(\vec{r}) \cdot \dd{\vec{r}}$. $\dd{f}$ es un diferencial total si su integral no depende del contorno y solo de los extremos. Y este es exacto si $f$ es totalmente diferenciable, es decir, se pueden intercambiar las derivadas cruzadas (\dsnote{Básicamente, el teorema de Clairaut}). La implicación que esta tiene en termodinámica son las transformaciones reversibles (que pasan por estados de equilibrio), en estas la ecuación de estado el valor de las variables de estado es independiente del proceso que sigue para llegar a otro estado y esto es válido para cualquier variable de estado.
 \end{enumerate}
 
 
@@ -414,22 +414,99 @@ Si $T$ y $V$ son constantes, entonces $\dd{F} = 0$.
 
 
 \subsection{Función de Gibbs, $G$}
+La energía de Gibbs o \textbf{función de Gibbs} (entalpía libre) es un potencial termodinámico que se puede usar para calcular el máximo de trabajo reversible que puede realizarse mediante un sistema termodinámico a una temperatura y presión constantes (isotérmica, isobárica). La energía libre de Gibbs es la cantidad máxima de trabajo de no expansión que se puede extraer de un sistema cerrado termodinámicamente (uno que puede intercambiar calor y trabajo con su entorno, pero no materia). Este máximo solo se puede alcanzar en un proceso completamente reversible. Cuando un sistema se transforma reversiblemente de un estado inicial a un estado final, la disminución de la energía libre de Gibbs equivale al trabajo realizado por el sistema en su entorno, menos el trabajo de las fuerzas de presión.
+	$$ G = H - TS. $$
+De esto, se tiene
+	$$ \dd{G} = -S\dd{T} + V\dd{p}, $$
+Las variables naturales de $G$ son la temperatura y la presión (las mejores variables para manipular en un laboratorio). En particular, si $T$ y $p$ son constantes $\dd{G} = 0$, lo que implica que $G$ se conserva en cualquier proceso isotérmico e isobárico. Además se tienen las siguientes expresiones para la entropía y el volumen
+	$$ S = -\qty(\pdv{G}{T})_p, $$
+y
+	$$ V = -\qty(\pdv{G}{p})_T. $$
+
+\pagebreak
+
+{\Large \textbf{Resumen:}} \\
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{p{1.5cm}ccp{2.5cm}p{2.5cm}c}
+		\hline
+		Función de Estado &  & Diferencial & Variables Naturales & Primeras Derivadas & \\
+		\hline
+		Energía Interna & $U$ & $\dd{U} = T\dd{S} - p\dd{V}$ & $U = U(S,V)$ & $T = \qty(\pdv{U}{S})_V$ & $p = -\qty(\pdv{U}{V})_S$ \\
+		Entalpía & $H = U + pV$ & $\dd{H} = T\dd{S} + V\dd{p}$ & $H = H(S,p)$ & $T = \qty(\pdv{H}{S})_p$ & $V = -\qty(\pdv{H}{p})_S$ \\
+		Función de Helmholtz & $F = U - TS$ & $\dd{F} = -S\dd{T} - p\dd{V}$ & $F = F(T,V)$ & $S = -\qty(\pdv{F}{T})_V$ & $p = -\qty(\pdv{F}{V})_T$ \\
+		Función de Gibbs & $G = H - TS$ & $\dd{G} = -S\dd{T} + V\dd{p}$ & $G = G(T,p)$ & $S = -\qty(\pdv{G}{T})_p$ & $V = -\qty(\pdv{G}{p})_T$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\subsection{Relaciones de Maxwell}
+Las relaciones de Maxwell\footnote{Para más ejemplos ver Blundell p.173.} son un conjunto de ecuacioens termodinámicas derivadas del Teorema de Clairaut\footnote{enlace a la explicacion} y de las definiciones de los potenciales termodinámicos.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{./img/maxwellRelations.png}
+		\label{maxwellRelations}
+	\end{figure}
+
+Con esto se tienen las relaciones de Maxwell
+
+	$$ \qty(\pdv{T}{V})_S = -\qty(\pdv{p}{S})_V, $$
+	$$ \qty(\pdv{T}{p})_S = \qty(\pdv{V}{S})_p, $$
+	$$ \qty(\pdv{S}{V})_T = \qty(\pdv{p}{T})_V, $$
+	$$ \qty(\pdv{S}{p})_T = -\qty(\pdv{V}{T})_p. $$
+
+Buscando algo más general, es claro que las relaciones de Maxwell son de la forma
+	$$ \qty(\pdv{\ast}{\ddagger})_\star = \pm \qty(\pdv{\dagger}{\star})_\ddagger, $$
+donde los simbolos similares implican \textbf{variables conjugadas}, es decir, aquellas cuyo producto da como resultado unidades de energía. Como $T$ y $S$, y $p$ y $V$. Además, que aquellas que tengan el signo negativo son las que tienen a $T$ y $V$ del mismo lado de la ecuación. \\
+
+Una forma alternativa de encontrar las relaciones de Maxwell es por medio del Jacobiano. Considerando un proceso cíclico descrito en los dos planos, $T-S$ y $p-V$. La energía interna es una función de estado y por ende no cambia en un ciclo, de modo que
+	$$ \oint T\dd{S} = \oint p\dd{V}, $$
+	$$ \iint \dd{p} \dd{V} = \iint \dd{T} \dd{S}, $$
+de modo que el trabajo hecho (área bajo el ciclo en el plano $p-V$) es igual al calor absorbido (área encerrada por el ciclo en el plano $T-S$). También podemos escribir
+	$$ \iint \dd{p} \dd{V} \pdv{(T,S)}{(p,V)} = \iint \dd{T} \dd{S}, $$
+donde el nuevo término es el Jacobiano de la transformación del plano $p-V$ al plano $T-S$, lo que implica que
+	$$ \boxed{ \pdv{(T,S)}{(p,V)} = 1. } $$
+Esta ecuación es suficiente para generar las cuatro relaciones de Maxwell por medio de
+	$$ \pdv{(T,S)}{(x,y)} = \pdv{(p,V)}{(x,y)}, $$
+donde $(x,y)$ es tomado como $(T,p), (T,V), (p,S), (S,V)$.
 
 
 
+\chapter{Tercera Ley de la Termodinámica}
+La tercera ley nos da información adicional ya que provee el valor de la entropía a una temperatura en partícular, llamda cero absoluto.
+
+\section{Enunciados de la Tercera Ley}
+El tercer principio fue desarrollado por el químico Walter Nernst. Postula que la entropía de un sistema en el cero absoluto es una constante definida.
+
+\begin{itemize}
+	\item \textbf{Enunciado de Nernst: } Cerca del cero absoluto, todas las reacciones de un sistema en equilibrio interno se dan sin cambios en la entropía.
+	\begin{itemize}
+		\item Al llegar al cero absoluto cualquier proceso de un sistema físico se detiene.
+		\item Al llegar al cero absoluto la entropía alcanza un valor mínimo y acelerado.
+	\end{itemize}
+	\item \textbf{Enunciado de Plancks: } La entropía de todos los sistemas en equilibrio interno es la misma en el cero absoluto, y debería ser tomada como cero.
+	\item \textbf{Enunciado de Simon: } La contribución a la entropía de un sistema por cada aspecto del sistema que está en equilibrio termodinámico interno tiende a cero como $T\to 0$.
+\end{itemize}
+
+Si la entropía de cada elemento en algún estado cristalino (perfecto) se tomase como cero en el cero absoluto de temperatura, cada sustancia tiene una entropía finita y positiva, pero en el cero absoluto de temperatura la entropía puede llegar a ser cero y eso lo convierte en el caso de una sustancia cristalina perfecta.
 
 
+\section{Consecuencias de la Tercera Ley}
+Teniendo todos los enunciados de la tercera ley, se tienen algunas de las siguientes concecuencias:
 
-
-
-
-
-
-
-
-
-
-
+\begin{enumerate}
+	\item \textit{Las capacidades caloríficas tienden a cero cuando $T\to 0$: } Es trivial teniendo $C = T\qty(\pdv{S}{T})$.
+	\item \textit{La expansión térmica se detiene: } Como $S\to 0$ cuando $T\to 0$, se tiene
+		$$ \qty(\pdv{S}{p})_T \to 0 $$
+		cuando $T\to 0$, pero por la relación de Maxwell implica que
+			$$ \frac{1}{V} \qty(\pdv{V}{T})_p \to 0 $$
+		por lo que la expansividad isobárica.
+	\item \textit{Ningún gas se mantiene como ideal cuando $T\to 0$: } Solo hace falta ver las capacidades caloríficas cuando la temperatura tiende a cero.
+	\item \textit{La Ley de Curie se rompe: } \dsnote{No considero que valga la pena explicar esto, si les es útil revisar Blundell p.197-198.}
+\end{enumerate}
 
 
 
