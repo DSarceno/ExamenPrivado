@@ -5,3 +5,97 @@
 \section{Macroestados y Microestados}
 
 Un \textbf{microestado} es la especificación detallada de una configuración microscópica de un sistema termodinámico. En otras palabras, un microestado es un punto del espacio fásico de dicho sistema. Mientras que un \textbf{macroestado} se refiere a una caracterización de un sistema termodinámico mediante los valores de un número finito de $n$ variables de estado, de las cuales al menos una debe ser extensiva. Un macroestado viene dado por una distribución de probabilidad sobre un conjunto dado de microestados; en función del conjnto de microestados considerando, la distribución toma una u otra forma. Un sistema en equilibrio permanece en un macroestado (macroestado de equilibrio) mientras visita los diferentes microestados accesibles a lo largo de sus fluctuaciones.
+
+
+\section{Ensambles}
+
+Un ensabmle estadístico (colectividad estadística) se define como un conjunto hipotético de sistemas termodinámicos de características similares que nos permiten realizar un análisis estadístico de dicho conjunto, en otras palabras, un conjunto de microestados. Existen varios tipos de ensambles:
+\begin{description}
+    \item[Ensamble Microcanónico: ] Un ensamble de sistemas termodinámicos que no intercambian energía ni materia con el entorno.
+    \item[Ensamble Canónico: ] Un ensamble de sistemas que intercambian energía pero no materia con el entorno.
+    \item[Ensamble Macrocanónico: ] Un ensamble de sistemas que intercambian materia y energía con el ambiente.
+\end{description}
+
+La forma de función de partición para cada tipo de ensamble es:
+\begin{description}
+    \item[Microcanónico: ] $\Omega (U,V,N) = e^{\beta TS}$, sistema cerrado y aislado (energía constante y entropía máxima).
+    \item[Canónico: ] $Z(T,V,N) = e^{-\beta A}$, sistema cerrado con energía variable y temperatura fijada.
+    \item[Macrocanónico: ] $\Xi (T,V,\mu) = e^{\beta pV}$\footnote{Donde $\mu$ es el potencial químico.}, sistema abierto.
+\end{description}
+
+
+\section{Conteos}
+Técnicas básicas de conteo y sus fórmulas. Estas serán importantes para la deducción de las estadísticas o distribuiones de Boltzmann, Fermi-Dirac y Bose-Einstein.
+\subsection{Conteos Básicos}
+
+\begin{description}
+    \item[Cardinalidad: ] Sea $A$ un conjunto finito, la cardinalidad de $A$ ($\abs{A}$) es el número de elementos de $A$. 
+    \item[Conjuntos Distintos: ] Dos conjutnos $A$ y $B$ son distintos ssi $A\cap B = \varnothing$.
+    \item[Regla de la Suma: ] Sean $A$ y $B$ conjuntos distintos $\abs{A\cup b} = \abs{A} + \abs{B}$, esto es válido para $n$ conjuntos distintos.
+    \item[Producto Cartesiano: ] Sea $A$ y $B$ dos conjuntos cualesquiera, el producto cartesiano $A \times  B$ se define de la siguiente forma
+        $$ A \times B = \{ (a,b) \, | \, a\in A,\, b\in B \} . $$
+        Igual que la anterior, esto es válido para $n$ conjuntos cualesquiera.
+    \item[Regla de la Multiplicación: ] $\abs{A_1 \times \cdots \times A_n} = \abs{A_1} \cdots \abs{A_n}$.
+\end{description}
+
+Casos de conteo básico
+\begin{description}
+    \item[Disposiciones: ]  Sea $A$ un conjunto con $n$ elementos. Una disposición de rango $k$ del conjunto $A$ es una elección (escogencia) de $k$ elementos de $A$ donde:
+    \begin{enumerate}
+        \item Si se puede repetir
+        \item Si importa el orden
+    \end{enumerate}
+    $D_n ^k = $ Conjunto de disposiciones de $k$ elemento del conjunto $A$.
+        $$  \boxed{ \abs{D_n ^k} = n^k . } $$
+    \item[Permutaciones: ] Sea $A$ un conjunto con $n$ elementos. Una permutación de rango $k\leq n$ es una elección de $k$ elementos de $A$ donde: 
+    \begin{enumerate}
+        \item No se puede repetir
+        \item Si importa el orden
+    \end{enumerate}
+    $\mathcal{P}_n ^k = $ Conjunto de permutaciones. $P_n ^k = \abs{\mathcal{P}_n ^k} = $ Número de permutaciones.
+        $$ \boxed{ P_n ^k = \frac{n!}{(n - k)!}. } $$
+    \item[Ordenaciones: ] Una ordenación es un caso especial de permutaciones, donde se eligen los $n$ elementos del conjutno $A$. Osea que una ordenación es una permutación donde $k=n$.
+        $$ \boxed{ \text{Número de Ordenaciones} = n!. } $$
+    \item[Permutaciones con Repetición (Boltzmann): ] Sea $A$ un conjunto con $n$ elementos y vamos a escoger $k$ elementos donde sí importa el orden y el elemento $a_i$ se repite $k_i$ veces. A este tipo de escogencia se le llama permutación con repetición.
+        $$ \boxed{ \text{Número de Permutaciones con Repetición} = \frac{k!}{k_1 ! \cdots k_n !}. } $$
+    Debido a que $a_i$ lo escogemos $k_i$ veces y si diferenciamos cada elección de $a_i$ formaríamos un conjunto con $k$ elementos y estos $k$ elementos se pueden ordenar de $k!$ formas, pero luego no lo diferenciamos y tendríamos $k_i$ ordenaciones iguales y por lo tanto dividimos por $k_i!$ para todo $i$ para contar las ordenaciones diferentes.
+\end{description}
+
+\begin{tcolorbox}
+El ensamble microcanónico es el conjunto de todos los microestados que tienen la distribución permitida de máxima entropía.
+\end{tcolorbox}
+
+\begin{description}
+    \item[Coeficiente Binomial: ] 
+        $$ \mqty(n \\ k) = \frac{n!}{k! (n - k)!}. $$
+    \item[Propiedad 1: ] Simetría
+        $$ \mqty(n \\ k) = \mqty(n \\ n - k). $$
+    \item[Propiedad 2: ] Triángulo de Pascal
+        $$ \mqty(n \\ k) + \mqty(n \\ k + 1) = \mqty(n + 1 \\ k + 1). $$
+    \item[Binomio de Newton: ] 
+        $$ (x + y)^n \sum _{k=0} ^n \mqty(n \\ k) x^{n - k} y^k . $$
+    \item[Teorema: ] 
+        $$ \sum _{k=0}  ^n \mqty(n \\ k) = 2^n . $$
+    \item[Combinaciones (Fermi-Dirac): ] Sea $A$ un conjunto con $n$ elementos. Una combinación de $k$ elementos en $n$ elementos es una elección de $k$ elementos del conjunto $A$ donde
+    \begin{enumerate}
+        \item No se puede repetir
+        \item No importa el orden
+    \end{enumerate}
+    $\mathcal{C} _k ^n = \{ \text{Combinaciones de k elementos en n elementos}. \}$ Priemro elijamos $k$ elementos en forma ordenada, como si fueran permutaciones y luego dividimos entre todas las ordenaciones de los $k$ elementos.
+        $$ \boxed{ C_k ^n = \mqty(n \\ k). } $$
+    \item[Distribución (Bose-Einstein): ] Sea $A$ un conjunto de $n$ elementos. Una distribución es una elección de $k$ elementos de $A$ donde:
+    \begin{enumerate}
+        \item Si se puede repetir
+        \item No importa el orden
+    \end{enumerate}
+    $\mathcal{D} _k ^n = $ Distribuciones de $k$ en $n$.
+        $$ \text{Número de Distribuciones} = \mqty(n - 1 + k \\ k) = \mqty(n - 1 + k \\ n - 1). $$
+\end{description}
+
+\subsection{Fórmula de Stirling}
+La fórmula de Stirling es una aproximación de la función factorial de un número natural $n$, que es especialmente útil para grandes valores de $n$.
+    $$ n! \approx \sqrt{2\pi n} \qty(\frac{n}{e})^n, $$
+esta aproximación puede representarse también de forma logarítmica
+    $$ \ln{n!} \approx n\ln{n} - n + \frac{1}{2} \ln{2\pi n}. $$
+
+La precisión de esta fórmula mejora a medida que $n$ aumenta.
