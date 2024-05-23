@@ -99,3 +99,107 @@ esta aproximación puede representarse también de forma logarítmica
     $$ \ln{n!} \approx n\ln{n} - n + \frac{1}{2} \ln{2\pi n}. $$
 
 La precisión de esta fórmula mejora a medida que $n$ aumenta.
+
+
+\section{Entropía y Función de Partición}
+En nuestro problema básico de Mecánica Estadística tenemos $n$ partículas distinguibles entre sí y tenemos $k$ estados y en cada estado pueden haber cualquier número de partículas. Además cada estado se identifica con su nivel de energía. Diferentes estados pueden tener el mismo nivel de energía. Lo anterior lo decimos, formalmente, que la energía puede estar degenerada. En general, la energía no nos sirve de índice; la energía sirve de índice solamente cuando no hay degeneración. Siempre es requerido conocer la función de degeneración. \\
+
+En este problema tenemos 2 restricciones, el número de partículas es $n$ y la energía total es $E$. Lo único que se respeta son esass dos restricciones. Las partículas solamente obedecen la srestricciones, todo lo demás es completamente aleatorio. Cuando una distribución respeta las restriccioens decimos que es una distribución admisible o posible; cuando una distribución no respeta las restricciones decimos que es una distribución imposble o inadmisible. En este momento una distribución es función que le asigna $n_i$ partículas al estado $E_i$; osea que la función va sobre los índices. \\
+
+Osea que, una distribución se puede escribir de a siguiente forma
+	$$ (n_1 ,\ldots ,n_k) $$
+y está sujeta a las siguientes restricciones
+	$$ \sum _{i=1} ^k n_i = n \qquad \sum _{i=1} ^k n_i E_i = E. $$
+
+También tenemos que, por ahora, las partículas son distinguibles por lo tanto definimos como microestado a una función que asigna a acada partícula un estado. Los micrestados que dan una distribución admisible se llaman microestados admisibles o posibles. Los microestados que dan una distribución inadmisible o imposible se llaman microestados inadmisibles o imposible. \textit{Microestados diferentes pueden dar la misma distribución.}
+
+\subsection{Postulado Básico}
+\begin{tcolorbox}
+	Todos los microestados admisibles tienen la misma probabilidad de salir.
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+	Microestados inadmisibles tienen probabilidad cero de salir, son imposibles.
+\end{tcolorbox}
+
+Como consecuencia de lso postulados, la distribución más probable es la distribución que tenga más microestados admisibles. Por lo tanto, tenemos que contar microestados de cada distribución admisible y luego escoger la que tenga más microestados admisibles.
+
+\subsection{Conteo de Microestados}
+El número de microestados admisibles de la distribución admisible $(n_1 ,\ldots ,n_k)$ con $n = n_1 + \cdots + n_k$ es:
+	$$ \Omega (n_1 ,\ldots ,n_k) = \text{Número de microestados de la distribución.} $$
+
+	$$ \boxed{ \Omega (n_1 ,\ldots ,n_k) = \frac{n!}{n_1 ! \cdots n_k !}. } $$
+\textbf{\textit{QUEREMOS MAXIMIZAR}} $\mathbf{\mathit{\Omega}}$!
+
+
+\subsection{Problema Básico de Mecánica Estadística}
+Maximizar
+	$$ \Omega (n_1 ,\ldots ,n_k) = \frac{n!}{n_1 ! \cdots n_k !} $$
+sujeto a 
+	$$ \sum _{i=1} ^k n_i = n \qquad \sum _{i=1} ^k n_i E_i = E. $$
+Para facilitar la solución se utiliza la fórmula de Stirling. Con esto llegamos a que $p_i = \frac{n_i}{n}$ cuya interpretación es probabilidad. De lo anterior tenemos que
+	$$ \sum _{i=0} ^k p_i = 1. $$
+\textbf{Teoría de probabilidades}, es el estudio de las variables aleatorias y sus propiedades. \textbf{Estadística}; es el estudio y desarrollo de teorías y técnicas para medir, establecer, calcular o estimar, variables aleatorias. Continuando con el procedimiento de maximizar, se tiene que
+	$$ \boxed{ S = -k_B \sum _{i=0} ^k p_i \log{p_i}. } $$
+	
+Ahora tenemos la siguiente equivalencia de dos problemas
+\begin{tcolorbox}
+	Maximizar
+	$$ \Omega (n_1 ,\ldots ,n_k) = \frac{n!}{n_1 ! \cdots n_k !} $$
+sujeto a 
+	$$ \sum _{i=1} ^k n_i = n \qquad \sum _{i=1} ^k n_i E_i = E. $$
+\end{tcolorbox}
+$\Leftrightarrow$
+\begin{tcolorbox}
+	Maximizar
+	$$ S = -k_B \sum _{i=0} ^k p_i \log{p_i} $$
+sujeto a 
+	$$ \sum _{i=1} ^k p_i = 1 \qquad \sum _{i=1} ^k p_i E_i = E. $$
+\end{tcolorbox}
+
+Maximizando la segunda equivalencia se llega a que
+	$$ \mathcal{z} = e^{1 + \alpha} \qquad \alpha + 1 = \log{\mathcal{z}} $$
+entonces 
+	$$ \boxed{ \mathcal{z} (\beta) = \sum _{i=1} ^k e^{-\beta E_i}, \quad \beta = \frac{1}{k_B T}. } $$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%
