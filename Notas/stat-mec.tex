@@ -1,5 +1,18 @@
 \part{Mecánica Estadística}
 
+
+\vspace*{\fill}
+
+\begin{center}
+	\textit{Ludwig Boltzmann, quien dedicó gran parte de su vida a estudiar Mecánica Estadística, murió en 1906, por su propia mano. Paul Ehrenfest, el cual continuó con su trabajo, murió de manera similar en 1933. Ahora nos toca a nosotros... \\
+    El plan de la Mecánica Estadística es establecer una conexión entre el nivel microscópico descrito por la mecánica y esos mismos sistemas considerados pero a nivel macroscópico.}
+\end{center}
+
+\vspace*{\fill}
+
+
+
+
 \chapter{Entropía y Temperatura}
 
 \section{Macroestados y Microestados}
@@ -164,12 +177,120 @@ entonces
 	$$ \boxed{ \mathcal{z} (\beta) = \sum _{i=1} ^k e^{-\beta E_i}, \quad \beta = \frac{1}{k_B T}. } $$
 
 
+\subsection{Valor Esperado de $E_i$}
+Ahora calculamos el valor esperado de la variable aleatoria $E_i$.
+    $$ \expval{E_i} = \sum _{i=0} ^k p_i E_i . $$
+La forma de calcular o estimar una variable aleatoria es muestreandola. \\
+
+Para la distribución de Boltzmann, podemos calcular el valor esperado de la siguiente forma, usando la función de partición.
+
+    $$ \partition = \sum _{i=0} ^k e^{-\beta E_i},  $$
+derivando respecto a $\beta$ se tiene que
+    $$ \frac{1}{\partition} \dv{\partition}{\beta} = -\varepsilon . $$
+A continuación vamos a ver que $\log{\partition}$ juega un papel importante en Mecánica Estadística. Derivando $\log{\partition}$ tenemos lo siguiente usando la regla de la cadena.
+    $$ \dv{\log{\partition}}{\beta} = -\varepsilon . $$
+
+
+\subsection{Entropia v2}
+La entropía como se mostró anteriormente es como una densidad de entropía. Ahora, operando llegamos a que
+    $$ S =  k_B \qty(\beta \varepsilon + \log{\partition}). $$
+y ojo que $S$ no depende de $\beta$ (esto se puede probar diferenciando la expresión anterior llegamos a que $\pdv{S}{\beta} = 0$). De esto tenemos que
+    $$ \boxed{ \dd{S} = \frac{\dd{\varepsilon}}{T} \qquad \qquad \dv{S}{\varepsilon} = k_B \beta . } $$
+
+\subsection{Función de Helmholtz}
+    $$ F = - \frac{\log{\partition}}{\beta} $$
+Tomando la definición de entropía y reemplazando $\frac{1}{T} = k_B \beta$. Entonces, se tiene
+    $$ F = \varepsilon - TS. $$
+Y queda claro también que $\varepsilon$ no depende solamente de $T$ sino que  también de la entropía. Notamos lo siguiente $\dd{F} = \dd{\varepsilon} - T\dd{S} - S\dd{T}$ por ende
+    $$ \dd{F} = -S\dd{T} $$
+Lo que implica que la función de Helmholtz depende solamente de la temperatura y no de la energía\footnote{$\varepsilon$: Energía Media} ni entropía.
+
+\subsection{Calor Específico}
+\subsubsection{Varianza}
+Es conocida la definición de $VAR = \expval{E_i ^2} - \varepsilon ^2$. Esto se relaciona con la función de partición de la siguiente forma
+    $$ \frac{1}{\partition} \dv[2]{\partition}{\beta} = \expval{E_i ^2}, $$
+Por ende
+    $$ \boxed{ \dv[2]{\log{\partition}}{\beta} = VAR (E_i). } $$
+Utilizando la regla de la cadena y la definición de energía media
+    $$ c_v = \dv{\varepsilon}{T}, $$
+\textbf{Calor específico a volumen constante.} Por la misma regla de la cadena, se tiene que
+    $$ VAR (E_i) = c_v k_B T^2. $$
 
 
 
+\chapter{Elementos de la Teoría de los Ensambles}
+\section{Generalidades de la Teoría de Ensambles}
+\begin{itemize}
+    \item Un microestado de un sistema clásico, en un tiempo $t$, está definido por las posiciones y momenta de todas las partículas que constituyen al sistema.
+    \item Las coordenadas $(q_i ,p_i)$ representan un punto en un espacio de $6N$ dimensiones conocido como espacio de fases.
+    \item Función de densidad $\rho (q,p;t)$: para describir mejor los ensambles de microestados en los que puede encontrar un sistema. Esta función es tal que el número de puntos representativos dentro del elemento de volumen $d^{3N} qd^{3N}p$ alrededor del punto $(q,p)$ del espacio de fases está dado por el producto $\rho (q,p;t) d^{3N} qd^{3N}p$.
+    \item El promedio del ensamble $\expval{f}$ de una cantidad física $f(q,p)$ está dado por
+        $$ \expval{f} = \frac{\int f(q,p) \rho (q,p;t) d^{3N} qd^{3N}p}{\int \rho (q,p;t) d^{3N} qd^{3N}p} . $$
+    \item \textbf{Teorema de Liouville:} Consideremos una región de volumen arbitrario $\omega$, cuya superficie la vamos a denotar por $\sigma$. Entonces, la tasa a la que el número de puntos representativos en este elemento de volumen aumenta con el tiempo es
+        $$ \pdv{t} \int _\omega \rho \dd{\omega}. $$
+    Por otro lado, el flujo hacia afuera de $\omega$ está dado por
+        $$ \int _\sigma \rho \vb{v} \cdot \vu{n} \dd{\sigma}. $$
+    Por el teorema de la divergencia\footnote{$\iint _{\partial U} \vb{F} \cdot \dd{\vb{S}} = \iiint _U \div{\vb{F}} \dd{V}$, donde $S = \partial U$.}
+        $$ \int _\omega \div{\rho \vb{v}} \dd{\omega}. $$
+    En vista que no hay fuentes ni sumideros
+        $$ \dv{t} \int _\omega \rho \dd{\omega} = -\int _\omega \div{\rho \vb{v}} \dd{\omega}, $$
+    por lo que
+        $$ \int _\omega \qty(\pdv{\rho}{t} + \div{\rho \vb{v}}) \dd{\omega} = 0. $$
+    Por lo cual se tiene que
+        $$ \pdv{\rho}{t} + \div{\rho \vb{v}} = 0, $$
+    y esta ecuación es conocida como la ecuación de la continuidad. Trabajando más esta ecuación
+        $$ \pdv{\rho}{t} + \sum _{i=0} ^{3N} \qty(\pdv{\rho}{q_i} \dot{q}_i + \pdv{\rho}{p_i} \dot{p}_i) + \rho \sum _{i=0} ^{3N} \qty(\pdv{\dot{q}_i}{q_i} + \pdv{\dot{p}_i}{p_i}) = 0. $$
+    Recordando las ecuaciones de Hamilton:
+        $$ \dot{q} _i = \pdv{H(q_i ,p_i)}{p_i}, $$
+        $$ \dot{p}_i = -\pdv{H(q_i ,p_i)}{q_i}. $$
+    Usando las ecuaciones de Hamilton notamos que el tercer término de la ecuación de continuidad se hace cero, por consiguiente llegamos al resultado conocido como el \textbf{teorema de Liouville}:
+        $$ \pdv{\rho}{t} + \{ \rho ,H \} = 0, $$
+    donde $\{ \rho ,H \}$ es el bracket de Poisson. La consecuencia física de este teorema es que las trayectorias en el espacio de fases se mueven de la misma manera que un fluido incompresible.
+    \item \textbf{Ensamble Canónico: } $E = $ cte.
+    \item \textbf{Ensamble microcanónico: } El macroestado del ensamble microcanónico de un sistema está definido por el número de moléculas $N$, el volumen $V$ y la energía $E$. El ensamble microcanónico es una colección de sistemas para los cuales la función de densidad $\rho$ está dada por
+        $$ \rho (q.p) = cte. \qquad \qquad \text{si } \qty(E - \frac{1}{2} \Delta) \leq H(q,p) \leq \qty(E + \frac{1}{2} \Delta). $$
+    \item El resultado fundamental es llegar a la energía libre de Helmholtz.
+    \item El formalismo del ensamble microcanónico y canónico son equivalentes.
+    \item \textbf{Teorema de Equipartición: } Cada término armónico en el Hamiltoniano transforamdo de un sistema contribuye $\frac{1}{2} kT$ a la energía interna del sistema. Dicho de otro modo, cada grado de libertad aporta la misma cantidad al valor esperado de la energía del sistema total. No obstante, el teorema de equipartición es válido para valores de temperatura muy altos, osea cuando los grados de libertado relevantes del sistema pueden ser excitados libremente.
+    \item 
+        $$ - \expval{\sum _i q_i \dot{p}_i} = 3NkT, $$
+    donde
+        $$ \mathcal{V} = -3NkT, $$
+    es llamado el \" virial \" del sistema. Cuando se considera a un gas ideal esto se reduce a la relación clásica:
+        $$ \mathcal{V} = -2K, $$
+    con $K$ la energía cinética del sistema.
+\end{itemize}
 
+\section{Osciladores Armónicos}
+Asumiendo osciladores armónicos en una dimensión el hamiltoniano $H$ del sistema es
+    $$ H(q_i ,p_i) = \sum _i \frac{1}{2} m\omega ^2 q_i ^2 + \frac{1}{2m} p_i ^2 . $$
+Al calcular la función de partición $\partition$ de un oscilador armónico 
+    $$ \partition = \int _{-\infty} ^\infty \int _{-\infty} ^\infty \exp{-\beta \qty(\frac{1}{2} m\omega ^2 q^2 + \frac{1}{2m} p^2)} \frac{\dd{q} \dd{p}}{h}, $$
+    $$ \frac{1}{h} \qty(\frac{2\pi}{\beta m\omega ^2})^{1/2} \qty(\frac{2\pi m}{\beta})^{1/2} = \frac{1}{\beta \hbar \omega} = \frac{kT}{\hbar \omega}. $$
+De manera que entonces la función de partición del sistema completo es
+    $$ \partition \qty(\frac{kT}{\hbar \omega})^N. $$
+La energía libre de Helmholtz está dada por
+    $$ A = -kT\ln{\partition} = -NkT \ln{\partition}. $$
+De manera que las otras variables termodinámicas son
+    $$ S = \qty(\pdv{S}{T})_{N,V} $$
+    $$ = Nk\qty[\ln{\frac{kT}{\hbar \omega}} + 1] $$
+y
+    $$ U = \pdv{\ln{\partition}}{\beta} = NkT. $$
+    
+    
+    
+\chapter{Gas Ideal}
 
-
+El gas ideal es el primer ejemplo para ilustrar la teoría que hemos desarrollado. En este ejemplo consideramos $N$ moles de átomos de un gas ideal, como el helio, en un volumen cúbico $V$ que tiene de lato $L$, osea que $V = L^3$. El cubo está aislado y esta a una presión y temperatura fija. \\
+En primera instancia vamos a conceptualizar en forma clásica. Las partículas son iguales, tienen masa $m$ pero son distinguibles. ¿Qué usamos de índice para indicar los estados?
+	$$ i = (x,y,z,p_x,p_y,p_z) = (\vec{r},\vec{p}) $$
+¿Cuánto vale $E_i$? Vamos a ignorar la energía potencial gravitacional y otras energías potenciales; entonces $E_i$ es energía cinética
+	$$ E(x,y,z,p_x,p_y,p_z) = = \frac{p^2}{2m} . $$
+Ahora calculamos la función de partición (la cual es adimensional)
+	$$ \partition (\beta) =  \frac{1}{h^3} \int _0 ^L \int _0 ^L \int _0 ^L \int _{-\infty} ^\infty \int _{-\infty} ^\infty \int _{-\infty} ^\infty e^{-\frac{\beta p^2}{2m}} \dd{x} \dd{y} \dd{z} \dd{p_x} \dd{p_y} \dd{p_z}. $$
+Realizamos la integral y se tiene que
+	$$ \partition (\beta) = \frac{L^3}{h^3} \qty(\int _{-\infty} ^\infty e^{-\frac{\beta p_x ^2}{2m}} \dd{p_x})^3. $$
+	
 
 
 
