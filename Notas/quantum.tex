@@ -1,1 +1,272 @@
 \part{Mecánica Cuántica}
+
+\vspace*{\fill}
+
+\begin{center}
+	\textit{\" Cualquiera que no se sorprenda por la teoría cuántica, no la ha entenddo\" - Niels Bohr.}
+\end{center}
+
+\vspace*{\fill}
+
+
+\chapter{Notación de Dirac (Repaso Álgebra Lineal)}
+
+Se hará un repaso de ciertas definiciones y propiedades, para tenerlas frescas, no se ahondará demasiado en cada una, ni se demostrarán. \\
+
+
+\section{Espacios de Hilbert y Espacio Dual}
+Los estados en mecánica Cuántica son descritos por medio de vectores. Sea $\hilbert$ un espacio vectorial sobre un campo escalar $\F$, pero en Mecánica Cuántica el campo de escalares es el campo de los números complejos $\C$. Los elementos de $\hilbert$ son vectores. Si $\phi \in \hilbert$, en la notación de Dirac lo escribimos de la siguiente forma
+	$$ \phi = \ket{\phi} \qquad \text{Kets}. $$
+	
+Los elementos de $\hilbert$ los llamamos, vectores o kets. De esta forma decios que el ket $\ket{\phi} \in \hilbert$. Si $\lambda$ es un escalar, o sea que $\lambda \in \C$ la multiplicación por escalar queda así $\lambda \phi = \ket{\lambda \phi} = \lambda \ket{\phi} \in \hilbert$.
+
+\subsection{El Espacio Dual}
+Sea $\hilbert ^*$ el espacio dual albegraico de $\hilbert$. La definición de $\hilbert ^*$ es la siguiente: $\hilbert ^* = \{ \psi : \hilbert \to \C \text{ tal que } \psi \text{ es lineal} \}$. A $\psi$ se le conoce como funcional o Bra. Los cuales son descritos de la siguiente forma $\psi \in \hilbert ^*$ entonces $\psi = \bra{\psi}$. Una propiedad importante de esto que mencionamos es que a todo Ket le corresponde un Bra. En la notación de Dirac el funcional $\psi \in \hilbert ^*$ operando sobre el ket $\phi \in \hilbert$ se escribe de la siguiente manera
+	$$ \psi (\phi) = \braket{\psi}{\phi} \in \C \qquad \text{Braket}. $$
+
+\section{Operadores Lineales}
+Sea $\hilbert$ un espacio vectorial sobre $\F$. Una función $A:\hilbert \to \hilbert$ es un operador lineal si y solo si para todos $2$ vectores cualesquiera del espacio y un escalar de campo $A(\phi _1 + \phi _2) = A\phi_1 + A\phi _2$ y $A(\lambda \phi _1) = \lambda A \phi_1$. Los cuales son representados por matrices. Dado que los Bra son lineales, cumplen con estas características, es decir que los brakets son lineales en la segunda coordenada \dsnote{la parte del ket}. En Mecánica Cuántica usaremos operadores hermíticos, unitarios y escalares. Cuando un operador actua sobre un braket se escribe de la siguiente forma $\mel{\psi}{A}{\phi}$.
+
+
+\section{Los KetBras}
+Sea $\hilbert$ un espacio vectorial sobre los números complejos y $\hilbert ^*$ es su espacio dual. Para todo $\ket{\phi} \in \hilbert$ y todo bra $\bra{\psi} \in \hilbert ^*$, definimos el ketbra $\ketbra{\phi}{\psi}$ de la siguiente forma
+	$$ \ketbra{\phi}{\psi}:\hilbert \to \hilbert $$
+	$$ \ket{\alpha} \mapsto \ket{\beta} = \braket{\psi}{\beta} \ket{\phi} $$
+Esto es bastante confuso viendo solo así, el resto de operaciones son bastante intuitivas o ya conocidas, pero esta es un producto tensorial conocido como \textbf{producto exterior} calculado de la siguiente forma \dsnote{no se ha mencionado pero es bastante obvio, los kets son vectores columna y los bra vectores fila}.
+	$$ \ketbra{\phi}{\psi} = \mqty(\phi_1 \\ \phi_2 \\ \vdots \\ \phi _N) \mqty(\psi _1 & \psi _2 & \cdots \psi _N) = \mqty( \phi _1 \psi_1 & \phi _1 \psi_2 & \cdots & \phi _1 \psi _N \\
+						 \phi _2 \psi_1 & \phi _2 \psi_2 & \cdots & \phi _2 \psi _N \\
+						 \vdots & \vdots &\ddots & \vdots \\
+						 \phi _N \psi_1 & \phi _N \psi_2 & \cdots & \phi _N \psi _N \\ ) $$
+Esto no se vio en clase pero es imprescindible saberlo. Además, uno de los usos de esto es la construcción de un operador de proyección, dado un ket de norma 1, la proyección ortonormal en el subespacio generado por $\ket{\phi}$ es $\ketbra{\phi}$. Este es un operador idempotente\footnote{Un operador idempotente es uno que aplicado sobre sí mismo da como resultado él mismo, $A^2 = A$.}
+
+
+\section{Más Sobre Operadores Lienales}
+
+\subsection{La Transpuesta}
+Sea $A:\hilbert _1 \to \hilbert _2$ un operador lineal \dsnote{que no un operador es una transformación de un espacio sobre sí mismo??} donde $\hilbert _1$ y $\hilbert _2$ son espacios vectoriales sobre $\C$. Definimos la transpuesta de $A$, denotada por $A^T$, como
+	$$ A^T : \hilbert _2 ^* \to \hilbert _1 ^* $$
+	$$ \bra{\beta} \mapsto \bra{\alpha} = A^T (\bra{\beta}) $$
+o sea que $A^T \bra{\beta} = \bra{\beta} A$.
+
+
+
+\subsection{Bases y Bases Duales}
+
+Sea $\hilbert$ un espacio vectorial sobre los complejos, y $\alpha = \{ \ket{\alpha_1},\ldots ,\ket{\alpha _k} \}$ base de $\hilbert$. La base dual de la siguiente forma $\beta = \{ \bra{\beta _1} ,\ldots ,\bra{\beta _k} \}$ donde
+	$$ \boxed{ \braket{\beta _i}{\alpha _j} = \delta _{ij} = \left\{ \mqty{1 & \text{si} & i=j \\ 0 & \text{si} & i\neq j} \right. } $$
+
+
+
+
+\section{Componentes de Kets y Bras}
+Por definición de base todo elemento del espacio puede ser escrito como combinación lineal de la base. Con esto se tienen las siguientes propiedades
+\begin{description}
+	\item[Fourier en Abstracto: ] $a_i = \braket{\beta _i}{\phi}$. O de manera continua
+		$$ \ket{\phi} = \int _{x\in \R} \dd{x} \phi (x) \ket{\alpha _x} $$
+		con $\phi (x)$ función de onda.
+	\item[Covarianza y contravarianza: ] Los kets son vectores contravariantes y los bras son vectores covariantes.
+	\item[Fourier en Abstracto: ] $b_i = \braket{\psi}{\alpha _i}$. O de manera continua
+		$$ \ket{\phi} = \int \dd{x} \phi (x) \ket{x}, $$
+		$$ \bra{\psi} = \int \dd{x} \bra{x} \psi (x). $$
+	\item[Representación matricial de operadores lineales: ] $a_{ij} = \mel{\beta _i}{T}{\alpha _j}$, $A$ es la representación matricial de $T$ respecto a la base $\alpha$.
+		$$ T\ket{\alpha _j} = \sum _{k=1} ^n a_{kj} \ket{\alpha _k}. $$
+\end{description}
+
+
+\begin{teorema}
+	Sea $T:\hilbert \to \hilbert$ un operador lineal y $\alpha = \{ \ket{\alpha _i} \}$ una base de $\hilbert$. Si $a_{ij} = \mel{\beta _i}{T}{\alpha _j}$ entonces
+		$$ T = \sum_{i=1} ^n \sum _{j=1} ^n a_{ij} \ketbra{\alpha _i}{\beta _j}. $$
+\end{teorema}
+
+
+\begin{description}
+	\item[La Identidad: ] La identidad $I:\hilbert \to \hilbert$ es un operador lineal que deja todo igual.
+		$$ I = \sum_{i=1} ^n \ketbra{\alpha _i}{\beta _i}. $$
+\end{description}
+
+
+
+\section{Espacios de Hilbert}
+Un espacio de HIlbert, como lo explicaremos más adelante, es un Espcio vectorial con producto interno completo\footnote{Es decir, que toda secuencia de Cauchy converge dentro del espacio.}.
+
+\subsection{Produto Interno}
+Sea $\hilbert$ un espacio vectorial sobre el campo de los números complejos $\C$. Un producto interno en $\hilbert$ es una función de la siguiente forma
+	$$ \inner{\,}{\,}: \hilbert \times \hilbert \to \C $$
+
+que tiene las siguientes propiedades
+\begin{enumerate}
+	\item Asimetría.
+	\item Linealidad segunda componente.
+	\item Definida positiva.
+	\item No degenerado.
+\end{enumerate}
+La pareja $\qty(\hilbert ,\inner{\,}{\,})$ es llamada espacio con producto interno. 
+\begin{description}
+	\item[Primera Propiedad: ] $\inner{k\psi}{\phi} = k^* \inner{\psi}{\phi}$.
+	\item[Segunda Propiedad: ] $\inner{\psi _1 + \psi _2}{\phi} = \inner{\psi _1}{\phi} + \inner{\psi _2}{\phi}$.
+\end{description}
+
+\subsubsection{Norma}
+Sea $(\hilbert ,\inner{\,}{\,})$ un espacio con producto interno, para todo vector $\phi \in \hilbert$ se define la norma de $\phi$ de la siguiente forma
+	$$ \norm{\phi} = \sqrt{\inner{\phi}{\phi}}. $$
+\begin{description}
+	\item[Tercera Propiedad: ] $\abs{\inner{\psi}{\phi}} \leq \norm{\psi}\norm{\phi}$.
+	\item[Cuarta Propiedad: ] $\norm{\psi + \phi} \leq \norm{\psi} \norm{\phi}$.
+	\item[Ortogonalidad: ] Sea $\qty(\hilbert ,\inner{\,}{\,})$ un espacio de hilbert $\psi ,\phi \in \hilbert$ son ortogonalies si y solo si $\inner{\psi}{\phi} = 0$.
+	\item[Vectores Unitarios: ] Todo vector que tenga norma $1$.
+	\item[Bases Ortonormales: ] Bases cuyos elementos cumplen con lo siguiente $\inner{\phi _1}{\phi _2} = \delta _{ij}$. \dsnote{Todo conjunto de vectores ortonormales es linealmente independiente.}
+\end{description}
+
+
+\begin{teorema}
+	Sea $\hilbert$ un espacio de Hilbert. Si $\psi \in \hilbert$ se puede expresar de la siguiente forma
+		$$ \psi = \sum _{i=1} ^\infty c_i \phi _i $$
+	entonces
+		$$ c_i = \inner{\phi _i}{\psi}. $$
+	Donde $\{ \phi _1,\phi _2,\ldots \}$.
+\end{teorema}
+
+
+
+
+
+
+\subsubsection{Distancia}
+$$ \metric{\phi}{\psi} = \norm{\psi - \phi}. $$
+
+\subsection{Sucesiones de Cauchy}
+Sea $(\hilbert ,\inner{\,}{\,})$ un espacio con producto interno y $\{ \phi _i \} = \{ \phi _o,\ldots \}$ $\phi_i \in \hilbert$ una sucesión en $\hilbert$. Esta sucesión es de Cauchy si y solo si para todo $\varepsilon > 0$ existe $N\in \Z ^+$ tal que si $k,l \geq N$ tenemos que $\norm{\phi _k - \phi _l} < \varepsilon$.
+
+
+\section{Ejemplos de Espacios de Hilbert}
+
+\begin{description}
+	\item[Espacio Unitario: ] $\qty(\C ^n, \inner{\,}{\,})$.
+	\item[Funciones Cuadrado Integrables: ] $\qty(L ^2 (D), \inner{\,}{\,})$ con producto interno definido por
+		$$ \inner{\psi}{\phi} = \int _D \prescript{}{n}{\text{d}} \vec{x} \psi ^* (x) \phi (x). $$
+		Existe una versión generalizada con una función de peso dentro de la integral $w(\vec{x})$.
+\end{description}
+
+
+
+\section{Operadores Lineales en Espacios de Hilbert}
+En esta sección vamos a estudiar los operadores lineales que aparecen en Mecánica Cuántica, como lo son los operadores unitarios y los operadores Hermíticos. 
+
+\subsection{Operador Adjunto}
+Sea $A:\hilbert _1 \to \hilbert_2$ un operador lineal, $A^+ :\hilbert \to \hilbert$ es la adjunta de $A$ si y solo si para todo $\phi \in \hilbert_1$ y $\psi \in \hilbert _2$ tenemos que
+	$$ \inner{A^+ (\psi)}{\phi} = \inner{\psi}{A(\phi)}. $$
+	
+\subsection{Operador Unitario}
+Los operadores unitarios preservan el producto interno, preservan la estructura del espacio de Hilbert, preservan la magnitud y los ángulos; y lo definimos de la siguiente forma:
+	$$ \inner{U(\psi)}{U(\phi)} = \inner{\psi}{\phi}. $$
+	
+\subsection{Operadores Hermíticos}
+Sea $A:\hilbert \to \hilbert$ en un operador lineal del espacio de Hilbert en sí mismo $A$ es hermítico si y solo si para todo $\psi, \phi \in \hilbert$ tenemos que 
+	$$ \inner{\psi}{A\phi} = \inner{A\psi}{\phi}. $$
+	
+\subsubsection{Propiedades}
+\begin{description}
+	\item[Propiedad 1: ] $A$ es hermítico si y solo si $A^+ = A$.
+	\item[Propiedad 2: ] $U$ es unitario si y solo si $U^+ = U^{-1}$.
+	\item[Propiedad 3:] Los valores propios de un operador Hermítico son reales puros.
+	\item[Propiedad 4: ] Los vectores propios, correspondientes a valores propios distintos de un operador Hermítico, son ortogonales entre sí.
+	\item[Propiedad 5: ] $\inner{A(\psi)}{\phi} = \inner{\psi}{A^+ \phi}$.
+	\item[Propiedad 6: ] $(A^+)^+ = A$.
+	\item[Propiedad 7: ] $(A+B)^+ = A^+ + B^+$.
+	\item[Propiedad 8: ] $(AB)^+ = B^+ A^+$.
+	\item[Propiedad 9: ] $(cA)^+ = c^* A^+$.
+	\item[Propiedad 10: ] $(A^n)^+ = (A^+)^n$.
+\end{description}
+
+
+\subsection{El Conmutador}
+Sea $\hilbert$ un espacio vectorial cualera y $A,B$ operadores lineales. Se define a $[A,B]$ como el commutador de $A$ y $B$
+	$$ [A,B] = AB - BA. $$
+
+
+\begin{description}
+	\item[Propiedad 11: ] $[A,B] - [B,A]$.
+	\item[Propiedad 12: ] $[A,B]^+ = [B^+,A^+]$.
+	\item[Propiedad 13: ] Si $A$ y $B$ son operadores hermíticos entonces $D = i[A,B]$ es hermítico también.
+	\item[Propiedad 14: ] Si $A$ y $B$ son hermíticos entonces $D = A + B$ es también hermítico.
+	\item[Propiedad 15: ] Si $U$ y $W$ son operadores unitarios entonces $UW$ también es unitario.
+\end{description}
+
+Los operadoresunitarios son cerrados respecto al producto. Con los operadores unitarios formamos Grupos de Lie. Por otro lado los operadores hermíticos son cerrados respecto a la suma, con los operadores Hermíticos se forman Algebras de Lie. Existe una relación muy estrecha entre los grupos de Lie y algebras de Lie. En Mecánica Cuántica existe una relación estrecha entre los operadores unitarios y los operadores hermíticos, por medio de la función exponencial.
+	$$ U = e^{iH}, $$
+con $U$ unitario y $H$ hermítico.
+
+
+\section{Espacios de Hilbert y Espacio Dual}
+El espacio dual es un espacio vectorial es un concepto puramente algebraico; pero, desde el punto de vista puramente algebraico, no hay una transformación \"canónico \" entre un espacio vectorial y su dual. Sin embargo, si tenemos la misma estructura de espacio de Hilbert entonces podemos dar una asignación o correspondencia \" canónica \" de kets a bras.
+
+\subsection{Transformación Antilineal}
+Sean  $\hilbert _1$ y $\hilbert _2$ dos espacios vectoriales sobre el campo de los números complejos. $T:\hilbert _1 \to \hilbert _2$ es antilineal si y solo si $T(\phi + \psi) = T\phi + T\psi$ y $T(\lambda \phi) = \lambda ^* T\phi$. A todo ket le corresponde un bra, por medio de una transformación antilineal.
+
+\begin{teorema}
+	Si $(\hilbert ,\inner{\,}{\,})$ es n espcio de Hilbert entonces $\mathcal{I} : \hilbert \to \hilbert ^*$ definida por $\qty(\mathcal{I} (\phi)) (\psi) = \inner{\phi}{\psi}$ es una transformación antilineal inyectiva de $\hilbert$ a su espacio dual $\hilbert ^*$. Una de las propiedades de $\mathcal{I}$ es que es inyectiva.
+\end{teorema}
+
+\begin{tcolorbox}
+	A todo ket le corresponde un bra por medio de una transformación antilineal inyectiva.
+\end{tcolorbox}
+
+
+\begin{teorema}
+	Si existe una transformación antilineal inyectiva $\mathcal{I}:\hilbert \to \hilbert ^*$ donde para todo $\phi \in \hilbert$ $\qty(\mathcal{I}(\phi)) (\phi) \geq 0$ y para todo $\psi \in \hilbert$ $\qty(\mathcal{I} (\psi)) (\phi) = \qty(\mathcal{I} (\phi)) (\psi) ^*$ entonces $\inner{\,}{\,} : \hilbert \times \hilbert \to \C$ definida de la siguiente forma $\inner{\psi}{\phi} = \qty(\mathcal{I} (\psi)) (\phi)$; es un producto interno.
+\end{teorema}
+
+
+\begin{teorema}
+	$$ \mathcal{I} _1 \circ A^+ = A^T \circ \mathcal{I}_2. $$
+\end{teorema}
+
+
+\textbf{Propiedades Extra de la Notación de Dirac}
+
+\begin{description}
+	\item[Propiedad 1: ] $\bra{A\phi} = \bra{\phi} A^+$.
+	\item[Propiedad 2: ] $\mel{\psi}{A}{\phi} ^* = \mel{\phi}{A^+}{\psi}$.
+	\item[Propiedad 3: ] $\qty(\ketbra{\psi}{\phi})^+ = \ketbra{\phi}{\psi}$.
+	\item[Propiedad 4: ] $I = \sum _{i=1} ^\infty \ketbra{\alpha _i}$.
+\end{description}
+
+
+
+\chapter{Postulados de Mecánica Cuántica}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%

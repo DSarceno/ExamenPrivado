@@ -290,9 +290,316 @@ Ahora calculamos la función de partición (la cual es adimensional)
 	$$ \partition (\beta) =  \frac{1}{h^3} \int _0 ^L \int _0 ^L \int _0 ^L \int _{-\infty} ^\infty \int _{-\infty} ^\infty \int _{-\infty} ^\infty e^{-\frac{\beta p^2}{2m}} \dd{x} \dd{y} \dd{z} \dd{p_x} \dd{p_y} \dd{p_z}. $$
 Realizamos la integral y se tiene que
 	$$ \partition (\beta) = \frac{L^3}{h^3} \qty(\int _{-\infty} ^\infty e^{-\frac{\beta p_x ^2}{2m}} \dd{p_x})^3. $$
+Utilizando las propiedades de la función Gamma\footnote{$\int _0 ^\infty t^n e^{-at^k} \dd{t} = \frac{\Gamma \qty(\frac{(n+1)}{k})}{ka^{\frac{n+1}{k}}}$.}
+    $$ \boxed{ \partition (\beta) = \frac{L^3}{h^3} \qty(\frac{2m\pi}{\beta})^{\flatfrac{3}{2}}. } $$
+aplicando el logaritmo y derivando respecto a $\beta$ se tiene
+    $$ \boxed{\varepsilon = \frac{3}{2} k_B T .} $$
+Para el caso cuántico cambia la $h$ por $\hbar$. \\
+
+\subsubsection{Concentración Cuántica}
+$n_Q = $ Concentración cuántica
+    $$ n_Q = \frac{\partition (\beta)}{V}. $$
+Dado que la función de partición es adimencional; por lo tanto, las dimensionales de $n_Q$ son $\qty[1/m^3]$. Y para el gas ideal nos queda de la siguiente forma
+    $$ n_Q = \frac{1}{\hbar ^3} \qty(\frac{mk_B T}{2\pi})^3 $$
+\subsubsection{Longitud de Onda Térmica}
+$\lambda _Q = $ Longitud de onda térmica.
+    $$ \lambda _Q = n_Q ^{-\flatfrac{1}{3}} $$
+Para el gas ideal nos queda
+    $$ \lambda _Q = \hbar \sqrt{\frac{2\pi}{mk_B T}}. $$
+
+
+\section{Cálculo de Probabilidades}
+
+Recordemos que las probadilidades vienen dadas por
+    $$ p_i = \frac{e^{-\beta E_i}}{\partition} $$
+en este caso $i = (p_x,p_y,p_z) = \vec{p}$ que nos sirve para identificar los estados. Cambiaremos $i$ por $\vec{p}$ y de $p_i$ a $f(\vec{p})$. $f(\vec{p})$ es la función densidad de probabilidad sustituyendo $\partition (\beta)$
+    $$ \boxed{ f(\vec{p}) = \frac{\hbar ^3}{V} \qty(\frac{2\pi \beta}{m})^{\flatfrac{3}{2}} e^{-\beta \frac{p^2}{2m}}. } $$
+\subsection{Función de Densidad de $p$}
+Utilizando la función densidad de probabilidad e integrando para las tres coordenadas de $p$ (en esféricas). Con lo que llegamos a 
+    $$ \boxed{ g(p) = \sqrt{\frac{2}{\pi}} \qty()^{\flatfrac{3}{2}} p^2 e^{-\frac{\beta p^2}{2m}}. } $$
+$g(p) = $ función de densidad de probabilidad de variable $p = \sqrt{p_x ^2 + p_y ^2 + p_z ^2}.$
+\begin{description}
+    \item[Moda: ] $p = \sqrt{\frac{2m}{\beta}}$.
+    \item[Valor Esperado: ] $\expval{p} = \frac{2m^2}{\beta ^2} = 2k_B ^2 m^2 T^2$.
+\end{description}
+
+\subsection{Energía Cinética}
+En este caso, del gas ideal, la energía cinética de la partícula es toda su energía o Hamiltoniano. Ya sabemos que $K = \flatfrac{p^2}{2m}$
+    $$ g(p) \dd{p} = \sqrt{\frac{2}{\pi}} \qty(\frac{\beta}{m})^{\flatfrac{3}{2}} p^2 e^{-\frac{\beta p^2}{2m}} \dd{p}, $$
+reemplazando todo por la energía cinética, se tiene $h(K) = $ densidad de probabilidad de Energía Cinética
+    $$ h(K) = \frac{2}{\sqrt{\pi}} \beta ^{\flatfrac{3}{2}} \sqrt{K} e^{-\beta K}. $$
+\begin{description}
+    \item[Moda: ] $K = \frac{\beta}{2}$.
+    \item[Valor Esperado: ] $\expval{K} = \expval{E} = \varepsilon = \frac{3}{2\beta} = \frac{3}{2} k_B T = -\dv{\log{\partition}}{\beta} $.
+\end{description}
+
+\chapter{Modelo de Einstein}
+En un sólido, la energía puede estar almacenada en vibraciones de los átomos (ordenados en forma de \textbf{lattice}). De igual forma que los fotones son ondas electromagnéticas cuantizadas \dsnote{revisar esta palabra que ando bien pendejo y no recuerdo como se dice xd}, los \textbf{fonones} son ondas reticulares cuantifiadas (quantized lattice waves) que describen las exitaciones elementales de vibraciones de la lattice. En lugar de concentrarnos en la vibración de cada átomo, nos concetraremos en los modos normales del sistema. Cada uno de los modos normales es un oscilador armónico simple y contiene un número entero de cuantos de energía. Estos cuantos de energía pueden ser considerados \" partículas \" discretas, llamadas \textbf{fonones}. Para estas descripciones se tiene dos modelos: el de Einstein y el de Debye.
+
+
+\section{Calor Específico de un Sólido}
+En un sólido, las oscilaciones de un átomo son pequeñas y siguen las reglas de la Mecánica Cuántica $E_n = \hbar \omega (n + 1/2).$ (\dsnote{Hasta después se verá bien la mecánica cuántica}.) \\
+
+Calculando el calor específico, utilizando la función de partición 
+    $$ \partition (\beta) = \sum _{n_x = 0} ^\infty \sum _{n_y = 0} ^\infty \sum _{n_z = 0} ^\infty e^{-\beta (E_{n_x} + E_{n_y} + E_{n_z})} $$
+debido a que $n_x. n_y, n_z$ son índices mudos tenemos que
+    $$ \partition (\beta) = \qty(\sum _{n=0} ^\infty e^{-\hbar \omega (n + 1/2)})^3  $$
+operando igual que el ejemplo tenemos que
+    $$ \partition (\beta) = \qty(\frac{e^{-\frac{\beta \hbar \omega}{2}}}{1 - e^{-\beta \hbar \omega}})^3 . $$
+Calculando el logaritmo, su derivada, desarrollando un poco y tomando temperaturas altas se concluye que $ c_v = 3k_B$.
+
+\chapter{Gas Diatómico}
+Luego de trabajar con gases ideales monoatómicos y sólidos, se trabajará con el gas diatómico, encontrando el calor específico y la capacidad calorífica. Recordando que para el gas ideal la funciónd de partición
+	$$ \partition (\beta) = \frac{V}{\hbar ^3} \qty(\frac{m}{2\beta \pi})^{\flatfrac{3}{2}}, $$
+	$$ \log{\partition} = \log{V} - 3\log{\hbar} + \frac{3}{2}\log{\frac{m}{2\pi} - \frac{3}{2} \log{\beta}}. $$
+
+con esto, para un gas ideal el calor específico es $c_v = \frac{3}{2} k_B$ y la capacidad calorífica molar es $C_v = N_A c_v$.
+
+\section{Cálculo de la Función de Partición para un Gas Diatómico}
+La molécula diatómicatiene tres tipos de energía
+\begin{enumerate}
+	\item Energía cinética de traslación
+	\item Energía cinética de rotación
+	\item Energía cinética de vibración
+\end{enumerate}
+
+El índice elegido será: $i = (n_x,n_y,n_z,l,m,n)$; por lo que la función de partición queda de la siguiente forma
+	$$ \partition (\beta) = \partition _T \partition _R \partition _V, $$
+la que incluye las funciones por traslación, rotación y vibración. La única conocida es la función de partición para la traslación \dsnote{Misma que el gas ideal}.
+
+\subsection{Cálculo de $\partition _R (\beta)$}
+El índice es $(l,m)$
+	$$ \partition _R (\beta) = \sum _{l=0} ^\infty \sum _{m= -l} ^l e^{-\beta E_{l,m}}, $$
+paro $L^2 \ket{l,m} = \hbar ^2 l(l + 1)$ (\dsnote{Esto es de cuántica, se entenderá bien en la siguiente parte.}) La energía cinética de rotación $\frac{1}{2} I \omega$ pero $L = I \omega$ por lo tanto $E_R = \frac{L^2}{2I}$
+	$$ E_{l,m} = \frac{\hbar ^2}{2I} l(l+1) $$
+o sea que
+	$$ \partition _R (\beta) = \sum _{l=0} ^\infty \sum _{m= -l} ^l \exp{-\frac{\beta \hbar ^2}{2I} l(l+1)}. $$
+tenemos $2l+1$ $m$'s, entonces
+	$$ \partition _R = \sum _{l=0} ^\infty (2l + 1) \exp{-\frac{\beta \hbar ^2}{2I} l(l+1)}, $$
+integrando (se tiene el diferencial completo) se tiene
+	$$ \partition _R = \frac{2I k_B T}{\hbar ^2}, $$
+	$$ \dv[2]{\log{\partition _R}}{\beta} = \frac{1}{\beta ^2} = k_B ^2 T^2. $$
+
+
+\subsection{Cálculo de $\partition _V (\beta)$}
+En este caso no hay degeneración
+	$$ \partition _V (\beta) = \sum _{n=0} ^\infty e^{-\beta E_n}, $$
+pero $E_n = \hbar \omega (n + 1/2)$. Reemplazando y simplificando
+	$$ \partition _V (\beta) = \frac{e^{-\frac{\beta \hbar \omega}{2}}}{1 - e^{-\beta \hbar \omega}} = \frac{1}{\senh{\frac{\beta \hbar \omega}{2}}}, $$
+simplificando para $T \to \infty$
+	$$ \partition _V (\beta) \approx \frac{1}{\hbar \omega \beta}, $$
+	$$ \dv{\log{\partition _V}}{\beta} = -\frac{1}{\beta}. $$
+
+
+\subsection{Cálculo para $T$ grande}
+Se tiene
+	$$ \dv{\log{\partition}}{\beta} = -\frac{3}{2\beta} - \frac{1}{\beta} - \frac{1}{\beta} = \frac{7}{2\beta}, $$
+	$$ \dv[2]{\log{\partition}}{\beta} = \frac{7}{2\beta ^2} = \frac{7k_B ^2 T^2}{2}. $$
+Por ende $c_v = \frac{7k_B}{2}$. La capacidad calorífica molar es $C_V = N_A c_v$.
+
+\subsection{Capacidad Calorífica para Gases Nobles}
+Para gases nobles como el helio, solamente se toman en cuenta la traslación y rotación.
+	$$ \partition (\beta) = \partition _T \partition _R $$
+entonces $c_v = \frac{5}{2} k_B$.
+	
+\chapter{Repaso de Termodinámica}
+
+\section{Generalidades}
+Se repasarán conceptos termodinámicos a partir de la función de partición. La función de partición utilizada hasta ahora ha sido $\partition$ la cual depende de $\beta$ y ahora también consideraremos que depende del volumen. Ahora el volumen también será variable. Si por medio de un baño térmico logrmos mantener la temperatura constante y a flujo de energía cambia el volumen o la presión. \\
+
+Recordemos que para definir la entropía $S$ la dividimos por el número de partículas $n$. Para tener entropía total, tenemos la siguiente variable
+	$$ S_B = nS \qquad \text{y} \qquad E = n\varepsilon . $$
+Recordemos que
+	$$ S = k_B \qty(\beta \varepsilon + \log{\partition}) \quad \Rightarrow \quad S_B = k_B \qty(\beta E + \log{\partition ^n}), $$
+y definimos otra variable, que es la función de partición $\mathcal{Z} = \partition ^n$, por ende
+	$$ \boxed{ S_B = \qty(\beta E + \log{\bigpartition}) } $$
+Factorizando
+	$$ S_B = k_B \beta \qty(E + \frac{\log{\bigpartition}}{\beta}), $$
+y definimos la Energía Libre de Helmholtz de la siguiente forma
+	$$ \boxed{ A = -\frac{\log{\bigpartition}}{\beta} . } $$
+y observemos que $A = -n\frac{\log{\partition}}{\beta}$ pero $F = -\frac{\log{\partition}}{\beta}$ donde $F$ es la función de Helmholtz que es un promedio de energía libre. Por lo tanto
+	$$ \boxed{A = nF} $$
+Reemplazando en la entropía
+	$$ \boxed{E = TS_B + A.} $$
+Observemos lo siguiente
+	$$ S_B = k_B \qty(\beta E + \log{\bigpartition}) $$
+ahora consideramos que $\bigpartition (\beta ,V)$, encontrando el diferencial
+	$$ \dd{S_B} = k_B \qty(\beta \dd{E} + \qty(\pdv{\log{\bigpartition}}{V}) \dd{V}) $$
+La entropía $S_B$  no depende de $\beta$, por otro lado
+	$$ \dd{S_B} = \qty(\pdv{S_B}{E})_V \dd{E} + \qty(\pdv{S_B}{V}) _E \dd{V} $$
+por lo tanto
+	$$ \boxed{ T\dd{S_B}  \dd{E} - \qty(\pdv{A}{V})_V \dd{V}. } $$
+
+
+\section{Presión}
+Por definición clásica de presión $F\dd{x} = P(\text{area}) \dd{x} = \dd{W} = -\dd{E}$. Para definir la presión, tenemos que la entropía es constante.
+	$$ P = -\qty(\dv{E}{V}) _{S_B} = -\qty(\pdv{E}{V})_{S_B} $$
+	$$ P = -\qty(\pdv{E}{V})_{S_B}. $$
+Utilizando la energía libre de Helmholtz tenemos que
+	$$ P = -\qty(\pdv{A}{V})_T, $$
+entonces
+	$$ \dd{E} = T\dd{S_B} - P\dd{V}. $$
+De la expresión anterior tenemos que la energía total $E$ depende de la entrpía total $E$ y del volumen $V$. $E$ es idenpendiente de la temperatura $T$. También podemos decir que la entropía total $S_B$ depende de la energía total $E$ y del volumen $V$ pero no depende de la temperatura $T$. \\
+
+Ahora trabajamos con la energía libre de Helmholtz y simplificando su diferencial, se tiene
+	$$ \dd{A} = -p\dd{V} - S_b \dd{T}, $$
+	$$ \dd{A} = \qty(\pdv{A}{V})_T \dd{V} + \qty(\pdv{A}{T})_V \dd{T}. $$
+por lo tanto
+	$$ \qty(\pdv{A}{V})_T = -P,\qquad \qquad \qty(\pdv{A}{T})_V = -S_B. $$
+	
+\section{Entalpía}
+Introducimos el concepto de entalpía
+	$$ H = E + PV $$
+Encontrando su diferencial, esta depende de la entropía y la presión
+	$$ \dd{H} = T\dd{S_B} + V\dd{P}, $$
+	$$ \dd{H} = \qty(\pdv{H}{S_B})_P \dd{S_B} + \qty(\pdv{H}{P})_{S_B} \dd{P}. $$
+entonces
+	$$ \qty(\pdv{H}{S_B})_P = T, \qquad \qty(\pdv{H}{P})_{S_B} = V. $$
+
+
+\section{Función de Gibbs}
+La función de Gibbs tiene las siguientes formas equivalentes de escribirse
+	$$ G = E + PV + TS_B, $$
+	$$ G = H - TS_B, $$
+	$$ G = A + PV. $$
+Encontrando su diferencial
+	$$ \dd{G} = V\dd{P} - S_B \dd{T}, $$
+	$$ \dd{G} = \qty(\pdv{G}{P})_T \dd{P} + \qty(\pdv{G}{T})_P \dd{T}. $$
+entonces
+	$$ \qty(\pdv{G}{P})_T = V, $$
+	$$ \qty(\pdv{G}{T})_P = -S_B . $$
+
+
+\section{Potencial Químico}
+Si se agrega una partícula a un sistema, entonces su energía interna cambiará una cantidad que definimos como el \textbf{potencial químico} $\mu$. Así que cuando este es el caso la primera y segunda ley de la termodinámica se deben modificar, agregando un término extra: \dsnote{aguas, me valió el cambio de notación xdddd}
+	$$ \dd{U} = T\dd{S_B} - P\dd{V} + \mu \dd{N}, $$
+donde $N$ es el número de partículas del sistema. Esto inmediatamente implica que podemos escribir
+	$$ \mu = \qty(\pdv{U}{N})_{S,V} . $$
+Recordemos que la energía libre de Helmholtz se define como $A = U + TS_B$ y la energía libre de Gibbs como $G = U - PV - TS_B$, por consiguiente
+	$$ \dd{F} = -P\dd{V} - S_B \dd{T} + \mu \dd{N} $$
+	$$ \dd{G} = V\dd{P} - S_B \dd{T} + \mu\dd{N}, $$
+con lo cual se tiene
+	$$ \mu = \qty(\pdv{F}{N})_{V,T} $$
+	$$ \mu = \qty(\pdv{G}{N})_{P,T}, $$
+de manera que esta útlima expresión para $\mu$ en términos de la energía libre de Gibbs se volverá particularmente útil dado que mantener las variables $P$ y $T$ constantes es algo viable en el experimento.\\
+
+Podemos considerar que la función de entropía es $S_B = S_B (U,V,N)$, de tal forma que
+	$$ \dd{S_B} = \qty(\pdv{S_B}{U})_{N,V} \dd{U} + \qty(\pdv{S_B}{V})_{N,U} \dd{V} + \qty(\frac{S_B}{N})_{U,V} \dd{N}. $$
+Si dividimos la ecuación de la primera ley dentro de $T$ y despejamos para $\dd{S_B}$ se tiene
+	$$ \dd{S_B} = \frac{\dd{U}}{T} + \frac{P\dd{V}}{T} - \frac{\mu \dd{N}}{T}, $$
+y al compararlo con la ecuación anterior podemos concluir que
+	$$ \qty(\pdv{S_B}{U})_{N,V} = \frac{1}{T} \quad \qquad \qty(\pdv{S_B}{V})_{N,U} = \frac{P}{T} \quad \qquad \qty(\pdv{S_B}{N})_{U,V} = -\frac{\mu}{T}. $$
+	
 	
 
 
+\chapter{Distribuciones de Fermi-Dirac y Bose-Einstein}
+Hasta ahora hemos trabajado con partículas iguales pero distinguibles. Ahora vamos a considerar partículas iguales (idénticas) que son indistinguibles, por ejemplo; los electrones, los neutrinos, los fotones, etc. Tenemos dos tipos de partículas para el caso de partículas indistinguibles, estos dos tipos son los Fermiones y Bosones.
+
+\begin{description}
+	\item[Fermiones: ] Los fermiones son partículas indistinguibles que en un estado dado no puede haber más de dos partículas; es decir, en un estado dado o está desocupado o solamente hay una partícula.
+	\item[Bosones: ] Los bosones son partículas que en un estado dado puede haber cualquier número de partículas.
+\end{description}
+
+En esto se tendrá como índice a la energía.
+
+\section{Degeneración de la Energía}
+\begin{tcolorbox}
+	$g_i = $ Número de Estados con energía $E_i$.
+\end{tcolorbox}
+
+
+\section{Distribución Fermi-Dirac (Caso 3)}
+$n_i = $ Número de partículas en el estado $i$. En este caso vamos a considerar Fermiones. Debido a esto tenemos $0 \leq n_i \leq g_i$. ¿De cuantas formas se pueden colocar $n_i$ partículas en el nivel de energía $E_i$ que tiene $g_i$ estados? \\
+
+Tenemos que elegir $n_i$ estados de $g_i$ estados disponibles; donde no se puede y no importa el orden (caso 3). Por lo tanto el resultado es
+	$$ \prescript{}{g_i}{C}_{n_i} = \mqty(g_i \\ n_i) = \frac{g_i !}{n_i ! (g_i - n_i)!}. $$
+$\Omega = $ Número de microestados.
+	$$ \Omega = \prod _{i=1} ^k \mqty(g_i \\ n_i) = \prod _{i=1} ^k \frac{g_i !}{n_i ! (g_i - n_i)!}. $$
+Queremos maximizar $\Omega$ sujeta a dos restricciones $\sum n_i = n$ y $\sum n_i E_i = E_T$. Además, si maximizamos $\log{\Omega}$, tambien maximizamos $\Omega$. Vamos a calcular $\frac{n_i}{g_i}$ en lugar de $n_i$. Para resolver el problema anterior utilizaremos la fórmula de Stirling, reemplazandola y aplicando el logaritmo e ignorando $\frac{1}{2} \log{2\pi}$ y los $1/2$, por lo tanto, hay que maximizar
+	$$ \log{\Omega} = \sum _{i=1} ^n \qty[g_i \log{g_i} - n_i \log{n_i} - (g_i - n_i)\log{(g_i - n_i)}] $$
+aplicamos multiplicadores de Lagrange
+	$$ F(n_1,n_2,\ldots,n_k,\alpha,\beta) = \sum _{i=1} ^n \qty[g_i \log{g_i} - n_i \log{n_i} - (g_i - n_i)\log{(g_i - n_i)}] - \alpha \qty(\sum _{i=1} ^k n_i - n) - \beta (\sum _{i=1} ^k n_i E_i - E_T). $$
+Ahora $\pdv{F}{n_i} = 0$
+	$$ \pdv{F}{n_i} = -\log{n_i} + \log{(g_i - n_i)} - \alpha - \beta E_T. $$
+	$$ \log{\qty(\frac{g_i - n_i}{n_i})} = \alpha + \beta E_i $$
+introducimos la variable $\mu = -\alpha / \beta$
+	$$ \frac{g_i}{n_i} - 1 = e^{\alpha + \beta E_i} $$
+seguimos operando
+	$$ \frac{n_i}{g_i} = \frac{1}{e^{\beta (E_i - \mu)} + 1} \qquad \text{Fermi-Dirac} $$
+entonces
+	$$ \sum _{i=1} ^k \frac{g_i E_i}{e^{\beta (E_i - \mu)} + 1} = E_T. $$
+
+
+\section{Distribución de Bose-Einstein (Caso 4)}
+$n_i$ es el número de partículas en el nivel de energía $E_i$. En este caso $n_i \geq 0$, porque son bosones y en un mismo estado puede haber cualquier número de partículas. Osea $n_i$ puede ser mayor que $g_i$. \\
+
+Tenemos que elegir $n_i$ veces $g_i$ estados donde no importa el orden y sí se puede repetir (distribuciones). Tenemos al siguiente número de posibilidades
+	$$ \mqty(n_i + g_i - 1 \\ n_i) = \mqty(n_i + g_i - 1 \\ g_i - 1) $$
+por lo que
+	$$ \mqty(n_i + g_i - 1 \\ n_i) = \frac{(n_i + g_i - 1)}{n_i ! (g_i - 1)!}. $$
+Para calcular el número de microestados hacemo uso de la regla del producto y tenemos que
+	$$ \Omega = \prod _{i=1} ^k \frac{(n_i + g_i - 1)}{n_i ! (g_i - 1)!} $$
+y las mismas condiciones que el caso anterior. Ahora maximizamos $\log{\Omega}$ bajo el mismo procedimiento: fórmula de stirling, selección de términos irrelevantes y multiplicadores de Lagrange.
+	$$ \log{\qty(\frac{g_i + n_i - 1}{n_i})} = \alpha + \beta E_i $$
+vamos a ignorar el $-1$ y $\mu = \alpha / \beta$
+	$$ \frac{n_i}{g_i} = \frac{1}{e^{\beta (E_i - \mu)} - 1} \qquad \text{Bose-Einstein} $$
+entonces
+	$$ \sum _{i=1} ^k \frac{g_i E_i}{e^{\beta (E_i - \mu)} - 1} = E_T. $$
+
+
+\chapter{Gas de Fotones}
+
+\section{Radiación de Cuerpo Negro}
+Ahora se estudiará la distribución de enegía en una cavidad de volumen $V$ en ondas electromagnéticas. En la cavidad de volumen $V$ la energía está en las ondas electromagnéticas. Una onda electromagnética es el resultado de las oscilaciones del campo eléctrico y el cambpo magnético. Las oscilaciones del campo eléctrico y el magnético obedecen las leyesdde la electrodinámica y de la mecánica cuántica. En partícular las ondas electromagnéticas se comportan según la Teoría Cuántica de Campos; al oscilar los campos obtenemos partículas llamadas \textbf{fotones} que siguen la estadística de Bose-Einstein; los fotones son bosones. Las ondas electromagnéticas, por ende los fotones, viaja a la velocidad de la luz
+	$$ c = \frac{1}{\sqrt{\mu _o \varepsilon _o}} = 3\times 10^8 m/s $$
+También sabemos que las ondas electromagnéticas son ondas transversales; el campo eléctrico y magnético oscilan perpendicularmente a la dirección de propagación, permitiendo que tanto el campo eléctrico como el magnético tengan dos direcciones linealmente independientes para oscilar; por lo tanto, tenemos dos polarizaciones. \\
+Las ondas que se forman en la cavidad de volumen $V$ son ondas estacionarias. Las ondas estacionarias se forman con la superposición de dos ondas simples que viajan en sentidos opuestos. La energía está directamente relacionada con la frecuencia.
+
+\subsection{Cálculo de la Función de Degeneración $g(E)$}
+Las ondas estacionarias son la combinación lineal de los modos normales, en general se tiene que $k_n = \frac{3\pi}{L}$; además, sabemos que $\lambda \nu = \frac{\omega}{k} = c$. Si consideramos la propagación en 3-D $k_n = \sqrt{n_x ^2 + n_y ^2 + n_z ^2}$. El índice discreto $n$ está altamente degenerado y vamos a cambiarlo por $n\to \omega _n \to \omega$ para calcular la energía $E_n$ usamos Mecánica Cuántica \dsnote{No se hará el desarrollo, ver Clase 15 Notas de Clase 2022}. Con esto se llega a que la función de degeneración es
+	$$ \boxed{ g(\omega) = \frac{V \omega ^2}{\pi ^2 c^3}, } $$
+con $g(\omega) \dd{\omega} = $ número de estados entree $\omega$ y $\omega + \dd{\omega}$. Reemplazando $E(\omega) = \hbar \omega$, entonces
+	$$ f(E) = \frac{VE^2}{\pi ^2 c^2 \hbar ^3}, $$
+con $f(E) \dd{E}$ es el número de estados entre $E$ y $E + \dd{E}$. \\
+
+Debido a que los fotones son bosones, se distribuyen según la estadística de Bose-Einstein, dicho de otra forma, tienen la distribución de Bose-Einstein
+	$$ E_T = \sum _{i=1} ^k \frac{g_i E_i}{e^{\beta (E_i - \mu)} - 1} $$
+ahora $\alpha = 0$ y si $i \to \omega$ se tiene que $g_i \to g(\omega)$ y $E_i = E(\omega) = \hbar \omega$ entonces
+	$$ E_T = \int _0 ^\infty \frac{g(\omega( E(\omega)}{e^{\beta E(\omega)} - 1} \dd{\omega} $$
+	$$ \boxed{ E_T = \int _0 ^\infty \frac{V \omega ^2 \hbar \omega \dd{\omega}}{\pi ^2 c^3 \qty(e^{\beta \hbar \omega} - 1)}. } $$
+	
+Integrando se tiene que
+	$$ \boxed{ E_T = \qty(\frac{V\pi^2 k_B ^4}{15 \hbar ^3 c^3}) T^4. } $$
+
+
+\subsection{Constante de Stefan-Boltzmann}
+$\sigma = $ constante de Stefan-Boltzmann
+	$$ \sigma = \frac{\pi ^2 k_B ^4}{60 \hbar ^3 c^2}. $$
+por lo que la energía total se reescribe como $E_T = \frac{4\sigma V}{c} T^4$.
+
+\subsection{Densidad de Energía}
+$e = \frac{E_T}{V} = $ densidad de energía.Regresando a la integral
+	$$ e = \frac{\hbar}{\pi^2 c^3} \int _0 ^\infty \frac{\omega ^3 \dd{\omega}}{e^{\beta \hbar \omega} - 1} = \int _0 ^\infty \mu (\omega) \dd{\omega}. $$
+	
+con esto definimos $\mu (\omega)$
+	$$ \mu (\omega) = \frac{\hbar \omega ^3 }{\pi ^2 c^3 (e^{\beta \hbar \omega} - 1)} $$
+donde $\mu$ es la energía por unidad de volumen. Y en términos de la frecuencia
+	$$ \mu (\nu) = \frac{8\pi h \nu ^3}{c^3 \qty(e^{\frac{h\nu}{k_B T}} - 1)}. $$
+
+
+\subsection{Conteo de Fotones}
+De lo que se estudió en la distribución de Bose-Einstein el número de fotones es
+	$$ N = \frac{V}{\pi ^2 c^3} \int _0 ^\infty \frac{\omega ^2 \dd{\omega}}{\qty(e^{\beta \hbar \omega} - 1)}. $$
+
+
+
+\subsection{Función de Partición}
+
+Teniendo
+	$$\pdv{\log{\bigpartition}}{\beta} = - E_T = - \frac{V \pi ^2}{15 \hbar ^3 c^3} \frac{1}{\beta ^4} $$
+Entonces, la función de partición es
+	$$ \boxed{ \bigpartition (\beta) = e^{\frac{V \pi ^2}{45 \hbar ^3 c^3 \beta ^3}} .} $$
 
 
 
@@ -323,4 +630,9 @@ Realizamos la integral y se tiene que
 
 
 
-%%%
+
+
+
+
+
+%%%%%%%%%%%%%%

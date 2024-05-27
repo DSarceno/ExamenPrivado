@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{authblk} % para la manipulación de autores y afiliación
 \usepackage[pdftex]{hyperref}
 \usepackage{multirow}
@@ -40,6 +41,24 @@
 \usepackage{caption}
 \usepackage{tcolorbox}
 \newcommand{\partition}{\mathfrak{z}}
+\newcommand{\bigpartition}{\mathcal{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}} %Conjuntos numericos
+\newcommand{\F}{\mathbb{F}} %Campo Cualquiera
+\newcommand{\Pos}{\mathbb{P}} %Reales positivos
+\newcommand{\hilbert}{\mathcal{H}} % Espacio de Hilbert
+\newcommand{\f}{\textit{f}} %f de funcion
+\newcommand{\g}{\textit{g}}
+\newcommand{\kernel}{\mathscr{N}} %kernel
+\newcommand{\range}{\mathcal{R}} %range
+\newcommand{\lagran}{\mathcal{L}} %lagrangiano
+\newcommand{\laplace}{\mathscr{L}} %transformada de laplace, mapas lineales
+\newcommand{\inner}[2]{\langle #1 , #2 \rangle}
+\newcommand{\metric}[2]{\rho(#1,#2)}
 
 
 
@@ -136,9 +155,9 @@ Licenciatura en Física}
 
 \input{termo.tex}
 \input{stat-mec.tex}
+\input{quantum.tex}
 \input{electro.tex}
 \input{classical.tex}
-\input{quantum.tex}
 \input{data-red.tex}
 \input{cond-mat.tex}
 %\input{general.tex}
