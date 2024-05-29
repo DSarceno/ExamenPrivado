@@ -3,7 +3,7 @@
 \vspace*{\fill}
 
 \begin{center}
-	\textit{\" Cualquiera que no se sorprenda por la teoría cuántica, no la ha entenddo\" - Niels Bohr.}
+	\textit{''Cualquiera que no se sorprenda por la teoría cuántica, no la ha entenddo'' - Niels Bohr.}
 \end{center}
 
 \vspace*{\fill}
@@ -37,7 +37,40 @@ Esto es bastante confuso viendo solo así, el resto de operaciones son bastante 
 						 \phi _2 \psi_1 & \phi _2 \psi_2 & \cdots & \phi _2 \psi _N \\
 						 \vdots & \vdots &\ddots & \vdots \\
 						 \phi _N \psi_1 & \phi _N \psi_2 & \cdots & \phi _N \psi _N \\ ) $$
-Esto no se vio en clase pero es imprescindible saberlo. Además, uno de los usos de esto es la construcción de un operador de proyección, dado un ket de norma 1, la proyección ortonormal en el subespacio generado por $\ket{\phi}$ es $\ketbra{\phi}$. Este es un operador idempotente\footnote{Un operador idempotente es uno que aplicado sobre sí mismo da como resultado él mismo, $A^2 = A$.}
+Esto no se vio en clase pero es imprescindible saberlo. Además, uno de los usos de esto es la construcción de un operador de proyección, dado un ket de norma 1, la proyección ortonormal en el subespacio generado por $\ket{\phi}$ es $\ketbra{\phi}$. Este es un operador idempotente\footnote{Un operador idempotente es uno que aplicado sobre sí mismo da como resultado él mismo, $A^2 = A$.} \\
+
+\subsection{Producto de kronecker}
+El producto tensorial de Kronecker es el que utilizaremos en mecánica cuántica (el producto de Kronecker es una generalización a matrices del producto exterior)
+%    $$ \mathbf{A} \otimes \mathbf{B} =
+%            \begin{bmatrix}
+%            \phi_{11} \mathbf{B} & \phi_{12} \mathbf{B} & \phi_{13} \mathbf{B} \\
+%            \phi_{21} \mathbf{B} & \phi_{22} \mathbf{B} & \phi_{23} \mathbf{B} \\
+%            \phi_{31} \mathbf{B} & \phi_{32} \mathbf{B} & \phi_{33} \mathbf{B}
+%            \end{bmatrix} =
+%            \begin{bmatrix}
+%            \phi_{11}\psi_{11} & \phi_{11}\psi_{12} & \phi_{12}\psi_{11} & \phi_{12}\psi_{12} & \phi_{13}\psi_{11} & \phi_{13}\psi_{12} \\
+%            \phi_{11}\psi_{21} & \phi_{11}\psi_{22} & \phi_{12}\psi_{21} & \phi_{12}\psi_{22} & \phi_{13}\psi_{21} & \phi_{13}\psi_{22} \\
+%            \phi_{21}\psi_{11} & \phi_{21}\psi_{12} & \phi_{22}\psi_{11} & \phi_{22}\psi_{12} & \phi_{23}\psi_{11} & \phi_{23}\psi_{12} \\
+%            \phi_{21}\psi_{21} & \phi_{21}\psi_{22} & \phi_{22}\psi_{21} & \phi_{22}\psi_{22} & \phi_{23}\psi_{21} & \phi_{23}\psi_{22} \\
+%            \phi_{31}\psi_{11} & \phi_{31}\psi_{12} & \phi_{32}\psi_{11} & \phi_{32}\psi_{12} & \phi_{33}\psi_{11} & \phi_{33}\psi_{12} \\
+%            \phi_{31}\psi_{21} & \phi_{31}\psi_{22} & \phi_{32}\psi_{21} & \phi_{32}\psi_{22} & \phi_{33}\psi_{21} & \phi_{33}\psi_{22}
+%            \end{bmatrix} $$
+
+
+    $$ \mathbf{A} \otimes \mathbf{B} =
+        \begin{bmatrix}
+        \color{red}\phi_{11} \mathbf{B} & \color{blue}\phi_{12} \mathbf{B} & \color{green}\phi_{13} \mathbf{B} \\
+        \color{orange}\phi_{21} \mathbf{B} & \color{purple}\phi_{22} \mathbf{B} & \color{cyan}\phi_{23} \mathbf{B} \\
+        \color{magenta}\phi_{31} \mathbf{B} & \color{brown}\phi_{32} \mathbf{B} & \color{gray}\phi_{33} \mathbf{B}
+        \end{bmatrix} =
+        \begin{bmatrix}
+        \color{red}\phi_{11}\psi_{11} & \color{red}\phi_{11}\psi_{12} & \color{blue}\phi_{12}\psi_{11} & \color{blue}\phi_{12}\psi_{12} & \color{green}\phi_{13}\psi_{11} & \color{green}\phi_{13}\psi_{12} \\
+        \color{red}\phi_{11}\psi_{21} & \color{red}\phi_{11}\psi_{22} & \color{blue}\phi_{12}\psi_{21} & \color{blue}\phi_{12}\psi_{22} & \color{green}\phi_{13}\psi_{21} & \color{green}\phi_{13}\psi_{22} \\
+        \color{orange}\phi_{21}\psi_{11} & \color{orange}\phi_{21}\psi_{12} & \color{purple}\phi_{22}\psi_{11} & \color{purple}\phi_{22}\psi_{12} & \color{cyan}\phi_{23}\psi_{11} & \color{cyan}\phi_{23}\psi_{12} \\
+        \color{orange}\phi_{21}\psi_{21} & \color{orange}\phi_{21}\psi_{22} & \color{purple}\phi_{22}\psi_{21} & \color{purple}\phi_{22}\psi_{22} & \color{cyan}\phi_{23}\psi_{21} & \color{cyan}\phi_{23}\psi_{22} \\
+        \color{magenta}\phi_{31}\psi_{11} & \color{magenta}\phi_{31}\psi_{12} & \color{brown}\phi_{32}\psi_{11} & \color{brown}\phi_{32}\psi_{12} & \color{gray}\phi_{33}\psi_{11} & \color{gray}\phi_{33}\psi_{12} \\
+        \color{magenta}\phi_{31}\psi_{21} & \color{magenta}\phi_{31}\psi_{22} & \color{brown}\phi_{32}\psi_{21} & \color{brown}\phi_{32}\psi_{22} & \color{gray}\phi_{33}\psi_{21} & \color{gray}\phi_{33}\psi_{22}
+        \end{bmatrix} $$
 
 
 \section{Más Sobre Operadores Lienales}
@@ -234,6 +267,18 @@ Sean  $\hilbert _1$ y $\hilbert _2$ dos espacios vectoriales sobre el campo de l
 
 
 \chapter{Postulados de Mecánica Cuántica}
+El formalismo de la mecánica cuántica está basado en una cierta cantidad de postulados. Estos estan basados en una gran cantidad de experimentos y observaciones. Estos representan el conjunto mínimo de supuestos necesarios para desarrollar la teoría de mecánica cuántica.
+
+
+\section{Experimento de Stern-Gerlach}
+El experimento de Stern-Gerlach consistía en enviar un haz de átomos de plata a través de un campo magnético inhomogéneo. El campo magnético crecía en intensidad en la dirección perpendicular a la que se envía el haz. El espín de los diferentes átomos fuerza a las partículas de espín positivo $+1/2$ a ser desviadas hacia arriba y a las partículas de espín opuesto $-1/2$ a ser desviadas en el sentido contrario, y por lo tanto puede medir el momento magnético de las partículas.
+
+En el caso clásico no cuántico, una partícula cualquiera con un momento magnético entrará en el campo magnético con su momento magnético orientado al azar. El efecto del campo magnético sobre tales partículas clásicas ocasionaría que fueran desviadas también en sentidos opuestos pero dependiendo el grado de deflexión del ángulo inicial entre el momento magnético y el campo magnético al que se somete el haz. Por lo tanto algunas partículas serían desviadas fuertemente, otras de manera más débil y progresivamente se irían encontrando partículas desviadas en ambas direcciones cubriendo todo el espectro de intensidades posibles.
+
+Sin embargo, el experimento de Stern-Gerlach pone de manifiesto que esto no es así, y se observa que todas las partículas se desvían o bien hacia arriba o bien hacia abajo, pero ambos grupos con la misma intensidad. Las partículas tienen o bien espín ${\displaystyle +{\frac {\hbar }{2}}}$ o 
+${\displaystyle -{\frac {\hbar }{2}}}$ , sin valores intermedios.
+
+El momento magnético $m$ del átomo puede medirse mediante esta experiencia, y es igual en módulo al magnetón de Bohr $m_B$.
 
 
 
@@ -242,6 +287,341 @@ Sean  $\hilbert _1$ y $\hilbert _2$ dos espacios vectoriales sobre el campo de l
 
 
 
+
+\section{Postulados}
+
+\subsection{Enunciados}
+\begin{description}
+    \item[1. Estado de un Sistema: ] El estado de cualquier sistema físico está definido, en cierto tiempo $t$, por un vector de estado $\pkt$ en un espacio de hilbert $\hilbert$; $\pkt$ contiene (y siver como base para extraer) toda la información necesaria de un sistema. Cualquier superposición de vectores de estado es un vector de estado.
+    \item[2. Observables y Operadores: ] A cualquier cantidad física medible $A$, conocida como observable o variable dinámica, le corresponde un Operador Hermítico $A$ (también denotado como $\vu{A}$, pero no se usará esta notación para ser prácticos) cuyos eigenvectores son forman una base completa.
+    \item[3. Mediciones y Eigenvalores de Operadores: ] La medición de un observable $A$ puede ser representada formalmente por la acción de $A$ sobre un vector de estado $\pkt$. El único posible resultado de una medición es uno de los eigenvalores $a_n$ (que son reales) del operador $A$. Si el resultado de una medición de $A$ sobre un estado $\pkt$ es $a_n$, el estado del sistema inmediatamente después de la medida cambia a $\Pk{n}$:
+        $$ A\pkt = a_n \Pk{n}, $$
+    donde $a_n = \braket{\psi _n}{\psi (t)}$. Notese que $a_n$ es la componente de $\pkt$ cuando está proyectada sobre el eigenvector $\Pk{n}$.
+    \item[4. Resultado Probabilistico de las Mediciones: ] Se tienen dos espectros:
+        \begin{description}
+            \item[Espectro Discreto: ] Al realizar una medición de un observable $A$ de un sistema en un estado $\pk$, la probabilidad de obtener uno de los eigenvalores no degenerados $a_n$ del operador correspondiente está dada por
+                $$ P_n (a_n) =  \frac{\abs{\braket{\psi _n}{\psi}}^2}{\braket{\psi}} = \frac{\abs{a_n}^2}{\braket{\psi}}, $$
+            donde $\Pk{n}$ es el eigenvector de $A$ con eigenvalor $a_n$. Si el eigenvalor $a_n$ es $m-$degenerado, $P_n$ se convierte en
+                $$ P_n (a_n) = \frac{\displaystyle\sum_{j=1} ^{m} \abs{\braket{\psi _n ^j}{\psi}}^2}{\braket{\psi}} = \frac{\displaystyle\sum_{j=1} ^{m} \abs{a_n^{(j)}}^2}{\braket{\psi}}. $$
+            La acción de medir cambia el esatdo de $\pk$ a $\Pk{n}$. Si el sistema ya se encuentra en el estado $\Pk{n}$ de $A$, la medición de $A$ produce con certeza el siguiente eigenvalor $a_n$: $A\Pk{n} = a_n \Pk{n}$.
+            \item[Espectro Continuo: ] La relación mostrada en el espectro anterior, es válida para un espectro discreto,puede ser extendida para determinar la densidad de probabilidad que un determinado observable $A$ produce un valor entre $a$ y $a + \dd{a}$ en un sistema cuyo estado inicial es $\pk$:
+                $$ \dd{P(a)}{a} = \frac{\abs{\psi(a)}^2}{\braket{\psi}} = \frac{\abs{\psi (a)}^2}{\int _{\infty} ^\infty \abs{\psi(a')}^2 \dd{a'}}; $$
+            por ejemplo, la densidad de probabilidad de encontrar una partícula entre $x$ y $x + \dd{x}$ está dada por $\dv{P(x)}{x} = \abs{\psi (x)}^2/\braket{\psi}$.
+        \end{description}
+    \item[5. Evolución del Sistema: ]  La evolución en el tiempo de un vector de estado $\pkt$ de un sistema esta regida por la \textit{Ecuación de Schrödinger} dependiente del tiempo
+        $$ i\hbar \pdv{\pkt}{t} = \vu{H} \pkt , $$
+    donde $\vu{H}$ es el operador Hamiltoniano correspondiente a la energía total del sistema.
+\end{description}
+
+
+\subsection{Propiedades y Operadores}
+
+\begin{description}
+    \item[Operador Proyección: ] Sea $\hilbert$ el espacio Cuántico y $\pk \in \hilbert$ un ket cualquiera de $\hilbert$. El operador proyección $P_\psi$ se define de la siguiente forma
+        $$ P_\psi \pk = \frac{\braket{\phi}{\psi}}{\braket{\psi}} \pk . $$ 
+    \item[Valor Esperado de un Observable: ] Sea $A$ un observable de cierto sistema cuántico cuyo espacio de estado $\hilbert$: $A:\hilbert \to \hilbert$ donde $A$ es hermítico. Además $\{ \ket{\alpha _i} \}$ es una base ortonormal de $\hilbert$, compuesta de kets propios de $A$. Donde
+        $$ A\ket{\alpha _i} = a_i \ket{\alpha _i} $$
+    $a_i \in \R$ es valor propio de $A$ correspondiente al ket propio de $A$. Si el sistema cuántico está en el estado $\pk$ el valor esperado de $A$ se define de la siguiente forma:
+        $$ \expval{A} _\psi = \text{Valor esperado de A cuando el sistema está en el estado } \pk . $$
+        $$ \expval{A}_\psi = \sum_i a_i P(a_i) \qquad \qquad \expval{A}_\psi = \int _x \dd{x} a_x f(x) $$
+    $P(a_i)$ probabilidad de medir el estado $\ket{\alpha _i}$ cuando el sistema está en el estado $\pk$. Cuando no hay problema de ambigüedad:  $\expval{A} = \expval{A} _{\pk}$.
+    \item[Propiedad del Valor Esperado: ] $\expval{A} = \expval{A}{\psi}$.
+    \item[Observables Compatibles: ] Los observables $A$ y $B$ son compatibles si y solo si $[A,B] = 0$. Dicho de otra forma $A$ y $B$ son compatibles si y solo si $A$ y $B$ conmutan. Ejemplos:
+        \begin{itemize}
+            \item Las coordenadas de las posiciones.
+            \item Las componentes del momentum lineal.
+            \item El momentum angular total con el momentum angular del eje $z$.
+        \end{itemize}
+    \item[Observables Incompatibles: ] $A$ y $B$ son incompatibles si y solo si $[A,B] \neq 0$.
+    \item[Operador Dispersión: ]  Dado un observable $A$, definimos su operador de dispersión de la siguiente forma:
+        $$ \Delta A = A - \expval{A} I. $$
+    \begin{description}
+        \item[Propiedad I: ] El operador de dispersión es hermítico. 
+        \item[Propiedad 2: ] $\expval{(\Delta A)^2} = \expval{A^2} - \expval{A}^2$.
+        \item[Propiedad 3: ] $[\Delta A ,\Delta B] = [A,B]$.
+        \item[Propiedad 4: ] $\abs{ \expval{[A,B]}{\psi} \leq \abs{ \expval{\Delta A \Delta B}{\psi} } }.$
+        \item[Propiedad 5: ] Principio de Incertidumbre $\expval{(\Delta A)^2} \expval{(\Delta B)^2} \geq \frac{1}{4} \abs{ \expval{[A,B]} }^2$.
+    \end{description}
+\end{description}
+
+\section{Principio de Incertidumbre de Heisenberg}
+Como veremos más adelante el observable de la posición $X$ y del momentum $P$, son incompatibles.
+    $$ [X,P] = i\hbar I. $$
+por lo tanto, se tiene que
+    $$ \boxed{ \Delta x \Delta p  \geq \frac{\hbar}{2}. } $$
+
+
+\chapter{Posición y Momentum}
+Ahora vamos a estudiar una partícula en una dimensión. El tiempo es independiente de la posición. La posición es un observable que medimos por medio de su coordenadas $x\in \R$. Tenemos lo siguiente: $X = $ observable de la posición. Al medir $X$, en el tiempo $t$, obtenemos la coordenada $x$ qeu es un número real puro. La coordenada $x$ que medimos es un valor propio de $X$, por lo tanto, al valor propio $x$ le corresponde su espacio propio que consta de todos los kets propios asociados al valor propio $x$. \\
+
+En este caso, posición y momentum en una dimensión no vamos a tener degeneración. Entonces el espacio propio del valor proopio $x\in \R$ esta generado por un solo ket propio que lo representamos por $\ket{x}$. Recordemos que a todo ket $\ket{x}$ le corresponde un bra $\bra{x}$. Entonces tenemos lo siguiente: $X\ket{x} = x\ket{x}$.\\
+
+Los kets propios son ortogonales entre sí y genera el espacio de estado de la partícula. En este caso vamos a llamar $\hilbert _o$ al espacio de estado de la partícula: $\{ \ket{x} \}$ es base ortonormal de $\hilbert _o$. La base ortonormal de $\hilbert _o$ está formada de ket propios de observable de la posición $X$.
+
+
+\section{Representación de los Estados}
+Dado el postulado 1 de la mecánica cuántica y sabiendo que todo ket representa un estado real (''físico''). Recordando álgebra lineal $\pk$ se escribe como combinación lineal de los elementos de la base ortonormal. Por lo tanto, para toda $\pk \in \hilbert _o$
+    $$ \pk = \sum _x c_x \ket{x}, $$
+para índice continuo
+    $$ \pk = \int \dd{x} \psi (x) \ket{x} $$
+    $$ \pk = \int \dd{x} \bra{x} \psi ^* (x) $$
+    
+\subsection{Interpretación de $\psi (x)$}
+En las integrales, al igual que las sumatorias usan variables mudas
+    $$ \pk = \int \dd{y} \psi (y) \ket{y} $$
+pero si $x\neq y \, \Rightarrow \, \braket{x}{y}$ por que $\ket{x}$ y $\ket{y}$ son ortogonales. En caso de ser iguales tenemos la \textit{Delta de Dirac}
+    $$ \braket{x}{y} = \delta (x - y). $$
+por lo tanto
+    $$ \braket{x}{\psi} = \int _{y\in \R} \psi (y) \braket{x}{y} $$
+    $$ \braket{x}{\psi} = \int _{y\in \R} \psi (y) \delta (y - x) = \psi (x). $$
+    $$ \boxed{ \psi (x) = \braket{x}{\psi}. } $$
+$\psi (x) = $ Densidad de amplitud de probabilidad de medir $x$ cuando la partícula está en el estado $\pk$. $\abs{\psi (x)}^2 = $ Densidad de probabilidad de medir $x$ cuando la partícula está en el estado $\pk$. \\
+
+Dado que $\psi (x) \in L^2 (\R)$ entonces
+    $$ \hilbert _o \leftrightarrow L^2 (\R). $$
+
+\section{Traslaciones}
+A continuación vamos a estudiar las traslaciones en $\R$ y su prepresentación unitaria sobre $\hilbert _o$.
+\begin{definition}
+    Para todo $a \in \R$ tenemos la siguiente función: $\tau _a = x + a$.
+\end{definition}
+El conjunto de todas las traslaciones con la composición forman un grupo abeliano. Lo anterior traslación define el siguiente operador unitario. $T_a \ket{x} = \ket{x+a}$. Algunas observaciones importantes son las siguientes:
+\begin{enumerate}
+    \item La traslación $\tau _a$ no es una trasformación lineal, porque en caso $a\neq 0$ el origen $x = 0$ queda trasladado a $x = a \neq 0$. Las traslaciones en los espacios $\R ^n$ no son lineales.
+    \item El operador $T_a : \hilbert _o \to \hilbert _o$ sí es una transformación lineal que representa a la función $\tau _x:\R \to \R$. Como veremos más adelante $T_a$ es un operador unitario.
+    \item Las traslaciones $\tau _a : \R \to \R$ $a\in \R$ forman un grupo abeliano al igual que los operadores unitarios $T_a : \hilbert _o \to \hilbert _o$.
+    \item Grupo es una estructura algebraica que aparece repetidas veces en Física. Debido a que no conocemos esta estructura algebraica; incluímos rapidamente y brevemente su definición. \\
+    Un grupo $(G, \circ)$ es un conjunto con una operación binaria la cual
+    \begin{enumerate}
+        \item Es cerrada.
+        \item Es asociativa.
+        \item Tiene elemento neutro (I).
+        \item Todo elemento tiene inverso.
+        \item Es conmutativa (Grupo Abeliano).
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Superposición}
+
+Superposición es un término ampliamente usado en mecánica cuántica; en lugar de combinación lineal. 
+
+\begin{definition}
+    \textbf{Operador $P$}\\
+        $$ P = \lim_{a\to 0} i\hbar \frac{T_a - I}{a} $$
+        $$ P = i\hbar \left. \dv{T_a}{a} \right|_{a=0}. $$
+        Donde $a$ es el parámetro de traslación.
+\end{definition}
+
+\begin{description}
+    \item[Propiedad 1 (operador $T_a$): ] El operador $T_a : \hilbert _o \to \hilbert _o$ es unitario.
+    \item[Propiedad 2: ] Si $\psi (x) = \braket{x}{\psi}$ entonces $\mel{x}{T_a}{\psi} = \psi (x - a)$. 
+    \item[Propiedad 3 (operador $P$): ] $\mel{x}{P}{\psi} = i\hbar \pdv{\psi (x)}{x}$.
+    \item[Propiedad 4: ] $\mel{x}{P^n}{\psi} = \qty(-i\hbar)^n \pdv[n]{\psi}{x}$. 
+    \item[Propiedad 5: ] $\mel{x}{\qty(\frac{aP}{i\hbar})^n}{\psi} = \qty(-a)^n \pdv[n]{\psi}{x}$.
+    \item[Propiedad 6: ] $T_a = \exp{-\frac{ia}{\hbar} P}$. 
+    \item[Propiedad 7: ] $P$ es hermítico.
+    \item[Propiedad 8 (para ambos operadores): ] $[X,P] = i\hbar I$.
+    \item[Propiedad 9:] $\braket{x}{p} = N e^{\frac{ipx}{\hbar}}$, donde $\ket{x}$ es ket propio de $X$ y $\ket{p}$ es ket propio de $P$. ($N$ es la constante de normalización) 
+    \item[Propiedad 10: ] Si $p$ y $p_o$ son valores propios distintos del observable $P$, entocnes tenemos que
+        $$ p - p_o = \frac{2\pi n\hbar}{T} $$
+    los valores propios de $P$ están discretizados.
+    \item[Propiedad 11: ] $N = \frac{1}{\sqrt{T}}$.
+    \item[Propiedades 12:] 
+        $$ \int _{-T/2} ^{T/2} e^{\frac{ix \qty(p_m - p_n)}{\hbar}} \dd{x} = \frac{2\pi \hbar}{\Delta p} \delta _{mn} $$
+    donde $\Delta = p_{n + 1} - p_n = \frac{2\pi \hbar}{T}$ y $\delta _{mn}$ es la delta de Kronecker.
+\end{description}
+
+\subsection{Representación Respecto al Momentum}
+Ahora tenemos dos bases para $\hilbert _o$ con $-T/2 \leq x \leq T/2$ o sea que $\hilbert _o = L^2 [-T/2,T/2]$
+    \begin{itemize}
+        \item Base $\alpha = \{ \ket{x} \}$ $x\in [-T/2, T/2]$.
+        \item Base $\beta = \{ \ket{p_n} \}$ $n\in \Z$.
+    \end{itemize}
+entonces para todo $\pk \in \hilbert _o$, podemos expresar a $\pk$ como combinación lineal de la base $\alpha$ y también como superposición de los elementos de la base $\beta$. Por lo tanto
+    $$ \pk = \int _{-T/2} ^{T/2} \dd{x} a_x \ket{x} $$
+    $$ \pk = \sum _{n = -\infty} ^\infty c_n \ket{p_n} $$
+y recordemos que
+    $$ a_c =  \braket{x}{\psi} \qquad c_n = \braket{p_n}{\psi}. $$
+
+\section{Series de Fourier}
+    $$ \psi (x) = \sum _{n = -\infty} ^\infty \frac{c_n}{\sqrt{T}} e^{\frac{ipx}{\hbar}}. $$
+
+\subsection{Coeficientes de Fourier}
+    $$ c_n = \frac{1}{\sqrt{T}} \int _{-T/2} ^{T/2} e^{-\frac{ip_n x}{\hbar}} \psi (x) \dd{x}. $$
+
+de lo anterior tenemos lo siguiente
+
+    $$ \psi (x) = \frac{1}{T} \sum _{n = -\infty} ^\infty \qty(\int _{-T/2} ^{T/2} e^{-\frac{ip_n x}{\hbar}} \psi (x) \dd{x}) e^{\frac{ipx}{\hbar}}. $$
+
+\section{Representación en 1 Dimensión. Tamaño Infinito}
+Ahora pasaremos del intervalo $[-T/2,T/2]$ a toda la recta real $(-\infty ,\infty)$. Este paso de finito a infinito lo haremos tomando el límite cuando $T\to \infty$. Con esto se tiene lo siguietne
+
+\begin{description}
+    \item[Propiedad 13: ] Si $x\in (-\infty ,\infty)$ entonces
+        $$ \braket{x}{p} = \frac{1}{\sqrt{2\pi \hbar}} e^{\frac{ipx}{\hbar}} \qquad \qquad \braket{p}{x} = \frac{1}{\sqrt{2\pi \hbar}} e^{-\frac{ipx}{\hbar}}. $$
+    Ahora repetimos lo que hicimos en forma discreta a forma continua. Observemos que tanto, el espectro del observable posición $X$ y el del momentum $P$ son continuas y pueden tomar cualquier valor real.
+        $$ \pk = \int _{-\infty} ^\infty \dd{x} \psi (x) \ket{x}, $$
+        $$ \pk = \int _{-\infty} ^\infty \dd{p} \overset{\psi}{\sim} (p) \ket{p}. $$
+\end{description}
+
+\subsection{Ingegral de Fourier}
+    $$ \psi (x) = \frac{1}{\sqrt{2\pi \hbar}} \int _{-\infty} ^\infty \dd{p} e^{\frac{ipx}{\hbar}} \overset{\sim}{\psi} (p). $$
+
+\subsection{Transformada de Fourier}
+    $$ \overset{\psi}{\sim} (p) = \frac{1}{\sqrt{2\pi \hbar}} \int _{-\infty} ^\infty \dd{x} e^{-\frac{ipx}{\hbar}} \psi (x). $$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{img/transformadaFourier.png}
+    \caption{Relación entre la base y la trasnformación usada para cambiar la función de estado de esta.}
+    \label{fig:fourier}
+\end{figure}
+
+\begin{description}
+    \item[Propiedad 14: ] $\mel{p}{X}{\psi} = i\hbar \displaystyle\pdv{\psim}{p}$. 
+\end{description}
+
+
+
+\section{Posición y Momentum 3-D}
+Ahora estudiaremos los Observables de poisición y momentum en 3 dimensiones. Ya sabemos que la posición de las partículas está dada por $\vec{r} = (x,y,z)$ y $\vec{X} = (X,Y,Z)$.
+\begin{tcolorbox}
+        $$ X \ket{\vec{r}} = X \ket{\vec{x}} = X\ket{x,y,z} = x\ket{x,y,z} $$
+        $$ Y \ket{\vec{r}} = Y \ket{\vec{y}} = Y\ket{x,y,z} = y\ket{x,y,z} $$
+        $$ Z \ket{\vec{r}} = Z \ket{\vec{z}} = Z\ket{x,y,z} = z\ket{x,y,z}. $$
+    También
+        $$ \ket{\vec{r}} = \ket{x,y,z} = \ket{x} \ten \ket{y} \ten \ket{z} $$
+        $$ \hilbert _1 = \hilbert _o \ten \hilbert _o \ten \hilbert _o. $$
+\end{tcolorbox}
+El conjunto de kets propios $\{ \ket{x,y,z} \}$ forma una base ortonormal $\hilbert _1$. Debido a que $\ket{\vec{x}}$ es una base ortonormal de $\hilbert _1$ tenemos que
+    $$ \braket{\vec{x}}{\vec{x}'} = \delta ' (\vec{x} - \vec{x}'). $$
+   
+
+\subsection{Representación Respecto a $\{ \ket{\vec{x}} \}$}
+Supongamos que la partícula está en el estado $\ket{\psi}\in \hilbert _1$. El ket $\pk$ se puede escribir como una superposición de los estados base.
+    $$ \pk = \int _{\R ^3} \dd{^3  \vec{x}} \psi (\vec{x} \ket{\vec{x}}). $$
+Debido a que $\{ \ket{\vec{x}} \}$ es una base ortonormal
+    $$ \psi (\vec{x}) = \braket{\vec{x}}{\psi}. $$
+
+\begin{description}
+    \item[Propiedad 15: ] $[X_i ,X_j] = 0$ para $i,j = 1,2,3$. 
+    \item[Propiedad 16: ] Siguiendo con la idea del operador traslación, tomando $a = \vec{a}$: $T_{\vec{a}}$ es unitario.
+    \item 
+\end{description}
+
+
+\begin{definition}
+    \textbf{Operador $P_j$:} \\
+        $$ P_j = i\hbar \eval{\dv{T_{\vec{a}}}{a_j}} _{a_j = 0}. $$
+    De esta definición se tiene
+        $$ \mel{\vec{x}}{P_x}{\psi} = -i\hbar \pdv{\psi}{x} \qquad j = 1 $$
+        $$ \mel{\vec{x}}{P_y}{\psi} = -i\hbar \pdv{\psi}{y} \qquad j = 2 $$
+        $$ \mel{\vec{x}}{P_z}{\psi} = -i\hbar \pdv{\psi}{z} \qquad j = 3. $$
+\end{definition}
+
+
+\begin{description}
+    \item[Propiedad 17: ] $[P_j,P_k] = 0 $.
+    \item[Propiedad 18: ] $T_{\vec{a}} = e^{-\frac{i}{\hbar} \vec{a} \cdot \vec{P}}.$ 
+    \item[Propiedad 19: ] Si $\vec{P} = (P_x,P_y,P_z)$ entonces
+        $$ \mel{\vec{x}}{\vec{P}}{\psi} = -i\hbar \grad{\psi (\vec{x})}, $$
+    donde $\psi (\vec{x}) = \braket{\vec{x}}{\psi}$.
+    \item[Propiedad 20: ] Dado el momentum lineal total $P^2 = P_x ^2 + P_y ^2 + P_z ^2$. Entonces $\mel{\vec{x}}{P^2}{\psi} = -\hbar ^2 \laplacian{\psi}$.
+    \item[Propiedad 21: ] $[X_j, P_k] = i\hbar \delta _{jk} I$. 
+    \item[Propiedad 22: ] $[X_j ,P_j ^n] = i\hbar n P^{n - 1}$.
+    \item[Propiedad 23: ] Sean $A,B,C$ operadores y $b,c$ números complejos.
+        $$ [A,bB + cC] = b[A,B] + C[A,C]. $$
+    \item[Propiedad 24: ] Sea $F(P_j) = \sum _{n=0} ^\infty a_n P_j ^n$ entocnes
+        $$ [X_j ,F(P_j)] = i\hbar F' (P_j). $$
+\end{description}
+
+
+\section{Momentum Respecto a la Posición en 3-D}
+El observable $\vec{P}$ es una terna ordenada (como era de esperarse luego de todo lo visto anteriormente) y son compatibles. Estos observables nos proporcionan una base ortonormal de nuestro espacio de estado. 
+
+\begin{tcolorbox}
+        $$ P_x \ket{\vec{p}} = P_x \ket{p_x,p_y,p_z} = p_x \ket{p_x,p_y,p_z} $$
+        $$ P_y \ket{\vec{p}} = P_y \ket{p_x,p_y,p_z} = p_y \ket{p_x,p_y,p_z} $$
+        $$ P_z \ket{\vec{p}} = P_z \ket{p_x,p_y,p_z} = p_z \ket{p_x,p_y,p_z}. $$
+    También
+        $$ \hilbert _1 = \hilbert _o \ten \hilbert _o \ten \hilbert _o. $$
+\end{tcolorbox}
+
+Sabemos
+	$$ \psi (\vec{x}) = \braket{\vec{x}}{\psi}, $$
+	$$ \psim (\vec{p}) = \braket{\vec{p}}{\psi}. $$
+
+\begin{description}
+	\item[Propiedad 25: ] $\braket{\vec{x}}{\vec{p}} = N e^{\frac{i}{\hbar} \vec{p} \cdot \vec{x}}$ Donde $N$ es una constante de normalización y $\vec{p} \cdot \vec{x} = xp_x + yp_y + zp_z$.
+	\item[Propiedad 26: ] $\braket{\vec{x}}{\vec{p}} = \frac{1}{\qty(2\pi \hbar)^{3/2}} e^{\frac{i}{\hbar} \vec{p} \cdot \vec{x}}$.
+	\item[Propiedad 27: (Transformada inversa de Fourier)] 
+		$$ \psi (\vec{x}) = \frac{1}{\qty(2\pi \hbar)^{3/2}} \int _{\R^3} \dd{^3 \vec{p}} e^{\frac{i}{\hbar} \vec{p} \cdot \vec{x}} \psim (\vec{p}). $$
+	\item[Propiedad 28: (Transformada de Fourier)] 
+		$$ \psim (\vec{p}) = \frac{1}{\qty(2\pi \hbar)^{3/2}} \int _{\R^3} \dd{^3 \vec{p}} e^{-\frac{i}{\hbar} \vec{p} \cdot \vec{x}} \psi (\vec{x}). $$
+\end{description}
+
+
+\begin{definition}
+	\textbf{Valor Propio Degenerado: } \\
+	Sea $A:\hilbert \to \hilbert$ un opeardor lineal $a\in \C$ es un valor propio degenerado si y solo si existen vectores $\pk$ y $\ket{\phi}$ linealmente independientes tal que 
+		$$ A\pk = a\pk $$
+		$$ A\ket{\phi} = a\ket{\phi}. $$
+	Recordemos del álgebra lineal que el conunto de todos los vectores propios de $A$ con valor propio $a$, forma un subespacio vectorial. De lo anterior tenemos que $a$ es un valor propio degenerado si y solamente si el espacio propio tiene dimensión mayor o igual a $2$.
+\end{definition}
+
+
+\begin{description}
+	\item[Propiedad 29: ] Si $A$ y $B$ son observalbes que tienen la misma base ortonoral de kets porpios, entonces $A$ y $B$ son compatibles.
+	\item[Propiedad 30: ] Si $A$ y $B$ son observables compatibles, donde todos sus valores propios son no degenerados, entonces $A$ y $B$ comparten base ortonormal de kets propios.
+\end{description}
+
+\begin{teorema}
+	Si $A$ y $B$ son observables compatibles entonces $A$ y $B$ comparten base de kets propios.
+\end{teorema}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Energía y Hamiltoniano}
+
+
+
+
+
+
+
+
+\chapter{Oscilador Armónico Cuántico}
+
+
+
+
+
+
+
+
+\chapter{Espín $1/2$}
+
+
+
+
+
+
+
+
+
+
+\chapter{Momentum Angular}
 
 
 
