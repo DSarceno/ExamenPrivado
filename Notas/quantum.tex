@@ -585,14 +585,88 @@ Sabemos
 
 
 
-
-
-
-
-
-
-
 \chapter{Energía y Hamiltoniano}
+
+\section{Dinámica Cuántica}
+Ahora se estudiará la evolución en el tiempo de un sistema cuántica. Dicho de otra forma, vamos a estudiar la evolución de un estado $\pk$ que representa un sistema interactuando con el medio.
+
+\subsection{Operador Evolución $U(t,a)$}
+El opeardor evolución describe el estado de un sistema después de haber transcurrido un tiempo $\Delta t=a$; de la siguiente forma
+	$$ E(t,a) \Pk{t} = \Pk{t+a}. $$
+El problema recae en calcular $U$.
+
+\begin{description}
+	\item[Propiedad 1: ] $U_a$ es unitario.
+\end{description}
+
+
+\section{El Hamiltoniano}
+Ahor a definimos el Hamiltoniano en el tiemo $t$ de la sigueinte forma
+	$$ H(t) = i\hbar \eval{\pdv{U(t,a)}{a}}_{a=0}. $$
+Tal y como se verá más adelante $H$ es un operador Hermítico.
+
+\begin{description}
+	\item[Propiedad 2 (Ecuación de Schrodinger): ] $H(t) \Pk{t} = i\hbar \pdv{t} \Pk{t}$. Donde $H(t)$ es la energía total del sistema cuántico.
+	\item[Propiedad 3: ] $H^+ (t) \Pk{t} = i\hbar \pdv{t} \Pk{t}$.
+	\item[Propiedad 4: ] \dsnote{Ahora es bastante obvio}. $H$ es hermítico.
+	 
+\end{description}
+
+
+\subsection{Casos del Hamiltoniano en Física}
+En Física tenemos tres casos del Hamiltoniano
+\begin{enumerate}
+	\item El Hamiltoniano es independiente del tiempo
+		$$ H(t) = H = \text{cte}. $$
+	\item El Hamiltoniano depende del tiempo pero el Hamiltonianos a tiempos diferentes conmutan.
+	\item El Hamiltoniano depende del tiempo y Hamiltonianos a tiempos diferentes no conmutan.
+\end{enumerate}
+
+
+
+\begin{description}
+	\item[Propiedad 5: ] Si $H(t) = H$ es independiente del tiempo entonces.
+		$$ U(t,a) = e^{-\frac{ia}{\hbar} H}. $$ 
+	\item[Propiedad 6: ] Si los Hamiltonianos conmutan a tiempos diferentes
+		$$ U(t,a) = e^{-\frac{i}{\hbar} \int _t ^{t+a} H(t') \dd{t'}}. $$
+\end{description}
+
+
+\section{Estados Estacionarios}
+Recordemos que un estado se representa por un ket y cualquier múltiplo $c\pk$ representa el mismo estado. Un estado es estacionario si y solo si los kets $\Pk{t}$ que representan al estado del sistema en el tiempo $t$ son múltiplos de $\ket{\psi _o} = \Pk{0}$ para cualquier $t$, $\Pk{t} = c(t) \ket{\psi _o}$. \\
+
+Los estados estacionarios no cambian respecto al tiempo, aunque los kets que los representan pueden cambiar. Siempre requerimos que la magnitud de los kets sea $1$ por lo tanto $c(t) = 1$. 
+	$$ \Pk{t} = e^{i\theta (t)} \ket{\psi _o}. $$
+
+
+Sea $A$ un observable cualquiera; el valor esperado del observable $A$ cuando el sistema está en el estado $\Pk{t}$ viene dado por:
+\subsection{Punto de Vista de Heisenberg}
+	$$ \expval{A} = \expval{\qty(U^+ (t) A U (t))}{\psi (0)}. $$
+Para Heisenberg, el estado no evoluciona si no que evoluciona el observable.
+
+	$$ A(t) = U^+ (t) AU(t). $$
+	
+\subsection{Punto de Vista de Schrodinger}
+	$$ \expval{A(t)} = \qty(\bra{\psi (0)} U^+ (t)) A \qty(U(t) \Pk{t}). $$
+
+Para Schrodinger, el observable no evoluciona sino que es el estado lo que evoluciona. Donde dicho estado obedece la ecuación de Schrodinger. \\
+La ecuación de Schrodinger independiente del tiempo calcula los valores propios y kets propios del Hamiltoniano $H$.
+
+\begin{description}
+	\item[Propiedad Previa a la Ecuación de Heisenberg: ] 
+		$$ \pdv{U(t)}{t} = \dv{U}{t} = \frac{1}{i\hbar} HU(t). $$ 
+\end{description}
+
+
+\subsection{Ecuación de Movimiento de Heisenberg}
+Sea $A$ un observable y $H$ el Hamiltoniano.
+	$$ \dv{A}{t} = \frac{1}{i\hbar} [A(t),H(t)]. $$
+
+
+
+
+
+
 
 
 
