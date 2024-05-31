@@ -666,16 +666,79 @@ Sea $A$ un observable y $H$ el Hamiltoniano.
 
 
 
-
-
-
-
-
-
-
-
-
 \chapter{Oscilador Armónico Cuántico}
+El oscilador armónico cuántico es el análogo mecánico cuántico del oscilador armónico clásico. Es uno de los sistemas modelo más importante en mecánica cuántica, ya que cualquier potencial se puede aproximar por un potencial armónico en las proximidades del punto de equilibrio estable (mínimo). Además, es uno de los sistemas mecánico cuánticos que admite una solución analítica sencilla.
+
+
+\section{Oscilador Armónico}
+Dado el sistema físico de oscilador más simple se tiene que su hamiltoniano es
+	$$ H = \frac{P^2}{2m} + \frac{1}{2} kX^2. $$
+Dado que $H,P,X$ son observables incompatibles. Recordemos que $[X,P] = i\hbar I$. Y con esto tenemos el operador evolución
+	$$ U(t) = e^{-\frac{i}{\hbar} tH}. $$
+
+
+\section{Ecuación de Schrodinger}
+	$$ H\pkt = i\hbar \pdv{t} \pkt $$
+Si presentamos la ecuación de Schrodinger respecto a la posición, tenemos lo siguiente
+	$$ -\frac{\hbar ^2}{2m} \pdv[2]{\Psi}{x} + \frac{m\omega ^2}{2} x^2 \Psi (x,t) = i\hbar \pdv{\Psi}{t}. $$
+
+\subsection{Ecuación de Schrodinger Independiente del Tiempo}
+La ecuación de Schrodinger independiente del tiempo es la ecuación que calcula los valores propios y los kets propios del Hamiltoniano mostrado al inicio del capítulo.
+	$$ H\pk = E\pk, $$
+$E$ es el valor propio de $H$, por lo tanto $E$ es un valor real puro, $E\in \R$.  Con esto aplicamos el bra $\bra{\psi}$ se llega a la ecuación de Schrodinger Independiente del Tiempo para el oscilador armónico, respecto a la posición
+	$$ -\frac{\hbar ^2}{2m} \dv{\psi}{x} + \frac{m\omega ^2}{2} x^2 \psi (x) = E\psi (x). $$
+
+
+\section{Operadores en el Oscilador Cuántico}
+En lugar de resolver la ecuación de Schrodinger independiente del tiempo directamente, para calcular los valore propios y kets propios del Hamiltoniano; vamos a usar el operador creador, el operador anulador y el operador número. Como veremos a continuación el método de operadores es un método muy eficiente para calcular valores propios y ket propios.
+
+\subsection{Operador Anulador o Aniquilador}
+	$$ a = \sqrt{\frac{m\omega}{2\hbar}} \qty(X + i\frac{P}{m\omega}). $$
+
+
+\subsection{Operador Creador}
+	$$ a^\dagger = \sqrt{\frac{m\omega}{2\hbar}} \qty(X - i\frac{P}{m\omega}). $$
+	
+\subsection{Operador Número}
+	$$ N = a^\dagger a. $$
+	
+Los operadores anulador y creador son operadores tipo escalera; no son ni hermíticos ni unitarios.
+
+
+\begin{description}
+	\item[Propiedad 1: ] $[a,a^\dagger] = I$.
+	\item[Propiedad 2: ] $N = \frac{1}{\hbar \omega} H - \frac{1}{2} I$.
+	\item[Propiedad 3: ] $H$ es hermítico.
+	\item[Propiedad 4: ] $H$ y $N$ conmutan.
+	\item[Propiedad 5: ] Si $\ket{n}$ es ket propio de $N$ con valor propio $n$ entonces
+		$$ H\ket{n} = \qty(n + 1/2) \hbar \omega \ket{n}. $$
+	\item[Propiedad 6: ] $[N,a] = -a$.
+	\item[Propiedad 7: ] $[N,a^\dagger] = a^\dagger$.
+	\item[Propiedad 8: ] $a\ket{n} = \sqrt{n} \ket{n - 1}$.
+	\item[Propiedad 9: ] $a^\dagger \ket{n} = \sqrt{n + 1} \ket{n + 1}$.
+	\item[Propiedad 10: ] Si $n$ es valor propio del operador número $N$ entonces $n\geq 0$.
+	\item[Propiedad 11: ] Si $n$ es valor propio del operador número $N$ entonces $n$ es un número entero no negativo. 
+\end{description}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
