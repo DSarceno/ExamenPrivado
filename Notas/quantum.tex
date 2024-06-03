@@ -705,6 +705,9 @@ En lugar de resolver la ecuación de Schrodinger independiente del tiempo direct
 Los operadores anulador y creador son operadores tipo escalera; no son ni hermíticos ni unitarios.
 
 
+
+\subsection{Propiedades de los Operadores}
+
 \begin{description}
 	\item[Propiedad 1: ] $[a,a^\dagger] = I$.
 	\item[Propiedad 2: ] $N = \frac{1}{\hbar \omega} H - \frac{1}{2} I$.
@@ -718,22 +721,106 @@ Los operadores anulador y creador son operadores tipo escalera; no son ni hermí
 	\item[Propiedad 9: ] $a^\dagger \ket{n} = \sqrt{n + 1} \ket{n + 1}$.
 	\item[Propiedad 10: ] Si $n$ es valor propio del operador número $N$ entonces $n\geq 0$.
 	\item[Propiedad 11: ] Si $n$ es valor propio del operador número $N$ entonces $n$ es un número entero no negativo. 
+	\item[Propiedad 12: ] Los valores y vectores propios de $N$ y $H$ son
+		$$ H\ket{n} = \hbar \omega (n + 1/2) \ket{n}, $$
+		$$ N\ket{n} = n\ket{n}. $$
+	Dado esto vemos que la base ortonormal dada por el operador número y el hamiltoniano está discretizada. De esto se tiene que todo estado del oscilador armónico simple se puede escribir como una combinacion lineal de los estados propios de la energía total.
+		$$ \pk = \sum _{n=0} ^\infty c_n \ket{n}. $$
+	por fourier $C_n \braket{n}{\psi}$, amplitud de probabilidad de medir energía $\hbar \omega (n + 1/2)$ cuadno el sistema está en el estado $\pk$.
+	\item[Propiedad 13: ] $\abs{c_n} ^2$ probabilidad de medir la energía $\hbar \omega (n + 1/2)$ cuando el sistema está en el estado $\pk$. \dsnote{Tarde vos pero $\ket{n}$ es el nivel de energía.}
 \end{description}
 
 
 
 
+Para continuar con todo esto, se calculará $\braket{x}{n}$ donde $\abs{\braket{x}{n}}^2$ es la probabilidad de medir la posición $x$ cuando la partícula está en el $n-$ésimo nivel de energía. Pero antes, más propiedades!!!!!
+
+
+\begin{description}
+	\item[Propiedad 14: ] $\ket{n} = \frac{1}{\sqrt{n!}} \qty(a^\dagger) ^n \ket{0}$.
+	\item[Propiedad 15: ] Representación matricial de $a$: $\mel{l}{a}{n} = \sqrt{n} \delta _{l,n-1}$.
+		$$ a = =
+\begin{pmatrix}
+0 & \sqrt{1} & 0 & 0 & \cdots \\
+0 & 0 & \sqrt{2} & 0 & \cdots \\
+0 & 0 & 0 & \sqrt{3} & \cdots \\
+0 & 0 & 0 & 0 & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix} $$
+	\item[Propiedad 16: ] Representación matricial de $a^\dagger$: $\mel{l}{a^\dagger}{n} = \sqrt{n + 1} \delta _{l,n+1}$.
+		$$ a^\dagger = \begin{pmatrix}
+0 & 0 & 0 & 0 & \cdots \\
+\sqrt{1} & 0 & 0 & 0 & \cdots \\
+0 & \sqrt{2} & 0 & 0 & \cdots \\
+0 & 0 & \sqrt{3} & 0 & \cdots \\
+0 & 0 & 0 & \sqrt{4} & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix} $$
+	\item[Propiedad 17: ] $X = \sqrt{\dfrac{\hbar}{2m\omega}} (a + a^\dagger)$.
+	\item[Propiedad 18: ] $P = i\sqrt{\dfrac{m\omega \hbar}{2}} (a^\dagger - a)$.
+	\item[Propiedad 19: ] Representación matricial de $X$: $\mel{l}{X}{n} = \sqrt{\dfrac{\hbar}{2m\omega}} \qty(\sqrt{n} \delta _{l,n-1} + \sqrt{n+1} \delta _{l,n+1})$.
+		$$ X = \sqrt{\frac{\hbar}{2m\omega}}
+\begin{pmatrix}
+0 & \sqrt{1} & 0 & 0 & \cdots \\
+\sqrt{1} & 0 & \sqrt{2} & 0 & \cdots \\
+0 & \sqrt{2} & 0 & \sqrt{3} & \cdots \\
+0 & 0 & \sqrt{3} & 0 & \cdots \\
+0 & 0 & 0 & \sqrt{4} & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix} $$
+	\item[Propiedad 20: ] Representación matricial de $P$: $\mel{l}{P}{n} = i\sqrt{\dfrac{m\omega \hbar}{2}} \qty(-\sqrt{n} \delta _{l,n-1} + \sqrt{n+1} \delta _{l,n+1})$.
+		$$ P = i \sqrt{\frac{\hbar m \omega}{2}}
+\begin{pmatrix}
+0 & -\sqrt{1} & 0 & 0 & \cdots \\
+\sqrt{1} & 0 & -\sqrt{2} & 0 & \cdots \\
+0 & \sqrt{2} & 0 & -\sqrt{3} & \cdots \\
+0 & 0 & \sqrt{3} & 0 & \cdots \\
+0 & 0 & 0 & \sqrt{4} & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix}. $$
+	\item[Propiedad 21: ] $\braket{x}{0} = \dfrac{1}{\pi ^{1/4} \lambda ^{1/2}} e^{-\frac{1}{2} \qty(x/\lambda)^2}$, donde $\lambda \sqrt{\frac{\hbar}{m\omega}}$ y $\omega = \sqrt{\frac{k}{m}}$.
+	\item[Propiedad 22: ] Si $\braket{x}{\psi} = \psi (x)$ entonces $\mel{x}{\qty(X - \frac{i}{m\omega} P)^n}{\psi} = \qty(x - \lambda ^2 \dv{x})^n \psi (x)$.
+	\item[Propiedad 23: ] $\braket{x}{n} = \dfrac{1}{\pi ^{1/4} \sqrt{n! 2^n} \lambda ^{n + 1/2}} \qty(x - \lambda ^2 \dv{x})^n e^{1\frac{1}{2} \qty(\frac{x}{\lambda})^2}. $
+\end{description}
+
+
+\section{Dinámica del Oscilador Armónico Cuántico}
+Primero se estudiará desde el punto de vista de Schrodinger y luego desde el punto de vista de Heisenberg. Desde el punto de vista de Schrodinger, lo que evoluciona es el estado $\pkt$ o sea que $\pkt = U(t) \pkt$. Desde el punto de vista de Heisenberg, o que evoluciona son los observables; donde, $X(t) = U(t) ^\dagger X(0) U(t)$, así para todos los observables. Para el oscilador armónico $H$ es independiente del tiempo.
+
+\subsection{Punto de Vista de Schrodinger}
+El estado de la partícula en el tiempo $t$ queda descrita por el ket $\pkt$. Para el oscilador cuántico el Hamiltoniano $H = \frac{P^2}{2m} + \frac{1}{2} m\omega ^2 X^2$ es independiente del tiempo
+	$$ \pkt = e^{-\frac{itH}{\hbar}} \ket{\psi _o}. $$
+	
+\subsection{Solución al Oscilador Armónico Cuántico}
+Si el oscildor inicialmente está en el estado $\Pk{o}$ vamos a calcular su estado en el tiempo $t$, respecto a la base otorgada por el Hamiltoniano $\{ \ket{n} \}$.
+
+\begin{description}
+	\item[Propiedad 1: ] $e^{-\frac{it}{\hbar} H} \ket{n} = e^{-i\omega (n + 1/2) t} \ket{n}$. Entonces
+		$$ \pkt = \sum _{n = 0} ^\infty b_n (t) \ket{n}, $$
+	donde $b_n (t) = c_n e^{-in\omega t}$.
+\end{description}
 
 
 
+\subsection{Punto de Vista de Heisenberg}
+Desde el punto de visa de Heisenberg el estado no evoluciona, los que evolucionan son los observables. Recordando 
+	\begin{align*}
+		X(t) &= U^\dagger (t) X U(t), \\
+		P(t) &= U^\dagger (t) P U(t).
+	\end{align*}
 
-
-
-
-
-
-
-
+	\begin{align}
+		\begin{array}{ccc}
+			\dv{X}{t} & = & \frac{1}{i\hbar} [X(t) ,H(t)] \\
+			 & & \\
+			\dv{P}{t} & = & \frac{1}{i\hbar} [P(t) ,H(t)].
+		\end{array} \text{ Ecuación de Heisenberg.}
+	\end{align}
+En el oscilador armónico cuántico $H(t) = H$. Desarrollando los conmutadores y utilizando propiedades de las aprendidas, se tiene que
+	\begin{align}
+		\dv{X}{t} &= \frac{P(t)}{m} \\
+		\dv{P}{t} &= -m\omega ^2 X(t).
+	\end{align}
 
 
 
@@ -748,8 +835,243 @@ Los operadores anulador y creador son operadores tipo escalera; no son ni hermí
 
 
 \chapter{Espín $1/2$}
+En este capítulo se estudiará un sistema cuántico con dos estados independientes, osea que el espacio de estado es un espacio de dos dimensiones, $\C ^2$. El experimento físico que motiva el formalismo es el experimento de Stern-Gerlach, el cual ya se mostró al inicio del capítulo $17$. 
+
+\section{Generalidades}
+De lo mostrado en esa explicación vamos a establecer que el ket propio para el espín con valor positivo $+\hbar /2$ es $\ket{S_z , +\hbar/2} = \ket{S_z, +} = \ket{+}$ y el otro ket propio es $\ket{S_z , -\hbar/2} = \ket{S_z, -} = \ket{-}$. Por lo tanto tenemos una base para el espacio de estado $\C^2$ que es $\alpha = \{ \ket{+},\ket{-} \}$. Osea que
+	\begin{align}
+		S_z \ket{+} &= \frac{\hbar}{2} \ket{+} \\
+		S_z \ket{-} &= -\frac{\hbar}{2} \ket{-}.
+	\end{align}
+
+Entonces, el observable $S_z$ representado respecto a la base $\alpha$
+	$$ \qty(S_z)_\alpha = \frac{\hbar}{2} \mqty(1 & 0 \\ 0 & -1). $$
+Todoe stado de las partículas se representa por medio de un ket como una superposición de los kets propios del observable $S_z$
+	$$ \pk = a\ket{+} + b\ket{-}. $$
+donde siempre requerimos que $\abs{a} ^2 + \abs{b} ^2 = 1$.
+
+\subsection{El Operador Identidad}
+Recordemos que si $\alpha$ es base del espacio de estado $\hilbert$ entonces
+	\begin{align}
+		I = \ketbra{+} + \ketbra{-}.
+	\end{align}
 
 
+\subsection{Cambio de Base}
+El aparato para observar $S_z$ cuando es girado nos da otro observable, en especial cuando lo giramos $90^o$. Tenemos otro observable qeu es $S_x$ y se obtienen solamente dos valores $\pm \frac{\hbar}{2}$, obteniendo otros dos kets propios que representan los kets propios del observable $S_x$
+	\begin{align}
+		S_x \ket{S_x,+} &= \frac{\hbar}{2} \ket{S_x, +} \\
+		S_x \ket{S_x,-} &= \frac{\hbar}{2} \ket{S_x, -}.
+	\end{align}
+Entonces tenemos la siguiente observación del experimento
+	\begin{align*}
+		\abs{\braket{S_x,+}{S_z,+}}^2 &= \frac{1}{2} \\
+		\abs{\braket{S_x,-}{S_z,+}}^2 &= \frac{1}{2}.
+	\end{align*}
+Recordemos que $\abs{\braket{S_x,+}{S_z,+}}^2$ es la probabilidad de medir $+\hbar /2$ en el eje $x$ cuando la partícula está en el estado $\ket{+}$. De lo anterior tenemos que $S_x$ y $S_z$ son incompatibles y dan bases diferentes de kets propios. A la base en el eje $x$ le llamaremos $\beta$.
+
+\subsubsection{Representación de $\mathbf{\ket{S_x,\pm}}$ y $\mathbf{\ket{S_y, \pm}}$ respecto a $\mathbf{\alpha}$}
+Vamos a calcular los siguientes valores para $a_{ij}$ y $b_{ij}$.
+\begin{align*}
+	\spinp{x} &= a_{11} \plus + a_{21} \minus \\
+	\spinm{x} &= a_{21} \plus + a_{22} \minus
+\end{align*}
+
+además\footnote{a la base de $y$ le llamaremos $\gamma$.}
+
+\begin{align*}
+	\spinp{y} &= b_{11} \plus + b_{21} \minus \\
+	\spinm{y} &= b_{21} \plus + b_{22} \minus
+\end{align*}
+
+Sujeto a las siguientes condiciones
+
+\begin{align*}
+	\abs{\braket{S_x, +}}^2 &= \abs{\braket{S_x, -}}^2 = 1 \\
+	\abs{\braket{S_y, +}}^2 &= \abs{\braket{S_y, -}}^2 = 1
+\end{align*}
+Así como también $\braket{S_x,+}{S_x,-} = \braket{S_y,+}{S_y,-} = 0$. Y calculando los brakets se tiene que $\abs{a_{11}}^2 = \abs{a_{12}}^2 = \abs{a_{21}}^2 = \abs{a_{22}}^2 = \frac{1}{2}$. De lo anterior llegamos a
+	$$ \spinp{x} = e^{i\phi} \qty(\frac{1}{\sqrt{2}} \plus + \frac{e^{i\phi _1}}{\sqrt{2}} \minus) $$
+además, $\spinp{x} = e^{-i\phi} \spinp{x}$, representan el mismo estado, por lo tanto podemos elegir la fase igual a cero. Se hace lo mismo para $\spinm{x}$.
+\begin{align}
+	\spinp{x} &= \frac{1}{\sqrt{2}} \plus + \frac{e^{i\phi _1}}{\sqrt{2}} \minus \\
+	\spinm{x} &= \frac{1}{\sqrt{2}} \plus - \frac{e^{i\phi _1}}{\sqrt{2}} \minus .
+\end{align}
+Y se realiza el mismo procedimiento para $\ket{S_y, \pm}$.
+
+\begin{align}
+	\spinp{y} &= \frac{1}{\sqrt{2}} \plus + \frac{e^{i\phi _3}}{\sqrt{2}} \minus \\
+	\spinm{y} &= \frac{1}{\sqrt{2}} \plus - \frac{e^{i\phi _3}}{\sqrt{2}} \minus .
+\end{align}
+
+Reemplazando las fases se tiene
+
+\begin{tcolorbox}
+	\begin{align}
+		\spinp{x} &= \frac{1}{\sqrt{2}} \plus + \frac{1}{\sqrt{2}} \minus \\
+		\spinm{x} &= \frac{1}{\sqrt{2}} \plus - \frac{1}{\sqrt{2}} \minus \\
+		\spinp{y} &= \frac{1}{\sqrt{2}} \plus + \frac{i}{\sqrt{2}} \minus \\
+		\spinm{y} &= \frac{1}{\sqrt{2}} \plus - \frac{i}{\sqrt{2}} \minus .
+	\end{align}
+\end{tcolorbox}
+
+Ahora, veremos matricialmente los observables respecto a la base $\alpha$. Ahora tenemos
+
+\begin{tcolorbox}
+	\begin{align}
+		\plus &= \frac{1}{\sqrt{2}} \spinp{x} + \frac{1}{\sqrt{2}} \spinm{x} \\
+		\minus &= \frac{1}{\sqrt{2}} \spinp{x} - \frac{1}{\sqrt{2}} \spinm{x} \\
+		\plus &= \frac{1}{\sqrt{2}} \spinp{y} + \frac{1}{\sqrt{2}} \spinm{y} \\
+		\minus &= -\frac{i}{\sqrt{2}} \spinp{y} + \frac{i}{\sqrt{2}} \spinm{y} .
+	\end{align}
+\end{tcolorbox}
+
+
+\subsubsection{Representación Matricial de $S_x$ Respecto a $\alpha$}
+
+Aplicamos el operador $S_x$ a los elementos dela base $\alpha$.
+
+\begin{equation}
+	(S_x)_\alpha = \frac{\hbar}{2} \mqty(0 & 1 \\ 1 & 0).
+\end{equation}
+
+
+Donde $\smqty(\pmat{1})$ es la \textbf{primera matriz de pauli} $\sigma _1 = \sigma _x$.
+
+
+
+
+
+
+\subsubsection{Representación Matricial de $S_y$ Respecto a $\alpha$}
+
+Aplicamos el operador $S_y$ a los elementos dela base $\alpha$.
+
+\begin{equation}
+	(S_y)_\alpha = \frac{\hbar}{2} \mqty(0 & -i \\ i & 0).
+\end{equation}
+Donde $\smqty(\pmat{2})$ es la \textbf{segunda matriz de pauli} $\sigma _2 = \sigma _y$.
+
+
+
+
+
+
+
+
+
+\subsubsection{Representación Matricial de $S_z$ Respecto a $\alpha$}
+
+Aplicamos el operador $S_z$ a los elementos dela base $\alpha$.
+
+\begin{equation}
+	(S_z)_\alpha = \frac{\hbar}{2} \mqty(1 & 0 \\ 0 & -1).
+\end{equation}
+Donde $\smqty(\pmat{3})$ es la \textbf{tercera matriz de pauli} $\sigma _3 = \sigma _z$.
+
+
+\subsection{Matrices de Pauli}
+Las matrices de pauli son matrices hermíticas que me sirven de base para formar un Espacio Vectorial sobre los reales que eventualmente se convertirá en un Álgebra de Lie.
+
+\begin{equation}
+	\pauli{x} = \mqty(\pmat{1}), \qquad \pauli{y} = \mqty(\pmat{2}), \qquad \pauli{z} = \mqty(\pmat{3}).
+\end{equation}
+
+
+
+\section{Espín Total $S^2$}
+El espín total $S^2$ se define de la siguiente forma
+\begin{equation}
+	S^2 = S_x ^2 + S_y ^2 + S_z ^2.
+\end{equation}
+
+
+\begin{description}
+	\item[Propiedad 1: ] $S^2 = \frac{3\hbar ^2}{4} I$.
+\end{description}
+
+
+\subsection{Operadores Escaleras $S_+,S_-$}
+Tenemos que la base propia del observable $S_x$ es $\beta$ y la del observable $S_y$ es $\gamma$; estad dos bases son diferentes, lo que implican que son incompatibles, no se pueden medir simultaneamente. Debido a lo anterior vamos a definir los operadores escalera
+	\begin{align}
+		S_+ &= S_x + iS_y \\
+		S_- &= S_x - iS_y,
+	\end{align}
+observemos que  $S_+ ^\dagger = S_-$ y vicebersa, no son operadores hermíticos, ni unitarios; son operadores tipo escalera.
+
+
+\begin{description}
+	\item[Propiedad 2: ] $S_+ = \hbar \ketbra{+}{-}$.
+	\item[Propiedad 3: ] $S_- = \hbar \ketbra{-}{+}$.
+	\item[Propiedad 4: ] 
+		$$ S_x = \frac{1}{2} (S_x + S_-) $$
+		$$ S_y = \frac{1}{2i} (S_x - S_-) $$
+	\item[Propiedad 5: ] $[S_x ,S_y] = i\hbar S_z$.
+\end{description}
+
+\section{Preseción del Espín $1/2$}
+En esta clase vamos a estudiar la evolucion del espín en un eletrón sometido a un campo magnético $\vec{B}$ uniforme y constante dirigido en la dirección $z$. Debido a que el electrón tiene estpín, también tiene un momento dipolar magnético $\vec{\mu}$; para el electrón $\mu = \frac{\hbar e}{2mc}$, donde $e$ es la carga del electrón. La dirección del momento dipolar magnético es la misma que la del espín. Además tenemos que al estar un electrón en un campo magnético $\vec{B}$ tenemos que la energía total es: $U = -\vec{\mu} \cdot \vec{B}$. Nosotros medimos el observable del espín por medio del momento dipolar magnético. Antes de plantear el hamiltoniano consideremos la siguiente expresión para el espín $\vec{S}$ que es el espín total, con esto tenemos el hamiltoniano
+\begin{equation}
+	H = \vec{\mu} \cdot \vec{B} = -\frac{e}{mc} \vec{S} \cdot \vec{B}.
+\end{equation}
+
+Considerando que el campo magnético está en la dirección del eje $z$: $H = -\frac{eB_z}{mc} S_z$. Tomando las constantes como un nuevo parámetro $\omega = -\frac{eB_z}{mc}$ $\Rightarrow$ $H = \omega S_z$.
+
+
+\section{Evolución de un Estado}
+Ahora vamos a estudiar la forma en que evoluciona un estado cualquiera $\Pk{o}$ sometido a un Hamiltoniano $H = \omega S_z$. Ahora
+\begin{equation}
+	U(t) = e^{-\frac{i\omega t}{\hbar} S_z}.
+\end{equation}
+
+\begin{description}
+	\item[Propiedad 1: ] $e^{-\frac{i\omega t}{\hbar} S_z} \plus = e^{-\frac{i\omega t}{2}} \plus$.
+	\item[Propiedad 2: ] $e^{-\frac{i\omega t}{\hbar} S_z} \minus = e^{\frac{i\omega t}{2}} \minus$.
+\end{description}
+
+
+
+
+\subsection{Casos Especiales}
+Como primera instancia vamos a considerar que el estado inicial es un estado propio del Hamiltoniano $H = \omega S_z$ por ejemplo $H\plus = \frac{\omega \hbar}{2} \plus$.
+
+\begin{description}
+	\item[Caso 1: ($\Pk{o} = \plus$)] $\pkt = e^{-\frac{i\omega t}{2}} \plus$ pero eso representa el mismo estado que $\plus$. En este caso $\plus$ representa un estado estacionario. \dsnote{los kets del Hamiltoniano representan estados estacionarios que no evolucionan.} 
+	\item[Caso 2: (Estado inicial $\spinp{x}$)] En este caso $\Pk{o} = \spinp{x}$ o sea que $\Pk{t} = \frac{1}{\sqrt{2}} \plus + \frac{e^{i\omega t}}{\sqrt{2}} \minus$. Valuando
+		\begin{align*}
+			\Pk{\pi /2\omega} &= \spinp{y} \\
+			\Pk{\pi /\omega} &= \spinm{x} \\
+			\Pk{3\pi / 2\omega} &= \spinm{y}
+		\end{align*}
+	El ''cono'' va precesando (rotando) con una velocidad angular de precesión igual a $\omega$.
+\end{description}
+
+
+\subsection{Consideraciones sobre el Espín $1/2$}
+Aspectos del Espín $1/2$ que son las siguientes:
+\begin{enumerate}
+	\item Los estados del espín $1/2$ como ejemplo secillo de espinor.
+	\item Entrelazamiento dos partículas, cada una de ellas con espín $1/2$.
+\end{enumerate}
+
+\subsubsection{Estados de Espín $1/2$ como Espinor}
+REcordemos que estamos estudiando una partícula de espín $1/2$ cuyo espacio de estado es $\hilbert = \C^2$ que es un espacio unitario. En el espacio de estado $\hilbert$  tenemos un producto interno dado por el Braket. En otras palabras el espcio de estado tiene estructura geométrica llamada unitaria. POdemos hablar de ortogonalidad entre estados y magnitud de kets. 
+
+
+
+\subsubsection{Entrelazamiento de dos Partículas con Espín $1/2$}
+Vamos a considerar dos partículas, la partícula con espín $1/2$ y la partícula con espín $1/2$ también. Con estas dos partículas formamos un sistema de dos partículas de espín $1/2$ donde podemos medir el momentum anguloar total y el momentum angular en $z$. Dado el sistema de dos partículas su espacio de estado esta dado por $\hilbert = \hilbert _1 \ten \hilbert _2$ cuya base es $\{ \plus \ten \plus, \plus \ten \minus, \minus \ten \plus, \minus \ten \minus \} = \{ \ket{\upuparrows}, \ket{\updownarrows}, \ket{\downuparrows}, \ket{\downdownarrows} \}$. Vamos a medir el momentum angular del sistema en el eje $z$ 
+
+\begin{align*}
+	J_z \ket{\upuparrows} &= \hbar \upuparrows \\
+	J_z \ket{\updownarrows} &= 0 \updownarrows \\
+	J_z \ket{\downuparrows} &= 0 \downuparrows \\
+	J_z \ket{\downdownarrows} &= -\hbar \downdownarrows
+\end{align*}
+$J_z$ es la adición\footnote{Adición de Espínes: $J_{i} = S_{1i} \boxplus S_{2i} = S_{1i} \ten I + I\ten S_{2i}$, con $i = \{ x,y,z \}$.} de $S_{1z}$ y $S_{2z}$
+\begin{equation}
+	J_z = S_{1z} \boxplus S_{2z}.
+\end{equation}
 
 
 
@@ -760,11 +1082,182 @@ Los operadores anulador y creador son operadores tipo escalera; no son ni hermí
 
 \chapter{Momentum Angular}
 
+\section{Introducción por Medio de los Observables del Spin}
+Co lo último visto en el capítulo anterior, definimos un operador de momentum angular más general
+	\begin{equation}
+		J^2 = J_x ^2 + J_y ^2 + J_z ^2 .
+	\end{equation}
+La base de kets propios $\{ \ket{\upuparrows}, \ket{\updownarrows}, \ket{\downuparrows}, \ket{\downdownarrows} \}$ es base de $J_z$ pero no son kets propios de $J^2$. Ahora mostramos su representación matricial
+\begin{align}
+	J_x &= \frac{\hbar}{2} \mqty(0 & 1 & 1 & 0 \\
+								 1 & 0 & 0 & 1 \\
+								 1 & 0 & 0 & 1 \\
+								 0 & 1 & 1 & 0), \\
+	J_y &= \frac{\hbar}{2} \mqty(0 & -i & -i & 0 \\
+								 i & 0 & 0 & -i \\
+								 i & 0 & 0 & -i \\
+								 0 & i & i & 0), \\
+	J_z &= \hbar \mqty(1 & 0 & 0 & 0 \\
+								 0 & 0 & 0 & 0 \\
+								 0 & 0 & 0 & 0 \\
+								 0 & 0 & 0 & -1), \\
+	J^2 &= \hbar ^2 \mqty(2 & 0 & 0 & 0 \\
+								 0 & 1 & 1 & 0 \\
+								 0 & 1 & 1 & 0 \\
+								 0 & 0 & 0 & 0).
+\end{align}
+Encontramos los kets propios de $J^2$, los cuales forman la siguiente base $\{ \ket{\upuparrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} + \ket{\downuparrows}, \ket{downdownarrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} - \ket{\downuparrows}) \}$.
+\begin{equation}
+	\qty(J^2)_\delta = \mqty(2\hbar ^2 & 0 & 0 & 0 \\
+							 0 & 2\hbar ^2 & 0 & 0 \\
+							 0 & 0 & 2\hbar ^2 & 0 \\
+							 0 & 0 & 0 & 0).
+\end{equation}
+
+
+Recordemos el postulado 5: Cuando medimos un observable, el estado del sistema cambia (colapsa) a un estado propio del observable, correspondiente al valor propio que medimos.
+
+\paragraph{Observación: }
+Al medir el momentum angular total $J^2$ de un sistema de dos partículas con spín $1/2$ estas partículas quedan entrelazadas en estado propio correspondiente al valor propio que medimos. Cuando medimos $J^2$ obtenemos $2\hbar ^2$ o cero. Si medimos $2\hbar ^2$ para $J^2$ el sistema queda en algún estado generado por los kets propios correspondientes $\{ \ket{\upuparrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} + \ket{\downuparrows}, \ket{downdownarrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} - \ket{\downuparrows}) \}$. Pero si cuando medimos $J^2$ obtenemos cero el sistema de las dos partículas está en el estado 
+	$$ \pk = \frac{1}{\sqrt{2}} \ket{\upuparrows} - \frac{1}{\sqrt{2}} \ket{\downdownarrows} $$
+donde a los coeficientes se les conocen como \textbf{Coeficientes de Clebsh-Gordan}. Si estamos en el estado $\pk$ y a continuación medimos $S_{1z}$ podríamos obtener $\pm \frac{\hbar}{2}$. Un resultado del entrelazamiento es el siguiente:
+
+
+
+
+\begin{tcolorbox}
+	Si medimos $S_{1z}$ cuando el sistema está en el estado $\pk$ y nos da $+\hbar /2$ entonces con toda seguridad al medir $S_{2z}$ nos dará $-\hbar /2$. SI medimos $S_{1z}$ cuando el sistema está en el estado $\pk$ y nos da $-\hbar /2$ entonces con toda seguridad al medir $S_{2z}$ nos dará $+\hbar /2$.
+\end{tcolorbox}
+
+
+\section{Introducción Formal}
+Recordando como se definió el momentum lineal, usamos traslaciones en espacios euclideanos. De forma análoga vamos a usar rotaciones en espacios euclideanos para introducir el concepto de momentum angular.
+
+
+\subsection{Rotación Pasiva}
+\dsnote{No lo voy a decir...} Es la clásica: (se rotan los ejes de referencia)
+
+$$ \mqty(x' \\ y' \\ z') = \mqty(\cos \alpha & \sen \alpha & 0 \\ -\sen \alpha & \cos \alpha & 0 \\ 0 & 0 & 1) \mqty(x \\ y \\ z). $$
+Rotación $R_z (\alpha)$ ángulo $\alpha$ alrededor del eje $z$.
+
+\subsection{Rotación Activa}
+Se rota el objeto, no rota el sistema de referencia.
+
+$$ \mqty(x' \\ y' \\ z') = \mqty(\cos \alpha & -\sen \alpha & 0 \\ \sen \alpha & \cos \alpha & 0 \\ 0 & 0 & 1) \mqty(x \\ y \\ z). $$
+Por el momento se le dará preferencia al punto de vista activa, con el cual vamos a desarrollar la teoría básica del Momentum Angular.
+
+\begin{description}
+	\item[Propiedad 1: ] $D_z (\alpha)$ es un operador unitario.
+	\item[Propiedad 2: ] $\mel{r,\theta ,\phi}{D_z (\alpha)}{\psi}$
+\end{description}
+
+
+\section{Operadores}
+
+\subsection{Definición del Operador $L_z$}
+\begin{equation}
+	L_z = i\hbar \eval{ \dv{D_z (\alpha)}{\alpha} }_{\alpha = 0}.
+\end{equation}
+
+
+\begin{description}
+	\item[Propiedad 3: ] $\mel{r,\theta, \phi}{L_z}{\psi} = -i\hbar \pdv{\psi (r,\theta,\phi)}{\phi}$.
+	\item[Propiedad 4: ] $\mel{r,\theta ,\phi}{\qty(\frac{\alpha L_z}{i\hbar})^n}{\psi} = \qty(-\alpha)^n \pdv[n]{\psi}{\phi}.$
+	\item[Propiedad 5: ] $D_z (\alpha) = e^{-\frac{i\alpha L_z}{\hbar}}$.
+	\item[Propiedad 6: ] $\mel{r,\theta ,\phi}{L_z ^\dagger}{\psi} = -i\hbar \pdv{\psi}{\phi}$. Lo que implica que $L_z ^\dagger = L_z$ es Hermítico.
+	\item[Propiedad 7: ] Calculamos los operadores en términos de los observables de posición y momentum.
+			\begin{align}
+				L_z &= XP_y - YP_x \\
+				L_x &= YP_z - ZP_y \\
+				L_y &= ZP_x - XP_x 
+			\end{align}
+		y
+			\begin{align*}
+				D_x (\alpha) &= e^{-\frac{i\alpha L_x}{\hbar}} \\
+				D_y (\alpha) &= e^{-\frac{i\alpha L_y}{\hbar}}
+			\end{align*}
+		A diferencia de las traslaciones, las rotaciones no conmutan.
+\end{description}
+
+
+\section{Momentum Angular Orbital}
+Tomando el producto cruz como se definió en kinder, definimos el momentum angular orbital se tiene
+\begin{equation}
+	\vec{L} = \vec{R} \cp \vec{P}.
+\end{equation}
+
+
+\begin{description}
+	\item[Propiedad 8: ] Conmutadores.
+		\begin{align}
+			[L_x ,L_y] &= i\hbar L_z \\
+			[L_x ,L_z] &= -i\hbar L_y \\
+			[L_y ,L_z] &= i\hbar L_x .
+		\end{align}
+	\item[Propiedad 9: ] Dado el momentum angular total $L^2 = L_x ^2 + L_y ^2 + L_z ^2$, se tiene $[L^2 ,L_k] = 0$, con $k = \{ x,y,z \}$.
+	\item[Propiedad 10: ] Operadores escalera
+		\begin{align*}
+			L_+ &= L_x + iL_y \\
+			L_- &= L_x - iL_y.
+		\end{align*}
+\end{description}
+
+\subsection{Valores y Vectores Propios}
+\begin{align}
+	L_z \ket{i,m} &=m\hbar \ket{j,m} \\
+	L^2 \ket{j,m} &= \lambda _j \ket{j,m} .
+\end{align}
+
+
+\begin{description}
+	\item[Propiedad 11: ] $[L_+ ,L_-] = 2\hbar L_z$.
+	\item[Propiedad 12: ] $[L_z ,L_+] = \hbar L_+$ y $[L_z ,L_-] = -\hbar L_-$.
+	\item[Propiedad 13: ] $L^2 = \frac{1}{2} \qty(L_+ L_- + L_- L_+) + L_z ^2$.
+	\item[Propiedad 14: ] $L^2 = L_z ^2 + \hbar L_z + L_- L_+$ y $L^2 = L_z ^2 - \hbar L_z + L_+ L_-$.
+	\item[Propiedad 15: ] Ahora, volviendo al operador general de momento angular
+		\begin{align*}
+			J_+ &= J_x + iJ_y \\
+			J_- &= J_x - iJ_y \\
+			[J_+ ,J_-] &= 2\hbar J_z \\
+			[J_z ,J_+] &= \hbar J_+ \\
+			[J_z ,J_-] &= -\hbar J_- \\
+			J &= \frac{1}{2} \qty(J_+ J_- + J_- J_+) + J_z ^2 \\
+			J^2 &= J_z ^2 - \hbar J_z + J_+ J_-.
+		\end{align*}
+	\item[Propiedad 16: ] $L_+ \ket{j,m} = c\ket{i,m+1}$.
+	\item[Propiedad 17: ] $L_- \ket{j,m} = c\ket{j,m-1}$.
+	\item[Propiedad 18: ] $L^2 \ket{j,m} = \hbar ^2 j(j + 1) \ket{j,m}$.
+	\item[Propiedad 19: ] Elvalor mínimo de $m$ para los kets propios $\ket{j,m}$ con $j$ fijo es $m=-j$.
+	\item[Propiedad 20: ] Los valores que puede tener $j$ son los siguietnes $j = 0, 1/2, 1, 3/2, 2, 5/2, \ldots$.
+	\item[Propiedad 21: ] Dimensión del subespaio propio para $j$: dim$\hilbert _j = 2j+1$.
+	\item[Propiedad 22: ] $L_+ \ket{j,m} = \hbar \sqrt{j(j+1) - m(m + 1)} \ket{j,m + 1}$.
+	\item[Propiedad 23: ] $L_- \ket{j,m} = \hbar \sqrt{j(j+1) - m(m - 1)} \ket{j,m - 1}$.
+\end{description}
+
+
+\subsection{Armónicos Esféricos}
+La representación delos ket propios $\ket{l,m}$, cuando $l$ es entero, respecto a la posición en coordenadas esféricas nos quedan los Armónicos Esféricos. Ahora $l=0,1,2,\ldots$
+	\begin{equation}
+		\braket{r,\theta ,\phi}{l,m} = Y_l ^m (\theta ,\phi).
+	\end{equation}
 
 
 
 
 
+\chapter{Métodos Aproximados}
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Problemas en Una Dimensión}
 
 
 
