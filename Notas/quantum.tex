@@ -1,3 +1,4 @@
+
 \part{Mecánica Cuántica}
 
 \vspace*{\fill}
@@ -332,6 +333,14 @@ El momento magnético $m$ del átomo puede medirse mediante esta experiencia, y 
             \item Las componentes del momentum lineal.
             \item El momentum angular total con el momentum angular del eje $z$.
         \end{itemize}
+	\item[Conjunto Completo de Operadores que Conmutan (CSCO): ] Si $A$ y $B$ dos observables que no conmutan, entonces estos no pueden ser medidos simultaneamente; el orden en el que son medidos importa.
+	\begin{teorema}
+		Si dos observables son compatibles, sus correspondientes opeardores poseen un conjunto común de estados propios. (Esto es válido para estados propios degenerados y no degenerados.)
+	\end{teorema}
+	Este teorema conduce a la siguiente definición:
+	\begin{definition}
+		Un conjunto de operadores Hermíticos $A,B,C,\ldots$ es llamado un CSCO si los operadores conmutan mutuamente y si el conjunto de sus estados propios es completo y no degenerado (único).
+	\end{definition}
     \item[Observables Incompatibles: ] $A$ y $B$ son incompatibles si y solo si $[A,B] \neq 0$.
     \item[Operador Dispersión: ]  Dado un observable $A$, definimos su operador de dispersión de la siguiente forma:
         $$ \Delta A = A - \expval{A} I. $$
@@ -778,7 +787,7 @@ Para continuar con todo esto, se calculará $\braket{x}{n}$ donde $\abs{\braket{
 0 & 0 & 0 & \sqrt{4} & \cdots \\
 \vdots & \vdots & \vdots & \vdots & \ddots
 \end{pmatrix}. $$
-	\item[Propiedad 21: ] $\braket{x}{0} = \dfrac{1}{\pi ^{1/4} \lambda ^{1/2}} e^{-\frac{1}{2} \qty(x/\lambda)^2}$, donde $\lambda \sqrt{\frac{\hbar}{m\omega}}$ y $\omega = \sqrt{\frac{k}{m}}$.
+	\item[Propiedad 21: ] $\braket{x}{0} = \dfrac{1}{\pi ^{1/4} \lambda ^{1/2}} e^{-\frac{1}{2} \qty(x/\lambda)^2}$, donde $\lambda = \sqrt{\frac{\hbar}{m\omega}}$ y $\omega = \sqrt{\frac{k}{m}}$.
 	\item[Propiedad 22: ] Si $\braket{x}{\psi} = \psi (x)$ entonces $\mel{x}{\qty(X - \frac{i}{m\omega} P)^n}{\psi} = \qty(x - \lambda ^2 \dv{x})^n \psi (x)$.
 	\item[Propiedad 23: ] $\braket{x}{n} = \dfrac{1}{\pi ^{1/4} \sqrt{n! 2^n} \lambda ^{n + 1/2}} \qty(x - \lambda ^2 \dv{x})^n e^{1\frac{1}{2} \qty(\frac{x}{\lambda})^2}. $
 \end{description}
@@ -1055,18 +1064,18 @@ Aspectos del Espín $1/2$ que son las siguientes:
 \end{enumerate}
 
 \subsubsection{Estados de Espín $1/2$ como Espinor}
-REcordemos que estamos estudiando una partícula de espín $1/2$ cuyo espacio de estado es $\hilbert = \C^2$ que es un espacio unitario. En el espacio de estado $\hilbert$  tenemos un producto interno dado por el Braket. En otras palabras el espcio de estado tiene estructura geométrica llamada unitaria. POdemos hablar de ortogonalidad entre estados y magnitud de kets. 
+REcordemos que estamos estudiando una partícula de espín $1/2$ cuyo espacio de estado es $\hilbert = \C^2$ que es un espacio unitario. En el espacio de estado $\hilbert$  tenemos un producto interno dado por el Braket. En otras palabras el espcio de estado tiene estructura geométrica llamada unitaria. Podemos hablar de ortogonalidad entre estados y magnitud de kets. 
 
 
 
 \subsubsection{Entrelazamiento de dos Partículas con Espín $1/2$}
-Vamos a considerar dos partículas, la partícula con espín $1/2$ y la partícula con espín $1/2$ también. Con estas dos partículas formamos un sistema de dos partículas de espín $1/2$ donde podemos medir el momentum anguloar total y el momentum angular en $z$. Dado el sistema de dos partículas su espacio de estado esta dado por $\hilbert = \hilbert _1 \ten \hilbert _2$ cuya base es $\{ \plus \ten \plus, \plus \ten \minus, \minus \ten \plus, \minus \ten \minus \} = \{ \ket{\upuparrows}, \ket{\updownarrows}, \ket{\downuparrows}, \ket{\downdownarrows} \}$. Vamos a medir el momentum angular del sistema en el eje $z$ 
+Vamos a considerar dos partículas, la partícula con espín $1/2$ y la partícula con espín $1/2$ también. Con estas dos partículas formamos un sistema de dos partículas de espín $1/2$ donde podemos medir el momentum angular total y el momentum angular en $z$. Dado el sistema de dos partículas su espacio de estado esta dado por $\hilbert = \hilbert _1 \ten \hilbert _2$ cuya base es $\{ \plus \ten \plus, \plus \ten \minus, \minus \ten \plus, \minus \ten \minus \} = \{ \ket{\upuparrows}, \ket{\updownarrows}, \ket{\downuparrows}, \ket{\downdownarrows} \}$. Vamos a medir el momentum angular del sistema en el eje $z$ 
 
 \begin{align*}
-	J_z \ket{\upuparrows} &= \hbar \upuparrows \\
-	J_z \ket{\updownarrows} &= 0 \updownarrows \\
-	J_z \ket{\downuparrows} &= 0 \downuparrows \\
-	J_z \ket{\downdownarrows} &= -\hbar \downdownarrows
+	J_z \ket{\upuparrows} &= \hbar \ket{\upuparrows} \\
+	J_z \ket{\updownarrows} &= 0 \ket{\updownarrows} \\
+	J_z \ket{\downuparrows} &= 0 \ket{\downuparrows} \\
+	J_z \ket{\downdownarrows} &= -\hbar \ket{\downdownarrows}
 \end{align*}
 $J_z$ es la adición\footnote{Adición de Espínes: $J_{i} = S_{1i} \boxplus S_{2i} = S_{1i} \ten I + I\ten S_{2i}$, con $i = \{ x,y,z \}$.} de $S_{1z}$ y $S_{2z}$
 \begin{equation}
@@ -1083,7 +1092,7 @@ $J_z$ es la adición\footnote{Adición de Espínes: $J_{i} = S_{1i} \boxplus S_{
 \chapter{Momentum Angular}
 
 \section{Introducción por Medio de los Observables del Spin}
-Co lo último visto en el capítulo anterior, definimos un operador de momentum angular más general
+Con lo último visto en el capítulo anterior, definimos un operador de momentum angular más general
 	\begin{equation}
 		J^2 = J_x ^2 + J_y ^2 + J_z ^2 .
 	\end{equation}
@@ -1247,6 +1256,124 @@ La representación delos ket propios $\ket{l,m}$, cuando $l$ es entero, respecto
 
 \chapter{Métodos Aproximados}
 
+\section{Teoría de Perturbaciones}
+
+\subsection{No Degenerada}
+Esta teoría se basa en encontrar la solución a la ecuación de Schrodinger independiente del tiempo. 
+	\begin{equation}
+		H = H^{(0)} + \lambda H'. \label{perturbacion}
+	\end{equation}
+Donde $H$ lo desconocemos, $H^{(0)}$ conocemos la solución, $H'$ término perturbativo y $\lambda$ consante de acoplamiento. Dada una solución conocida $H^{(0)} \psi _n ^{(0)} = E_n ^{(0)} \psi _n ^{(0)}$, y queremos encontrar la forma en serie de los elementos de onda solución de otro hamitoniano $H \psi _n = E_n \psi _n$.
+\begin{align*}
+	\psi _n &= \psi _n ^{(0)} + \lambda \psi _n ^{(1)} + \lambda ^2 \psi _n ^{(2)} + \cdots \\
+	E_n &= E_n ^{(0)} + \lambda E_n ^{(1)} + \lambda ^2 E_n ^{(2)} + \cdots .
+\end{align*}
+	
+Reemplazando
+\begin{equation}
+	\qty(H^{(0)} + \lambda H') \qty(\psi _n ^{(0)} + \lambda \psi _n ^{(1)} + \lambda ^2 \psi _n ^{(2)} + \cdots) = \qty(E_n ^{(0)} + \lambda E_n ^{(1)} + \lambda ^2 E_n ^{(2)} + \cdots) \qty(\psi _n ^{(0)} + \lambda \psi _n ^{(1)} + \lambda ^2 \psi _n ^{(2)} + \cdots).
+\end{equation}
+Desarrollando esto y agrupando los elementos respecto a $\lambda$, multiplicamos por $\bra{\psi _n ^{(0)}}$. Se llega a la siguiente relación:
+
+\begin{align*}
+	\psi _n ^{(1)} &= \sum _{m\neq n} \frac{\mel{\psi _m ^{(0)}}{H'}{\psi _n ^{(0)}}}{E_n ^{(0)} - E_m ^{(0)}} \psi _m ^{(\cdot)} \\
+	E_n = E_n ^{(0)} + \expval{H'}{\psi _n ^{(0)}} \\
+	\psi _n &= \psi _n ^{(0)} + \psi _n ^{(1)}.
+\end{align*}
+	
+
+
+
+
+
+
+
+
+
+\section{Átomo de Hidrógeno}
+Empezaremos recordando los observables y sus operadores asociados:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cc}
+		\hline
+		\hline
+		Osbservable & Operador \\
+		\hline
+		\hline
+		$\vec{r}$ & $\hat{R}$ \\
+		$\vec{p}$ & $\hat{P} = -i\hbar \gradient$ \\
+		$T=\frac{p^2}{2m}$ & $\hat{T} = -\frac{'\hbar ^2}{2m} \laplacian$ \\
+		$E=\frac{p^2}{2m} + V(\vec{p} ,t)$ & $\hat{H} = -\frac{\hbar ^2}{2m} \laplacian + \hat{V} (\hat{R},t)$ \\
+		$\vec{L} = \vec{r} \cp \vec{p}$ & $\hat{L} = -i\hbar \hat{R}\cp \grad$ \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
+
+El operador momentum para dos partículas diferentes, conmuta por el simple hecho de que las partículas son diferentes. \\
+
+Tomaremos el hamiltoniano del sistema:
+\begin{align}
+    H &= \frac{P^2}{2m} - \frac{1}{4\pi \ep} \frac{Ze^2}{r}, \\
+    H &= -\frac{\hbar ^2}{2m} \laplacian - \frac{1}{4\pi \ep} \frac{Ze^2}{r}. 
+\end{align}
+La masa es normalmente tomada como la masa del electrón; esto es, debido a que se trata de un problema de dos cuerpos se toma la masa reducida que, luego de un poco de álgebra tiene la siguiente forma $m \approx m_e - \frac{m_e ^2}{M}$, pero dado que la masa del protón es más de 3 ordenes de magnitud mayor que la del electrón, el ultimo término se ignora y nos deja únicamente la masa del electrón.  \\
+La ecuación de Schrodinger es el siguiente problema:
+\begin{align*}
+    H\psi = E_n \psi .
+\end{align*}
+
+La solución más conocida es por medio de separación de variables
+    \begin{equation}
+        \psi _{n,j,m} (r,\theta,\phi) = R_{n,l} (r) Y _{l,m} (\theta ,\phi).
+    \end{equation}
+donde $R$ son los polinomios de Laguerre generalizados y $Y$ son los armónicos esféricos. Los estados están indexados por $3$ números cuánticos $n = 1,2,\ldots$, $l = 0,1,2,\ldots ,n-1$ y $m = -l, \ldots ,+l$. En lo cual, la energía solo depende en uno de estos números cuánticos
+    \begin{equation}
+        E_n = - \qty(\frac{Z e^2}{4\pi \ep})^2 \frac{m}{2\hbar ^2} \frac{1}{n^2},
+    \end{equation}
+también se puede escribir de la siguiente forma
+\begin{equation*}
+    E_n = - \frac{ Ry}{n^2},
+\end{equation*}
+donde $Ry = 13.6eV$ es la energía de \textit{Rydberg}, es la energía en el estado base del hidrógeno. También es útil esta otra forma de escribir los niveles de energía
+    \begin{equation}
+        E_n = -\frac{(Z\alpha)^2 mc^2}{2n^2}, \qquad \text{donde} \qquad \alpha = \frac{e^2}{4\pi \ep \hbar c}.
+    \end{equation}
+
+Esto implica que podemos ver como las energías que ligan al electrón son comparadas con la energía en reposo de la masa del electrón. La cantidad $\alpha \approx 1/137$ es adimensional y se conoce como la \textit{constante de estructura fina}. La constante de estructura fina debería pensarse como la manera de caracterizar la fuerza de la, valga la redundancia, fuerza electromagnética. La solución a la ecuación de Schrodinger para el átomo de hidrógeno es la siguiente
+\begin{equation}
+    \psi _{n,j,m} (r,\theta,\phi) = e^{-\frac{r}{na_o}} \qty(\frac{r}{a_o})^l \sum _{k=0} ^{n - L - 1} b_k \qty(\frac{r}{a_o})^k Y_{l,m} (\theta ,\phi).
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1258,13 +1385,186 @@ La representación delos ket propios $\ket{l,m}$, cuando $l$ es entero, respecto
 
 
 \chapter{Problemas en Una Dimensión}
+Tener en mente la ecuación de Schrodinger
+    \begin{equation}
+        -\frac{\hbar ^2}{2m} \dv[2]{\psi (x)}{x} + V(x) \psi (x) = E\psi (x).
+    \end{equation}
+donde sabemos que la función de onda tiene como dimensionales $1/\sqrt{m}$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/potencial.png}
+    \caption{Forma de un potencial general.}
+    \label{fig:potencialGeneral}
+\end{figure}
+
+\section{Propiedades del Movimiento en Una Dimensión}
+
+
+\subsection{Espectro Discreto (Estados Ligados)}
+Los estados ligados se dan cuando la partícula no se puede mover al infinito. La partícula esta confinada a una región limitada de espacio. La ecuación de Schrodinger permite únicamente soluciones discretas. El potencial de pozo infinito y el oscilador armónico son ejemplos que producen estados ligados. En la figura \Fref{fig:potencialGeneral} es claro que el movimiento de la partícula esta confinado a estar entre $x_1$ y $x_2$\footnote{Los puntos $x_1$ y $x_2$ son los puntos de inflexión del potencial.} y  cuando el nivel de energía de la partícula está entre $V_{min} < E < V_1$.
+
+\begin{teorema}
+    En un problema de una dimensión, los niveles de energía de un estado ligado son discretos y no degenerados.
+\end{teorema}
+
+
+\begin{teorema}
+    La función de onda $\psi _n (x)$ de un problema de estado ligado en una dimensión tiene $n$ nodos ($\psi _n (x)$ se hace cero $n$ veces) si $n=0$ corresponde  al estado base y $n-1$ nodos si $n=1$ corresponde al estado base.
+\end{teorema}
+
+\subsection{Espectro Continuo (Estados ligados)}
+
+Los estados libres ocurren en los casos donde el movimiento del sistema no esta restringido; el ejemplo más clásico es \textit{la partícula libre}. 
+\begin{description}
+    \item[Caso $V_1 < E < V_2$: ] En este caso el movimiento de la partícula es hacia $-\infty$. Dado que es un punto de inflexión clásico, por lo que el espectro es continuo y ninguno de sus valores ni vectores propios son degenerados.
+    \item[Case $E > V_2$: ] El espectro de energía es continuo y el movimiento de la partícula es infinito en ambas direcciones. Todos los niveles de energía de este espectro son doblemente degenerados.
+\end{description}
+
+\subsection{Potenciales Simétricos y Paridad}
+
+La gran mayoría de potenciales que se conocen/utilizan a nivel microscópico son simétricos respecto a la inversión espacial $V(-x) = V(x)$. Esta simetría implican simplificaciones en los cálculos. 
+
+\begin{description}
+    \item[Espectro No Degenerado: ] Primero se considerará el caso donde los valores propios del Hamiltoniano corresponden a este potencial son no degenerados. Se sabe que un operador simétrico no degenerado tiene los mismos estados propios que el operador paridad. Dado que los estados propios del operador paridad tienen paridad definida, los estados ligados de una partícula moviéndose en un potencial unidimensional simétrico tienen paridad definida
+        \begin{equation}
+            V(-x) = V(x) \quad \Rightarrow \quad \psi (-x) = \pm \psi (x).
+        \end{equation}
+    \item[Espectro Degenerado: ] Si el espectro del hamiltoniano correspondiente a un potencial es degenerado, los estados propios son expresados solo en términos de estados pares e impares. Los estados propios no tienen paridad definida.
+\end{description}
+
+\section{Partícula Libre: Estados Continuos}
+Este es el problema más clásico y simple, se tiene $V(x) = 0$ para toda $x$. Se tiene que las solución se da en paquetes de onda
+    \begin{equation*}
+        \psi (x,t) = \frac{1}{\sqrt{2\pi}} \int _{-\infty} ^\infty \psi (k) e^{i(kx - \omega t)} \dd{k},
+    \end{equation*}
+donde $\phi (k)$, la amplitud de los paquetes de onda está dada por la transformación de fourier de $\psi (x,0)$ como
+    \begin{equation*}
+        \phi (k) = \frac{1}{\sqrt{2\pi}} \int _{-\infty} ^\infty \psi (x,0) e^{-ikx} \dd{x}.
+    \end{equation*}
+
+Primero, el momento, posición y energía de la partícula no se conocen con certeza; solo un estado probabilístico es posible. Segundo, el paquete de onda y la partícula viajan a la misma velocidad $v_g = p/m$, conocida como velocidad de grupo.
+
+
+\section{Potencial Escalonado}
+Otro ejemplo simple consiste en una partícula que es libre en todos lados, excepto en un punto en particular, por ejemplo $x = 0$, un potencial de este tipo es conocido como potencial escalonado:
+\begin{equation}
+    V(x) = \left\{ \mqty{0, & x<0,\\ V_o, & z\geq 0} \right. .
+\end{equation}
+
+En este problema se intenta analizar la dinámica de un flujo de partículas moviéndose de izquierda a derecha. Se considerarán dos casos, dependiendo si $E$ es mayor o menor a $V_o$.
+
+\begin{description}
+    \item[Caso $E > V_o$: ] Las partículas son libres en $x<0$ y sienten el potencial repulsivo $V_o$ que inicia en $x = 0$ y se mantiene constante para $x > 0$. Analizando esto clásicamente, cuando la partícula empieza a entrar en la región cercana a $0$ el el momentum lineal es $\sqrt{2m (E - V_o)}$, pero como la energía es suficiente para vencer el potencial, el paquete de partículas simplemente perderá energía cinética. Desde el punto de vista cuántico, la partícula está regido por la ecuación de Schrodinger para estas dos regiones
+    \begin{align}
+        \qty(\dv[2]{x} + k_1 ^2) \psi _1 (x) &= 0 \qquad (x < 0), \label{izquierda} \\
+        \qty(\dv[2]{x} + k_2 ^2) \psi _1 (x) &= 0 \qquad (x \geq 0),
+    \end{align}
+    donde $k_1 ^2 = 2mE/\hbar ^2$ y $k_2 ^2 = 2m (E - V_o)/\hbar ^2$. Las soluciones más generales de estas dos ecuaciones son
+    \begin{align}
+        \psi _1 (x) &= Ae^{ik_1 x} + Be^{-ik_1 x} \qquad (x < 0), \label{izquierdaSolucion} \\ 
+        \psi _2 (x) &= Ce^{ik_2 x} + De^{-ik_2 x} \qquad (x \geq 0),
+    \end{align}
+    donde los términos exponenciales positivos representan las ondas moviéndose en la dirección $x$ y para las negativas en la dirección $-x$. \\
+    En resumen, hay partículas reflectadas a pesar de que poseen energía suficiente para atravesar la barrera, a esto se le conoce como \textit{wavelike behavior}. \dsnote{Terminar esta explicación en Zettili, p221.}
+    \item[Caso $E < V_o$: ] Dado que la energía que poseen las partículas es menor al potencial de barrera, estas saldrán rebotadas sin poder cruzarlo \dsnote{bastante obvio, hablando clásicamente}. Cuántica-mente, esto no es del todo así, a la izquierda de la barrera las ecuaciones que modelan esto son \eqref{izquierda} y \eqref{izquierdaSolucion}. Pero para el lado derecho del potencial se tiene lo siguiente
+        \begin{align}
+            \qty(\dv[2]{x} + k_2 ^2) \psi _2 (x) &= 0 \qquad (x \geq 0), \\
+            \psi _2 (x) &= Ce^{-k_2 x} + De^{k_2 x} \qquad (x \geq 0),
+        \end{align}
+    dado que el valor de la función en todo el espacio debe ser finito, $D$ debe ser cero. A diferencia del caso clásico, en el caso cuántico se tiene probabilidad distinta de cero de encontrar alguna partícula a la derecha de la barrera
+        $$ P(x) = \abs{\psi _t (x)}^2 = \abs{C}^2 e^{-2k_2 x} = \frac{4k_1 ^2 \abs{A}^2}{k_1 ^2 + k_2 ^2} e^{-2k_2 x}. $$
+\end{description}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/potenciales.png}
+    \caption{Escalamiento de potencial y direcciones de propagación de los resultados posibles, ondas reflejadas y transmitidas, más sus densidades de probabilidad $\abs{\psi (x)}^2$ para ambos casos.}
+    \label{fig:potenciales}
+\end{figure}
 
 
 
 
+\section{Pozo de Potencial}
+Consideremos un haz de partículas de masa $m$ que son enviadas desde la izquierda de una barrera de potencial
+    \begin{equation}
+        V(x) = \left\{ \mqty{0, & x<0, \\ V_o, & 0\leq x \leq a, \\ 0, & x > a.} \right.
+    \end{equation}
+Este potencial, repulsivo, no admite estados ligados. Estamos tratando con un problema de dispersion unidimensional. Volveremos a tomar $2$ casos
+
+\begin{description}
+    \item[Caso $E > V_o$: ] Clásicamente, el resultado final es como si no existiera la barrera. Cuánticamente, es intuitivo lo que sucederá, la partícula mantendrá el comportamiento oscilatorio con menor amplitud conforme se pasa de regiones. \dsnote{Revisar Zettili, p226.}
+    \item[Caso $E < V_o$: ] Clásicamente, es también bastante intuitivo el resultado. Cuánticamente, no lo es, aunque es esperado algo similar a lo visto en el problema anterior.
+\end{description}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/potenciales_pozo.png}
+    \caption{Escalamiento de potencial y direcciones de propagación de los resultados posibles, ondas reflejadas y transmitidas, más sus densidades de probabilidad $\abs{\psi (x)}^2$ para ambos casos.}
+    \label{fig:pozo}
+\end{figure}
+
+\subsection{Tunelamiento}
+En general, el efecto de tunelamiento consiste en la propagación de una partícula a través de una región donde la energía de la partícula es menor que el potencial. Esto es cierto solo si la el potencial es una función suave y varía lentamente respecto a x.
 
 
 
+\section{Potencial de Pozo Cuadrado Infinito}
+
+\subsection{Asimétrico}
+El potencial es de la siguiente forma
+    \begin{equation}
+        V(x) = \left\{ \mqty{ +\infty , & x<0, \\ 0, & 0 \leq x \leq a, \\ +\infty, & x > a. } \right.
+    \end{equation}
+Clásicamente, la partícula se mantiene con un momentum constante siendo reflectada continuamente dado el pozo de potencial. Cuánticamente, se espera que esta partícula tenga una única solución ligada y un espectro no degenerado de la energía. Veremos soluciones dentro del pozo, las cuales son las esperadas, soluciones al oscilador armónico y esto nos da la energía
+    \begin{equation}
+        E_n = \frac{\hbar ^2}{2m} k_n ^2 = \frac{\hbar ^2 \pi ^2}{2m a^2} n^2 \qquad (n = 1,2,3,\ldots).
+    \end{equation}
+La energía está cuantizada. Esto era esperable dado que se trata de estados ligados y su espectro de energía es por definicion discreto. Con esto y normalizando la función de onda tenemos que
+    \begin{equation}
+        \boxed{ \psi _n (x) = \sqrt{\frac{2}{a}} \sin{\frac{n\pi}{a} x} \qquad (n = 1,2,3,\ldots). } 
+    \end{equation}
+
+
+Esta es la solución a la ecuación de Schrodinger independiente de tiempo, para la dependiente del tiempo
+\begin{equation}
+	\Psi (x,t) = \sum _{n=1} ^\infty \psi _n (x) e^{-\frac{iE_n t}{\hbar}} = \sqrt{\frac{2}{a}} \sum _{n=1} ^\infty \sin{\frac{n\pi x}{a}} e^{-\frac{in^2 E_1 t}{\hbar}}.
+\end{equation}
+
+
+
+
+\subsection{Simétrico}
+Para el potencial simétrico
+	\begin{equation}
+		V(x) = \left\{ \mqty{ +\infty , & x<-a/2, \\ 0, & -a/2 \leq x \leq a/2, \\ +\infty, & x > a/2. } \right.
+	\end{equation}
+El espectro de la energía se mantiene dada esta traslación, dado que el hamiltoniano es invariante ante transformaciones espaciales; como solo contiene parte cinética, conmuta con el momentum de la partícula $[H,P] = 0$. El espectro es discreto y no degenerado. La función correspondiente al potencial es
+\begin{equation}
+	\pk{n} (x) = \sqrt{\frac{2}{a}} \sin{\qty[\frac{n\pi }{a} \qty(x + \frac{a}{2})]} = \left\{ \mqty{\sqrt{\frac{2}{a}} \cos{\frac{n\pi x}{a}} & (n = 1,3,5,\ldots), \\ \sqrt{\frac{2}{a}} \sin{\frac{n\pi x}{a}} & (n = 2,4,6,8,\ldots) } \right.
+\end{equation}
+
+Las funciones de onda correspondientes a los números cuánticos impares son simétricas y las pares son antisimétricas.
+
+
+
+\section{Potencial de Pozo Cuadrado Finito}
+Consideremos una partícula de masa $m$ moviendose en el siguiente potencial
+	\begin{equation}
+		V(x) = \left\{ \mqty{ V_o , & x<-a/2, \\ 0, & -a/2 \leq x \leq a/2, \\ V_o, & x > a/2. } \right.
+	\end{equation}
+
+Los únicos casos interesantes son $E > V_o$ y $E < V_o$. Se esperan soluciones continuas y doblemente degeneradas para el espectro de la energía de $E > V_o$ y uno discreto y no degenerada para $E < V_o$.
+
+
+\subsection{Soluciones de Dispersión ($E > V_o$)}
+Clasicamente, si la partícula parte desde la izquierda con un momento constante de $\sqrt{2m(E - V_o)}$ se acelerará hasta $\sqrt{2mE}$ en el pozo y luego se relentizará hasta su momentum inicial luego de salir de él. Cuanticamente, como se hizo para los potenciales eslacaldos, se puede comprobar que se obvtiene un coeficiente de reflección finito. La solución es fácil de obtener; solo se siguen los pasos seguidos en las demostraciones anteriores. La función de onda tiene un patrón de oscilación en las tres regiones.
+
+
+
+\subsection{Soluciones de Estados Ligados ($E < V_o$)}
+Clásicamente, la partícula esta confinada al pozo. Cuánticamente, las soluciones son bastante interesantes, se espera un espectro de energía discreto y funciones de onda que decaen en ambas regiones fuera del pozo, pero oscilante dentro. \dsnote{ver Zettili, p235}.
 
 
 

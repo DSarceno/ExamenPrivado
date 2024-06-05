@@ -1,1 +1,486 @@
 \part{Mecánica Clásica}
+
+\vspace*{\fill}
+
+\begin{center}
+	\textit{''La frase más exitante que se puede oír en ciencia, la que anuncia nuevos descubrimientos, no es «eureka» sino «Eso es divertido...»'' - Isaac Asimov.}
+\end{center}
+
+\vspace*{\fill}
+
+\chapter{Movimiento de una Partícula en una Dimensión}
+
+Se estudiará el movimiento de una partícula a lo largo de una línea recta.
+
+\section{Teoremas de Energía y Momentum}
+El movimiento de una partícula esta gobernado por la ecuación de la Segunda Ley de Newton
+\begin{equation}
+	F = m\dv[2]{x}{t}.
+\end{equation}
+
+Antes de considerar su solución de esta ecuación es necesario recordar algunos conceptos básicos, como el momentum lineal
+\begin{equation}
+	p = mv = m\dv{x}{t}.
+\end{equation}
+
+Suponiendo que la masa es constante (esto no es cierto en casos específicos), se tiene
+
+\begin{equation}
+	F = \dv{p}{t}.
+\end{equation}
+
+Esta ecuación muestra que el cambio del momentum en el tiempo es igual a la fuerza aplicada. A esto le llamammos el Teorema del Momentum Lineal. Integrando en el tiempo, se tiene 
+\begin{equation}
+	p_2 - p_1 = \int _{t_1} ^{t_2} F \dd{t}.
+\end{equation}
+
+A la integral de la derecha se le conoce como \textit{Impulso}. \\
+
+
+Otra cantidad importante a tomar en cuenta es la \textit{energía cinética}
+\begin{equation}
+	T = \frac{1}{2} mv^2.
+\end{equation}
+
+Multiplicando la Segunda Ley de Newton por la velocidad, se tiene lo siguiente
+\begin{equation}
+	\dv{t} \qty(\frac{1}{2} mv^2) = \dv{T}{t} = Fv.
+\end{equation}
+Integrando de ambos lados y reemplazando la velocidad por su definición, se llega al \textit{Teorema Trabajo y Energía}
+
+\begin{equation}
+	T_2 - T_1 = \int _{t_1} ^{t_2} F \dd{x}.
+\end{equation}
+
+\section{Fuerza}
+
+\subsection{Fuerza Aplicada Dependiente del Tiempo}
+
+SI la fuerza $F$ está dada por una función dependiente del tiempo, resolviendo el teorema impulso momento para $x$ y $\dot{x}$.
+\begin{align}
+	v &= v_o + \frac{1}{m} \int _{t_o} ^t F(t) \dd{t} \\
+	x - x_o &= v_o (t - t_o) + \frac{1}{m} \int _{t_o} ^t \qty[\int _{t_o} ^t F(t) \dd{t}] \dd{t} .
+\end{align}
+
+
+\subsection{Fuerza de Restitución Dependiente de la Velocidad}
+La Segunda Ley de Newton en términos de la velocidad
+\begin{equation}
+	m\dv{v}{t} = F(v).
+\end{equation}
+Integramos y se obtienen soluciones de la siguiente forma
+\begin{align*}
+	v &= \varphi \qty(v_o , \frac{t - t_o}{m}) \\
+	x &= x_o + \int _{t_o} ^t \varphi \qty(v_o , \frac{t - t_o}{m}) \dd{t}.
+\end{align*}
+Estas fuerzas restitutivas dependen de potencias de la velocidad del objeto/sistema en movimiento 
+	\begin{equation}
+		F = \mp bv^n,
+	\end{equation}
+Si $n$ es un entero impar, se toma el signo negativo, en otro caso se toma el signo de modo que la velocidad sea opuesta a la velocidad.
+
+\subsection{Fuerza Conservativa}
+
+Para una fuerza dependiente exclusivamente de la posición. Ahora definimos la energía potencial
+\begin{equation}
+	V(x) = - \int _{x_s} ^x F(x) \dd{x}
+\end{equation}
+Con esto se puede definir la energía total
+\begin{equation}
+	E = T + V.
+\end{equation}
+Resolviendo para la velocidad se obtiene
+\begin{equation}
+	v = \dv{x}{t} = \sqrt{\frac{2}{m}} \qty[E - V(x)]^{1/2}
+\end{equation}
+entonces
+\begin{equation}
+	\sqrt{\frac{m}{2}} \int _{x_o} ^x \qty[E - V(x)]^{1/2} \dd{x} = t - t_o.
+\end{equation}
+Con todo esto obtenemos la relación directa entre potencial y fuerza
+\begin{equation}
+	F = -\grad{V}
+\end{equation}
+
+\subsubsection{Campos Vectoriales}
+Para que un campo vectorial $\vec{F}$ sea considerado conservativo, deben cumplirse las siguientes condiciones:
+
+\begin{enumerate}
+    \item \textbf{Existencia de un potencial escalar:} Existe una función escalar $f$ tal que $\vec{F} = \nabla f$. Esto significa que el campo vectorial puede ser expresado como el gradiente de una función escalar.
+    
+    \item \textbf{La circulación de $\vec{F}$ sobre cualquier curva cerrada es cero:} Para que un campo vectorial $\vec{F}$ sea conservativo, la integral de línea del campo vectorial sobre cualquier curva cerrada $C$ debe ser cero:
+    $$
+    \oint_{C} \vec{F} \cdot d\vec{r} = 0
+    $$
+    Esto implica que el trabajo realizado por el campo a lo largo de una trayectoria cerrada es nulo.
+    
+    \item \textbf{Independencia del camino:} En un campo conservativo, la integral de línea de $\vec{F}$ entre dos puntos cualesquiera es independiente del camino tomado entre esos puntos. Es decir, si $A$ y $B$ son dos puntos en el espacio, entonces:
+    $$
+    \int_{A}^{B} \vec{F} \cdot d\vec{r}
+    $$
+    es la misma para cualquier camino entre $A$ y $B$.
+    
+    \item \textbf{La condición de rotacional cero (campo irrotacional):} Para un campo vectorial $\vec{F}$ ser conservativo, su rotacional debe ser cero en toda la región de interés:
+    $$
+    \nabla \times \vec{F} = \vec{0}
+    $$
+    Esta condición implica que no hay "vorticidad" en el campo vectorial.
+    
+    \item \textbf{Simplemente conexa del dominio:} Para que el criterio del rotacional cero garantice que un campo es conservativo, el dominio del campo debe ser simplemente conexo. Un dominio es simplemente conexo si cualquier curva cerrada dentro de él puede ser contraída continuamente a un punto sin salir del dominio. En otras palabras, no debe haber agujeros en el dominio.
+\end{enumerate}
+
+
+
+\subsection{Caída Libre}
+Una situación más que conocida para nosotros, ahora le incluiremos fuerzas de resitución
+
+\begin{equation}
+	F = -mg - bv,
+\end{equation}
+Esta es una aproximación más didáctica que real, para objetos pequeños con velocidades terminales grandes, esta es una mejor aproximación
+\begin{equation}
+	F = bv^2.
+\end{equation}
+
+
+
+\section{Osciladores}
+
+\subsection{Oscilador Armónico Simple}
+\dsnote{Básico, bueno, bonito y barato, todos lo conocemos y nos gusta :3} La ecuación característica de los osciladores armónicos simple
+\begin{equation}
+	\ddot{x} + \omega _o ^2 x = 0.
+\end{equation}
+Cuya energía potencial y total es
+\begin{align*}
+	V(x) &= \frac{1}{2} kx^2 \\
+	E &= \frac{1}{2} kA^2 
+\end{align*}
+
+
+
+
+
+\subsection{Diagramas de Fase}
+Diagrama realizado con $x$ y $\dot{x}$ como las coordenadas. Estos diagramas muestran información reelevante acerca del movimiento del sistema. Estos diagramas tienen como objetivos
+\begin{itemize}
+	\item Visualización de la dinámica del sistema.
+	\item Análisisd de estabilidad.
+	\item Predicción del comportamiento futuro.
+	\item Estudio de sistemas caóticos.
+\end{itemize}
+
+
+\subsection{Oscilaciones Amortiguadas}
+El oscilador armónico simple es un oscilador libre. Para este tipo de oscilacion se tiene
+
+\begin{equation}
+	\ddot{x} + 2\beta \dot{x} + \omega _o ^2 x = 0.
+\end{equation}
+donde $\beta = b/2m$ es el parámetro de amortiguamiento. La solución general es la siguiente
+\begin{equation}
+	x(t) = e^{-\beta t} \qty[A_1 \exp{\sqrt{\beta ^2 - \omega _o ^2}t} + A_2 \exp{-\sqrt{\beta ^2 - \omega _o ^2}t}]
+\end{equation}
+
+Para este tipo de oscilaciones se tienen $3$ casos
+\begin{description}
+	\item[Subamortiguado: ] $\omega _o ^2 > \beta ^2$. Cuya solución es
+		\begin{equation}
+			x(t) = A e^{-\beta t} \cos{\omega _1 t - \delta} \qquad \omega _1 ^2 = \omega _o ^2 - \beta ^2.
+		\end{equation}
+	\item[Amortiguamiento Crítico: ] $\omega _o ^2 = \beta ^2$. Cuya solución es
+		\begin{equation}
+			x(t) = (A + Bt) e^{-\beta t}.
+		\end{equation}
+	\item[Sobreamortiguado: ] $\omega _o ^2 < \beta ^2$. Cuya solución es
+		\begin{equation}
+			x(t) = A e^{-\beta t} \qty[A_1 e^{\omega _2 t} + A_2 e^{-\omega _2 t}] \qquad \omega _2 = \sqrt{\beta ^2 - \omega _o ^2}.
+		\end{equation}
+\end{description}
+
+
+\subsection{Oscilaciones Forzadas}
+El caso más simple de oscilaciones forzadas es el de una fuerza externa senoidal
+\begin{equation}
+	F = -kx - b\dot{x} + F_o \cos{\omega t}.
+\end{equation}
+
+Matemáticamente se obtienen dos soluciones una complementaria y una partícular. La solución complementaria
+\begin{equation}
+	x_c (t) = e^{-\beta t} \qty[A_1 \exp{\sqrt{\beta ^2 - \omega _o ^2}t} + A_2 \exp{-\sqrt{\beta ^2 - \omega _o ^2}t}],
+\end{equation}
+y para la solución partícular
+\begin{equation}
+	x_p (t) = D \cos{\omega t - \delta}
+\end{equation}
+
+\dsnote{Revisando Thornton, p118}
+\begin{align*}
+	x_p (t) &= \frac{A}{\sqrt{(\omega _o ^2 - \omega ^2) + 4\omega ^2 \beta ^2}} \cos{\omega t - \delta} \\
+	\delta &= \arctan{\frac{2\omega \beta}{\omega _o ^2 - \omega ^2}}.
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Movimiento de una Partícula en Varias Dimensiones}
+
+\section{Primeras y Segundas Derivadas en Diferentes Coordenadas}
+Primera derivada en coordenadas esféricas
+$$ \frac{d\vec{r}}{dt} = \dot{r} \hat{e}_r + r \left( \dot{\theta} \hat{e}_\theta + \dot{\phi} \sin\theta \, \hat{e}_\phi \right) $$
+
+Segunda derivada en coordenadas esféricas
+$$\frac{d^2\vec{r}}{dt^2} = \ddot{r} \hat{e}_r + \dot{r} \left( \dot{\theta} \hat{e}_\theta + \dot{\phi} \sin\theta \, \hat{e}_\phi \right) + r \left( \ddot{\theta} \hat{e}_\theta + \dot{\theta} \frac{d\hat{e}_\theta}{dt} + \ddot{\phi} \sin\theta \, \hat{e}_\phi + \dot{\phi} \cos\theta \dot{\theta} \, \hat{e}_\phi \right) $$
+
+Primera derivada en coordenadas cilíndricas
+$$ \frac{d\vec{r}}{dt} = \dot{\rho} \hat{e}_\rho + \rho \dot{\phi} \hat{e}_\phi + \dot{z} \hat{e}_z $$
+
+Segunda derivada en coordenadas cilíndricas
+$$ \frac{d^2\vec{r}}{dt^2} = \left( \ddot{\rho} - \rho \dot{\phi}^2 \right) \hat{e}_\rho + \left( \rho \ddot{\phi} + 2 \dot{\rho} \dot{\phi} \right) \hat{e}_\phi + \ddot{z} \hat{e}_z $$
+
+
+
+\section{Osciladores Armónicos en Dos Dimensiones}
+Considerando el movimiento de una partícula con dos grados de libertad.
+
+\begin{equation}
+	\left. \mqty{F_x = -kr\cos \theta = -kx \\ F_y = -kr\sin \theta = -ky} \right\} 
+\end{equation}
+
+Cuyas soluciones son
+\begin{equation}
+	\left. \mqty{x(t) = \cos{(\omega _x t - \alpha)} \\ y(t) = \cos{(\omega _y t - \beta)}} \right\}
+\end{equation}
+Las trayectorias seguidas por un oscilador en dos dimensiones se denominan \textit{figuras de Lissajous}.
+
+
+
+\section{Teoremas del Momentum Angular}
+El momentum angular está definido de la siguiente forma
+\begin{equation}
+L = rmv_\theta = mr^2 \dot{\theta}.
+\end{equation}
+Ahora, notemos que 
+\begin{equation}
+	\dv{L}{t} = \dv{t} (mr^2 \dot{\theta}) = rF_\theta
+\end{equation}
+Y de esto, integramos llegamos al \textit{Teorema Impulso-Momentum} para el momentum angular.
+\begin{equation}
+	L_2 - L_1 = mr_2 ^2 \dot{\theta} _2 - mr_1 ^2 \dot{\theta} _1 = \int _{t_1} ^{t_2} rF_\theta \dd{t}.
+\end{equation}
+Respecto a un punto $O$
+\begin{equation}
+	L_O = \vb{r} \cp \vb{p} = m\qty(\vb{r} \cp \vb{v}).
+\end{equation}
+
+
+\section{Movimiento en una Fuerza Central}
+
+
+
+
+
+
+
+
+
+
+\chapter{Sistemas de Partículas}
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Cuerpo Rígido}
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Gravitación}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Sistema de Coordenadas en Movimiento}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Mecánica del Medio Continuo}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Mecánica Lagrangiana}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Mecánica Hamiltoniana}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Aplicaciones}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%
