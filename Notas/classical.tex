@@ -284,51 +284,226 @@ Respecto a un punto $O$
 
 
 \section{Movimiento en una Fuerza Central}
+Las fuerzas centrales son aquellas que representan atracción ($F(r) < 0$) o repulsión ($F(r) > 0$) a un punto en concreto desde el origen. Normalmente son dos partículas interactuando. En la gran mayoría de los casos de fuerza central, dicha fuerza es inversamente proporcional al $r^2$. Bajo una fuerza central no se tiene torque, por ende
+\begin{equation}
+    \dv{L}{t} = 0.
+\end{equation}
+Con esto, se reduce el problema a dos ecuaciones diferenciales
+\begin{align*}
+    m\ddot{r} - mr\dot{\theta} ^2 &= F(r), \\
+    mr\ddot{\theta} + 2m\dot{r} \dot{\theta} &= 0.
+\end{align*}
+Y sabiendo que la energía total es de la forma
+\begin{equation}
+    E = \frac{1}{2} m\dot{r} ^2 + \frac{1}{2} mr^2 \dot{\theta}^2 + V(r).
+\end{equation}
+Reemplazando el momentum angular,y despejando, se obtiene
+\begin{align}
+    \dot{r} &= \sqrt{\frac{2}{m}}\qty(E - V(r) - \frac{L^2}{2mr^2})^{1/2}, \\
+    \sqrt{\frac{2}{m}} t &= \int _{r_o} ^r \frac{\dd{r}}{\qty(E - V(r) - \dfrac{L^2}{2mr^2})^{1/2}}, \\
+    \theta &= \theta _o + \int _0 ^t \frac{L}{mr^2} \dd{t}.
+\end{align}
+Ahora, tomando la segunda ley de newton mostrada al inicio de la sección, reemplazamos el momentum angular
+\begin{equation}
+    m\ddot{r} = F(r) + \frac{L^3}{mr^3}.
+\end{equation}
+Esta ecuación tiene la forma del movimiento en una dimensión más una \textbf{fuerza centrífuga}. Esta es una \textit{fuerza ficticia}. Con esto, integrando, definimos el potencial efectivo
+\begin{equation}
+    'V(r)' = V(r) + \frac{L^2}{2mr^2}.
+\end{equation}
+El ultimo término es la energía potencial asociada a la fuerza centrífuga. 
 
+\subsection{Fuerza Inversamente Proporcional al Cuadrado de la Distancia}
+El problema más importante de la mecánica clásica es
+    \begin{equation}
+        F = \frac{K}{r^2} \vu{r} \qquad V(r) = \frac{K}{r}.
+    \end{equation}
+y el potencial efectivo
+    \begin{equation}
+        'V(r)' = \frac{K}{r} + \frac{L^2}{2mr^2}.
+    \end{equation}
 
-
-
-
+\section{Órbitas Elípticas, El Problema de Kepler}
+Antes de los descubrimientos de Newton, Kepler anunció tres leyes del movimiento planetario dadas las observaciones astronomicas de Tycho Brahe.
+\begin{enumerate}
+    \item Los planetas se mueven en elipses con el sol en uno de los focos.
+    \item Las áreas por las que pasa el radiovector desde el planeta al sol en tiempos iguales son iguales.
+    \item El cuadrado del periodo de revolución es proporcional al cubo del semieje mayor.
+\end{enumerate}
 
 
 
 
 
 \chapter{Sistemas de Partículas}
+\section{Leyes de Conservación}
+\dsnote{Solo se enunciarán, no vale la pena la demostración.}
+\subsection{Conservación del Momentum Lineal}
+Es la segunda Ley de Newton, para varias dimensiones
+\begin{equation}
+    \dv{\vb{P}}{t} = 0.
+\end{equation}
+
+Y el centro de masa de un sistema de partículas se mueve como una única partícula cuya masa es la masa total del sistema, sobre la cual actúa una fuerza igual al total de las fuerzas externas actuando sobre el sistema.
+
+\subsection{Conservación del Momentum Angular}
+Se tiene
+\begin{equation}
+    \dv{\vb{L}}{t} = \vb{\tau}.
+\end{equation}
+
+
+\subsection{Conservación de la Energía}
+Es una que ya vimos, se definió a principios de esta parte. 
+\begin{align}
+    E &= V + T,
+\end{align}
+donde $E$ es constante.
 
 
 
 
 
+\section{Problema de los Dos Cuerpos}
+Este es uno de los problemas más bonitos cuya solución es simple pero brutal. Tomaremos las dos partículas, las fuerzas entre ellas y las fuerzas externas
+\begin{align*}
+    m_1 \ddot{r} _1 &= F_1 ^i = F_1 ^i + F_1 ^e, \\
+    m_2 \ddot{r} _2 &= F_2 ^i = F_2 ^i + F_2 ^e.
+\end{align*}
+Y se introduce un cambio de coordenadas en base al centro de masa y la distancia entre las partículas (\dsnote{No la distancia de cada una al centro de masa}).
 
+\begin{align*}
+    R &= \frac{m_1 r_1 + m_2 r_2}{m_1 + m_2} \\
+    r &= r_1 - r_2.
+\end{align*}
+Cuya transformación inversa es
+\begin{align*}
+    r_1 &= R + \frac{m_2}{m_1 + m_2} r, \\
+    r_2 &= R - \frac{m_1}{m_1 + m_2} r. 
+\end{align*}
+Entonces se tiene (asumiendo $F_1 ^e /m_1 = F_2 ^e /m_2$)
+\begin{align*}
+    M\ddot{R} &= F, \\
+    \mu \ddot{r} &= F_1 ^i,
+\end{align*}
+donde $M = m_1 + m_2$, $\mu = \frac{m_1 m_2}{m_1 + m_2}$ (masa reducida). $F = F_1 ^e + F_2 ^e$ y $F_1 ^i$ es la fuerza de la partícula $2$ sobre la partícula $1$. \\
 
-
-
+\dsnote{El problema de N cuerpos no es soluble analíticamente y la parte de Osciladores Acoplados se trabajará en la parte de mecánica lagrangiana y hamiltoniana.}
 
 
 
 \chapter{Cuerpo Rígido}
+Para un cuerpo macroscópico definimos la dendidad
+\begin{equation}
+	\rho = \dv{M}{V},
+\end{equation}
+con
+\begin{equation}
+	M = \iiint _{\text{cuerpo}} \rho \dd{V}.
+\end{equation}
+
+\section{Ubicación de un Cuerpo Rígido}
+Se necesitan 6 coordenadas para describir la posición de un cuerpo rígido, para un punto $P_1$ $(x_1,y_1,z_1)$ (centro de masa), $(\theta _2, \phi _2)$ para la orientación de $P_2$ a una distancia de $P_1$ (un eje) y $\psi$ para la rotación alrededor del eje $P_1 P_2$.
+
+
+Utilizando los teoremas de momentum lineal y rotacional se tiene que 
+\begin{itemize}
+	\item Si $F$ es independiente de la orientación, podemos resolver $F = M\ddot{R}$.
+	\item Si $N$ es idnependiente de $R$, podemos resolver $\dv{L}{t} = N$.
+	\item Si $F$ y $N$ dependen entre sí, las ecuaciones se resuelven acopladas.
+\end{itemize}
+
+\subsection{Consideraciones Generales}
+Si el objeto gira alrededor de un punto arbitrario, $F = M\ddot{R}$ sirve para saber la fuerza necesaria que mantiene el punto fijo y $\dv{L}{t} = N$ nos da el movimiento de rotación. Aunque es dificil aplicar $\dv{L}{t} = N$ por la elección de los ángulos determinen la orientación del objeto.
+
+\subsection{Momento de Inercia}
+Tomando una partícula rotando alrededor de un eje
+	\begin{equation}
+		L = \sum _i m_i r_i ^2 \dot{\theta} = \qty(\sum _i m_i r_i ^2) \dot{\theta} = I_z \dot{\theta}
+	\end{equation}
+donde $I_z$ es el momento de inercia alrededor del eje $z$.
+\begin{equation}
+	I_z = \iiint _{\text{cuerpo}} \rho r^2 \dd{V}.
+\end{equation}
+\begin{itemize}
+	\item Radio de giro: $Mk_z ^2 = I_z$, donde $k_z$ es la distancia de donde toda masa debe estar como partícula puntual para tener el mismo momento de inercia que el objeto original.
+\end{itemize}
+
+\subsection{Ecuación de Rotación}
+Esta es la ecuación de movimiento para un cuerpo rígido alrededor de un eje fijo.
+\begin{equation}
+	\dv{L}{t} = I_z \ddot{\theta} = N_z.
+\end{equation}
+
+
+\subsection{Centro de Masa}
+\begin{itemize}
+	\item Si un cuerpo es simétrico respecto a un plano, el centro de masa está en el plano.
+	\item Si un cuerpo es simétrico respcto de dos planos, el centro de masa está en la intersección de los planos.
+	\item Si un cuerpo es simétrico alrededor de un eje, el centro de masa está en el eje.
+	\item Si un cuerpo es simétrico respecto de tres planos, el centro de masa está en la intersección de los planos.
+	\item \h{Importante: } Si un cuerpo se compone de varias partes cuyos centros de masa son conocidos, entonces el centro de masa del cuerpo compuesto se puede calcular como si las partes fueran partículas puntuales.
+\end{itemize}
+
+\begin{definition}
+	\textbf{Centroide: } \\
+	\begin{equation}
+		R = \frac{1}{V} \iiint _V r\dd{V} \qquad R = \frac{1}{A} \iint _A r\dd{A} \qquad R = \frac{1}{s} \int _c r\dd{s}.
+	\end{equation}
+\end{definition}
+
+
+\begin{teorema}
+	\textbf{Teorema de Pappus: } Si una curva plana rota alrededor de un eje en el mismo plano y ambos no se interesectan, en el área de la superficie de revolución es igual a la longitud de la curva por la longitud de la trayectoria del centroide.
+\end{teorema}
 
 
 
 
+\begin{teorema}
+	\textbf{Teorema de Ejes Paralelos: } El momento de inercia de un cuerpo alrededor de un eje dado es igual al momento de inercia alrededor de un eje paralelo que pasa por el centro de masa, más el momento de inercia alrededor del eje dado como si toda la masa del cuerpo estuviera concentrada en el centro de masa.
+\end{teorema}
 
 
 
-
+\begin{teorema}
+	\textbf{Teorema de Ejes Perpendiculares: } Para una lámina plana, la suma de los momentos de inercia de una lámina plana alrededor de dos ejes perpendiculares en el plano de la lámina es igual al momento de inercia alrededor de un eje que pasa por el punto donde se intersectan, perpendicular a la lámina.
+\end{teorema}
 
 
 
 
 \chapter{Gravitación}
+Ecuación de Gravitació Universal
+\begin{equation}
+	\vb{F} _{1\to 2} = \frac{Gm_1 m_2}{\abs{\vb{r}_1 - \vb{r}_2}^3} \qty(\vb{r}_1 - \vb{r}_2) = \iiint \frac{Gm (r' - r) \rho (r')}{\abs{r' - r}^3} \dd{V'} .
+\end{equation}
 
+Con esto se define el campo gravitacional
+\begin{equation}
+	g(r) = \iiint \frac{G (r' - r) \rho (r')}{\abs{r' - r}^3} \dd{V'}
+\end{equation}
+Y también se define la energía potencial gravitacional y el potencial gravitacional
+\begin{equation}
+	V_m (r) = \sum _i \frac{-Gmm_i}{\abs{r - r_i}} \qquad \mathcal{G} = \sum _i \frac{Gm_i}{\abs{r - r_i}}
+\end{equation}
+Los cuales cumplen con las siguientes relaciones, dado que la fuerza y el campo gravitacional son conservativos
+\begin{equation}
+	F = -\grad{V} \qquad g = \grad{\mathcal{G}}.
+\end{equation}
+por lo mismo
+\begin{equation}
+	\curl{g} = 0.
+\end{equation}
 
-
-
-
-
-
-
+Y utilizando lo que se verá para la Ley de Gauss en electricidad, aplicado aqui nos da como resultado, que el flujo gravitacional es
+\begin{equation}
+	\div{g} = -4\pi G\rho .
+\end{equation}
+y en términos del potencial
+\begin{equation}
+	\laplacian{\mathcal{G}} = -4\pi G\rho .
+\end{equation}
 
 
 
@@ -336,10 +511,29 @@ Respecto a un punto $O$
 
 \chapter{Sistema de Coordenadas en Movimiento}
 
+Origen de coordenadas en movimiento
+\begin{align*}
+	r &= r^* + h \\
+	r^* &= r - h .
+\end{align*}
+Los ejes de $O^*$ son paralelos a los de $O$, $O^*$ se mueve respecto a $O$.
+\begin{align*}
+	\dd{r}{t} &= \dv{r^*}{t} + \dv{h}{t}. \\
+	a = a^* + a_h
+\end{align*}
 
+Por segunda ley de newton
+\begin{equation}
+	m\dv[2]{r^*}{t} + ma_h = F
+\end{equation}
+Si $O^*$ se mueve con velocidad constante
+	$$ m\dv[2]{r^*}{t} = F $$
+Ahora para un sistema rotado
+\begin{equation}
+	r = x\vu{x} + y\vu{y} + z\vu{z} = x^* \vu{x^*} + y^* \vu{y^*} + z^* \vu{z^*}.
+\end{equation}
 
-
-
+Con todo esto se definen dos derivadas $\dv{^*}{t}$ para el sistema que rota y $\dv{t}$ para el sistema fijo.
 
 
 
