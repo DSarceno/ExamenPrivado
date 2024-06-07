@@ -518,11 +518,11 @@ Origen de coordenadas en movimiento
 \end{align*}
 Los ejes de $O^*$ son paralelos a los de $O$, $O^*$ se mueve respecto a $O$.
 \begin{align*}
-	\dd{r}{t} &= \dv{r^*}{t} + \dv{h}{t}. \\
+	\dv{r}{t} &= \dv{r^*}{t} + \dv{h}{t}. \\
 	a = a^* + a_h
 \end{align*}
 
-Por segunda ley de newton
+Al término $ma_h$ se le conoce como fuerza ficticia. Por segunda ley de newton
 \begin{equation}
 	m\dv[2]{r^*}{t} + ma_h = F
 \end{equation}
@@ -533,9 +533,45 @@ Ahora para un sistema rotado
 	r = x\vu{x} + y\vu{y} + z\vu{z} = x^* \vu{x^*} + y^* \vu{y^*} + z^* \vu{z^*}.
 \end{equation}
 
-Con todo esto se definen dos derivadas $\dv{^*}{t}$ para el sistema que rota y $\dv{t}$ para el sistema fijo.
+Con todo esto se definen dos derivadas $\dv{^*}{t}$ para el sistema que rota y $\dv{t}$ para el sistema fijo. Definiremos un vetor $A$ en ambos sistemas de coordenadas
+\begin{align*}
+	A &= A_x \vu{x} + A_y \vu{y} + A_z \vu{z} \\
+	A &= A_x ^* \vu{x}^* + A_y ^* \vu{y}^* + A_z ^* \vu{z}^*
+\end{align*}
 
+y encontramos sus derivadas respecto a su propio sistema de referencia
+\begin{align*}
+	\dv{A}{t} &= \dot{A}_x \vu{x} + \dot{A}_y \vu{y} + \dot{A}_z \vu{z} \\
+	\dv{^* A}{t} &= \dot{A}_x ^* \vu{x}^* + \dot{A}_y ^* \vu{y}^* + \dot{A}_z ^* \vu{z}^* .
+\end{align*}
+Ahora, si queremos la derivada de $A$ en el sistema $O^*$
+\begin{align*}
+	\dv{A}{t} &= \dv{t} \qty[A_x ^* \vu{x}^* + A_y ^* \vu{y}^* + A_z ^* \vu{z}^*] \\
+	&= \dot{A}_x ^* \vu{x}^* + \dot{A}_y ^* \vu{y}^* + \dot{A}_z ^* \vu{z}^* + A_x ^* \dv{\vu{x}^*}{t} + A_y ^* \dv{\vu{y}^*}{t} + A_z ^* \dv{\vu{z}^*}{t}.
+\end{align*}
+Supongamos que $O^*$ rota alrededor del eje $z$ con velocidad $\omega$ y consideremos un vector $B$ que está en reposo en $O^*$. Pero en $O$ tenemos que
+	\begin{align*}
+		\dv{B}{t} &= \omega B\sin \theta \vu{v} \\
+		\dv{B}{t} &= \omega \cp B .
+	\end{align*}
 
+Desarrollando se llega al siguiente operador
+\begin{equation}
+	\dv{t} = \dv{^*}{t} + \omega \cp
+\end{equation}
+
+Y derivando nuevamente respecto al tiempo y reemplazando $A=r$
+\begin{teorema}
+	\textbf{Teorema de Coriolis: }
+	\begin{equation}
+		\dv[2]{r}{t} = \dv[2]{* r}{t} + 2\omega \times \dv{* r}{t} + \omega \times (\omega \times r) + \dv{* \omega}{t} \times r.
+	\end{equation}
+	donde el término $2\omega \times \dv{* r}{t}$ es la \textbf{aceleración de coriolis} y $\omega \times (\omega \times r)$ es la \textbf{aceleración centrípeta}. Y para una partícula cualquiera y una fuerza $F$ se tiene
+	\begin{equation}
+		\boxed{ m\dv[2]{r}{t} = F + + m[g - \omega \times (\omega \times r)] - 2m\omega \times \dv{*r}{t}. }
+	\end{equation}
+	En donde al término $g_e = g(r) - \omega \times (\omega \times r)$ se le conoce como \textbf{gravedad efectiva}.
+\end{teorema}
 
 
 
