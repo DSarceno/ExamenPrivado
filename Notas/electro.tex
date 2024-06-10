@@ -1,28 +1,303 @@
 \part{Electromagnetismo}
 
+\vspace*{\fill}
+
+\begin{center}
+	\textit{''El conocimiento es una red de ideas interconectadas, una vez que atrapamos una, las demás vienen detrás'' - Michael Faraday.}
+\end{center}
+
+\vspace*{\fill}
+
 \chapter{Análisis Vectorial}
 \dsnote{Solo se enunciarán los teoremas y propiedades más importantes.}
+\section{Operadores Vectoriales}
+\subsection{Gradiente}
+El gradiente de un campo escalar es un campo vectorial. Es un vector normal a la curva de nivel en el punto estudiado
+\begin{equation}
+	\grad{f(r)} = \qty(\pdv{f}{x_1} \vu{x}_1 + \cdots + \pdv{f}{x_n} \vu{x}_n),
+\end{equation}
+Cuando $\grad{f} = 0$ se tiene un punto estacionario (máximo o mínimo). Dicho de otra forma, el gradiente marca la dirección en la cual varía más rápido el campo escalar y su magnitud indica cuan rápido varía. \\
+\subsubsection{En Diferentes Sistemas de Coordenadas}
+\begin{align*}
+	\grad{\varphi} &= \pdv{\varphi}{r} \vu{r} + \frac{1}{r} \pdv{\varphi}{\theta} \vu{\theta} + \frac{1}{r\sin{\theta}} \pdv{\varphi}{\phi} \vu{\phi} \qquad \text{Coordenadas Esféricas} \\
+	\grad{\varphi} &= \pdv{\varphi}{\rho} \vu{\rho} + \frac{1}{\rho} \pdv{\varphi}{\phi} \vu{\phi} + \pdv{\varphi}{z} \vu{z}.
+\end{align*}
+ 
+
+
+\subsection{Divergencia}
+La divergencia de un campo vectorial mide la diferencia entre el flujo saliente y entrante en una región dada.
+\begin{equation}
+	\div{A} = \pdv{A_x}{x} + \pdv{A_y}{y} + \pdv{A_z}{z}.
+\end{equation}
+La divergencia produce un escalar, mide cuanto un vector se dispersa o sale de un punto.
+\subsubsection{En Diferentes Sistemas de Coordenadas}
+\begin{align*}
+	\div{A} &= \frac{1}{r^2} \pdv{(r^2 A_r)}{r} + \frac{1}{r\sin{\theta}} \pdv{(\sin{\theta} A_\theta)}{\theta} + \frac{1}{r\sin{\theta}} \pdv{A_\phi}{\phi} \qquad \text{Coordenadas Esféricas} \\
+	\div{A} = \frac{1}{\rho} \pdv{(\rho A_\rho)}{\rho} + \frac{1}{\rho} \pdv{A_\phi}{\phi} + \pdv{A_z}{z} \qquad \text{Coordenadas Cilíndricas.}
+\end{align*}
 
 
 
 
+
+
+
+
+\subsection{Rotacional}
+Operador vectorial sobre campos vectoriales: tendencia de un campo vectorial a inducir rotación.
+\begin{equation}
+	\curl{A} = \mqty| \vi & \vj & \vk \\ \pdv{x} & \pdv{y} & \pdv{z} \\ A_x & A_y & A_z |
+\end{equation}
+
+
+\section{Integración Vectorial}
+Integrales de línea, superficie y volumen. Integrandos pueden ser vectores o escalares. \\
+\subsection{Integrales de Línea}
+Recorridos o trayectorias
+\begin{equation}
+	\int _c F(r) \cdot \dd{l}.
+\end{equation}
+Donde $F$ es un campo vectorial, $\dd{l}$ desplazamiento vectorial infinitesimal a lo largo de la curva y $c$ curva sobre la cual se integra. Cuando la integral de línea es independiente de la trayectoria el campo es conservativo.
+
+\subsection{Integrales de Superficie}
+Esta integral mide un flujo
+\begin{equation}
+	\int _S F\cdot \vu{n} \dd{a}
+\end{equation}
+Esto nos da un escalar. Si laintegral es cerrada $\oint F\cdot \vu{n} \dd{a}$.
+
+\subsection{Teoremas Importantes}
+\begin{teorema}
+	\textbf{Teorema Fundamental de la Divergencia: }
+	\begin{equation}
+		\int _V \div{F} \dd{V} = \oint _S F\cdot \vu{n} \dd{a}.
+	\end{equation}
+\end{teorema}
+
+
+\begin{teorema}
+	\textbf{Teorema de Stokes: }
+	\begin{equation}
+		\int _S (\curl{F}) \cdot \vu{n} \dd{a} = \oint _c F \cdot \dd{l}.
+	\end{equation}
+\end{teorema}
 
 
 
 
 \chapter{Electrostática}
+Esta estudia los efectos mutuos que se producen entre los cuerpos como consecuencia de us carga eléctrica. La carga eléctrica es una propiedad fundamental y característica delas partículas elementales.
+\begin{enumerate}
+	\item La carga no se crea ni se destruye.
+	\item Hay dos clases: positiva y negativa.
+	\item En un sistema cerrado la carga se conserva.
+\end{enumerate}
+
+\section{Ley de Coulomb}
+Experimentalemnte
+\begin{enumerate}
+	\item Dos cargas puntuales ejercen fuerza a lo largo de la línea que las une e inversamente proporcional al cuadrado de la distancia.
+	\item La fuerza es proporcional al producto de las cargas.
+\end{enumerate}
+
+\begin{equation}
+	\vec{F} = \frac{1}{4\pi \varepsilon _o} \frac{q_1 q_2}{r_{12} ^2} \vu{r}_{12}.
+\end{equation}
+Esto es válido para cargas puntuales, pero para muchas cargas se aplica el principio de superposición. Ahora, si la carga se distribuye en un volumen $V$ con densidad $\rho$ y sobre la superficie $S$ que limita $V$ con densidad $\sigma$, la fuerza ejercida por esta distribución de carga sobre una carga puntual $q$ está dada por:
+\begin{align}
+	F(r) &= \frac{q}{4\pi \ep} \int _V \rho (r') \frac{r - r'}{\abs{r - r'}^3} \dd{V'} + \frac{q}{4\pi \ep} \int _S \sigma (r') \frac{r - r'}{\abs{r - r'}^3} \dd{S'}.
+\end{align}
+
+
+\section{Campo Eléctrico}
+Campo vectorial físico $\to$ región del espacio en la que interactúa la fuerza eléctrica. Se genera por cargas o campos magnéticos variables en el tiempo.
+\begin{equation}
+	\vec{E} (r) = \frac{1}{4\pi \ep} \sum _{i=1} ^N \frac{q_i}{r_i ^2} \vu{r} _i.
+\end{equation}
+Entonces, de manera general, tomando en cuenta distribuciones continuas de carga y cargas puntuales
+\begin{equation}
+	\vec{E} (r) = \kel \sum _{i=1} ^N q_i \frac{r - r_i}{\abs{r - r_i}^3} + \kel \int _V \frac{r - r'}{\abs{r - r'}^3} \rho (r') \dd{V'} + \kel \int _S \frac{r - r'}{\abs{r - r'}^3} \sigma (r') \dd{a'}
+\end{equation}
 
 
 
+\section{Potencial Electrostático}
+El campo eléctrico cumple con
+\begin{equation}
+	\curl{\vec{E}} = 0.
+\end{equation}
+Sabemos que $\vec{E} (r) = -\grad{\varphi}$ es un potencial electrostático. Pero con esto se tiene
+\begin{equation}
+	\varphi (r) = -\int _{\mathcal{O}} ^r \vec{E} \cdot \dd{\vec{l}}
+\end{equation}
+donde $\mathcal{O}$ es el punto de referencia. Notemos que
+
+\begin{enumerate}
+	\item Potencial electrostático no es lo mismo que energía potencial.
+	\item $\vec{E}$ es un vector derivado de un escalar y ya que $\curl{E} = 0$ esto implica: las componentes de $\vec{E}$ no son independientes
+	\begin{equation}
+		\pdv{E_x}{y} = \pdv{E_y}{x}, \qquad \pdv{E_z}{y} = \pdv{E_y}{z}, \qquad \pdv{E_x}{z} = \pdv{E_z}{x}.
+	\end{equation}
+	\item EL sistema de referencia es fundamental.
+	\item El potencial obedece el principio de superposición.
+	\begin{equation}
+		\varphi (r) = \kel \sum_{i=1} ^N \frac{q_i}{\abs{r - r_i}} + \kel \int _V \frac{\rho (r')}{\abs{r-r'}} \dv{V'} + \kel \int _S \frac{\sigma (r')}{\abs{r - r'}} \dd{a'}.
+	\end{equation}
+\end{enumerate}
+
+\section{Ley de Gauss}
+Importante relación entre la integral de la componente normal del campo eléctrico sobre una superficie cerrada y la carga total encerrada por la superficie.
+\begin{equation}
+	\Psi _E = \int _S \vec{E} \cdot \vu{n} \dd{a}, \qquad \text{Flujo Eléctrica}
+\end{equation}
+Para una superficie cerrada imaginaria (superficie gaussiana). Se tiene que $\Psi _E \propto q$. Entonces
+\begin{equation}
+	\oint \vec{E} \cdot \vu{n} \dd{a} = \frac{1}{\ep} Q_{enc}.
+\end{equation}
+y por el teorema de la divergencia
+\begin{equation}
+	\div{\vec{E}} = \frac{\rho}{\ep}.
+\end{equation}
+A notar:
+\begin{enumerate}
+	\item Simetría esférica: Superficie gausiana $\to$ esfera concéntrica.
+	\item Simetría cilíndrica: Superficie gaussiana $\to$ cilindro coaxial.
+	\item Simetría palna: Superficie gaussiana $\to$ caja.
+\end{enumerate}
 
 
 
+\section{Dipolo Eléctrico}
+Dos cargas iguales de signo contrario separados por una pequeña distancia. Supongamos una carga $-q$ en $r'$ y una carga $q$ en $r' + l$. Entonces
+\begin{equation}
+	\vec{E} (r) = \kel q \qty(\frac{r - r' - l}{\abs{r - r' - l}^3} - \frac{r - r'}{\abs{r - r'}^3})
+\end{equation}
+expandiendo el término de dentro
+\begin{equation}
+	\vec{E} (r) = \kel q \qty[\frac{3 (r - r') l}{\abs{r - r'}^3} (r - r') - \frac{l}{\abs{r - r'}} + \cdots]
+\end{equation}
+
+\subsection{Momento Dipolar Eléctrico}
+Si se coloca un dipolo en un campo $\vec{E}$, ambas cargas $(q,-q)$ separadas una distancia $l$, experimentan fuerzas de igual magnitud y dirección contraria $\vec{F}$ y $-\vec{F}$, por ende: $\sum vec{F} = 0$ y $\sum \tau \neq 0$. Definimos el \textbf{momento dipolar} como $\vec{p} = q\vec{l}$. Por ende
+\begin{align}
+	\vec{E} (r) &= \kel \qty[\frac{3(r - r')\cdot \vec{p}}{\abs{r - r'}^3} (r - r') - \frac{\vec{p}}{\abs{r - r'}^3}].	\\
+	\varphi (r) &= \kel q \qty[\frac{1}{\abs{r - r' - l}} - \frac{1}{\abs{r - r'}}] = \kel \frac{(r - r') \cdot \vec{p}}{\abs{r - r'}^3}.
+\end{align}
+
+
+\section{Trabajo y Energía en Electrostática}
+Suponga una configuración de cargas estacionarias y se desea mover una carga de prueba $Q$ de un punto $a$ a un punto $b$. Por ende
+\begin{equation}
+	\varphi (b) - \varphi (a) = \frac{W}{Q}
+\end{equation}
+La diferencia de potencial entre $a$ y $b$ es igual al trabajo por unidad de carga requerido para mover $Q$ de $a\to b$.
+
+\subsection{Energía de una Distribución de Cargas Puntuales}
+Energía de la distribución $\to$ trabajo para ensamblar la distribución.
+\begin{equation}
+	W = \frac{1}{2} \sum_{i=1} ^n q_i \varphi (r_i).
+\end{equation}
+de otra forma se puede reescribir el trabajo
+\begin{align}
+	W &= \frac{\ep}{2} \qty[\oint _S \varphi \vec{E} \cdot \dd{a} + \int _V E^2 \dv{V}] \\
+	W &= \frac{\ep}{2} \int _V E^2 \dv{V} \qquad \text{Si el volumen crece } (r\to \infty).
+\end{align}
 
 
 
 
 
 \chapter{Problemas Electrostáticos}
+
+Estos problemas no son secillos de resolver. Por otro lado:
+\begin{equation}
+	\laplacian{\varphi} = -\frac{\rho}{\ep} \qquad \text{Ecuación de Poisson}.
+\end{equation}
+
+\textbf{Laplaciano:}
+\begin{enumerate}
+	\item \textbf{Rectangulares:}
+	\begin{equation}
+		\laplacian{\varphi} = \pdv[2]{\varphi}{x} + \pdv[2]{\varphi}{y} + \pdv[2]{\varphi}{z}.
+	\end{equation}
+	\item \textbf{Esféricas: }
+	\begin{equation}
+		\laplacian{\varphi} = \frac{1}{r^2} \pdv{r} \qty(r^2 \pdv{\varphi}{r}) + \frac{1}{r^2 \sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{\varphi}{\theta}) + \frac{1}{r^2 \sin{\theta}} \pdv[2]{\varphi}{\phi}.
+	\end{equation}
+	\item \textbf{Cilíndricas: }
+	\begin{equation}
+		\laplacian{\varphi} = \frac{1}{\rho} \pdv{\rho} \qty(\rho \pdv{\varphi}{\rho}) + \frac{1}{\rho ^2} \pdv[2]{\varphi}{\theta} + \pdv[2]{\varphi}{z}.
+	\end{equation}
+\end{enumerate}
+
+Y cuando interesa conocer el potencial en regones con $\rho = 0$.
+\begin{equation}
+	\laplacian{\varphi} = 0 \qquad \text{Ecuación de Laplace.}
+\end{equation}
+
+\section{Ecuación de Laplace}
+\begin{teorema}
+	Si $\varphi _1 ,\ldots ,\varphi _n$ son todas soluciones de la ecuación de Laplace, entonces:
+	\begin{equation}
+		\varphi = c_1 \varphi _1 + \cdots + c_n \varphi _n,
+	\end{equation}
+	con $c_i = $ ctes, también es solución de la ecuación de Laplace
+	\begin{equation}
+		\laplacian{\varphi} = c_1 \laplacian{\varphi}_1 + \cdots + c_n \laplacian{\varphi}_n = 0.
+	\end{equation}
+\end{teorema}
+
+
+\begin{teorema}
+	Dos sluciones de la ecuación de Laplace que satisfacen las mismas condiciones de frontera difieran a lo sumo en una constante aditiva.
+\end{teorema}
+
+
+\subsection{Ecuación de Laplace en una Dimensión}
+Si $\varphi$ es una función de una variable. Las soluciones para cada uno de los sistemas importantes de coordenadas
+
+\begin{enumerate}
+	\item \textbf{Rectangulares:}
+	\begin{equation}
+		\varphi (x) = ax + b.
+	\end{equation}
+	\item \textbf{Esféricas: }
+	\begin{equation}
+		\varphi (r) = -\frac{a}{r} + b.
+	\end{equation}
+	\item \textbf{Cilíndricas: }
+	\begin{equation}
+		\varphi = a\ln{\abs{\rho}} + b.
+	\end{equation}
+\end{enumerate}
+
+\subsubsection{Caso Esférico}
+Para el caso esférico en dos dimensiones su solución luego de la separación de variables es
+\begin{equation}
+	\varphi (r,\theta) = \sum _{n=0} ^\infty \qty(A_n r^n + \frac{B_n}{e^{n+1}}) P_n (\cos{\theta}).
+\end{equation}
+
+\subsubsection{Caso Cilíndrico}
+Ahora para el caso cilíndrico en dos dimensiones, su solución es:
+\begin{equation}
+	\varphi (\rho ,\theta) = A_o + B_o \ln{\abs{\rho}} + \sum _{n=1} ^\infty \qty(A_n \rho ^n + B_n \rho ^{-n}) \qty(C_n \cos{n \theta} + D_n \sin{n\theta}).
+\end{equation}
+
+\subsubsection{Caso Cartesiano}
+Ahora la solución del caso cartesiano
+\begin{equation}
+	\varphi (x,y,z) = A e^{-(k + m) ^{1/2} x} \cos{m^{1/2} y} \cos{k^{1/2} z}.
+\end{equation}
+
+\section{Imágenes Electrostáticas}
+Para un conujunto dado de condicioens de frontera, la solución a la ecuación de Laplace es única y resolviendo para $\varphi$ se ha encontrado la solución completa al problema. \\
+El método de imágenes es un procedimiento para lograr este resultado sin resolver específicamente la ecuacioń diferencial. \dsnote{No se aplica universalmente, solo un número considerable de problemas (que bueno xd).}
+
+
+
+
+
 
 
 
