@@ -292,15 +292,45 @@ Ahora la solución del caso cartesiano
 
 \section{Imágenes Electrostáticas}
 Para un conujunto dado de condicioens de frontera, la solución a la ecuación de Laplace es única y resolviendo para $\varphi$ se ha encontrado la solución completa al problema. \\
-El método de imágenes es un procedimiento para lograr este resultado sin resolver específicamente la ecuacioń diferencial. \dsnote{No se aplica universalmente, solo un número considerable de problemas (que bueno xd).}
+El método de imágenes es un procedimiento para lograr este resultado sin resolver específicamente la ecuacioń diferencial. \dsnote{No se aplica universalmente, solo un número considerable de problemas (que bueno xd).} \\
+
+Supongamos una carga $q$ arriba de un plano conductor: La carga $q$ inducirá una carga en el conductor. La potencia total a una distancia $\vec{r}$ estará dado por la contribución de la carga más la inducida en el conductor:
+\begin{align*}
+	\varphi (r) &= \varphi _1 (r) + \kel \int _S \frac{\sigma (r')}{\abs{r - r'}} \dd{a'}. \\
+	\varphi (r) &= \varphi _1 (r) + \varphi _2 (r).
+\end{align*}
+$\varphi _2 (r)$ puede ser sustituído por un potencial debido a una distribución de carga especificada: 
+\begin{itemize}
+	\item Carga Imagen.
+	\item Debe cumplir con las condiciones de frontera.
+\end{itemize}
 
 
-
-
-
-
-
-
+\subsection{Sistemas Conductores y Coeficientes de Potencial}
+Cuando se tienen conductores con formas complicadas las soluciones analíticas quedan descartadas: Métodos numéricos. Se pueden sacar algunas conclusiones, supongamos $N$ conductores en una geometría fija:
+\begin{itemize}
+	\item Existe una relación lineal entre el potencial de un conductor y las cargas de los diversos conductores del sistema. $N$ conductores descargados excepto el conductor $j\to$ carga $Q_{jo}$. La solución de Laplace es el espacio fuera de los conductores la expresamos como:
+	\begin{equation}
+		\varphi _1 ^{(j)} (x,y,z) \quad \to \quad \text{potencial generado por } Q_{jo}.
+	\end{equation}
+	El potencial de cada uno de los conductores estará dado por:
+	\begin{equation}
+		\varphi _1 ^{(j)}, ldots, \varphi _N ^{(j)}
+	\end{equation}
+	Reexpresando la carga del $j-$ésimo
+	$$ \lambda Q_{jo}, \quad \lambda = \text{cte}, \quad \text{sadisface la ecuación de Laplace.} $$
+	\item El potencial también se multiplica por $\lambda $.
+	\item Todas las derivadas se multiplica por $\lambda$.
+	\item $\sigma 0 -\ep \pdv{\varphi}{\vu{n}} \to$ todas las densidades se multiplican por $\lambda$.
+	\item Potencial de cada conductor es proporcional a $Q_j$
+	\begin{equation}
+		\varphi _i ^j = p_{ij} Q_j, \qquad (i = 1,2,\ldots ,M)
+	\end{equation}
+	donde $p_{ij}$ es constante que depende de la geometría utilizando el mismo argumento para conductor $k$ $Q_k = \nu Q_{k_o}$ con $\nu =$ cte. Generalizando
+	\begin{equation}
+		\varphi _i = \sum _{j=1} ^{M} p_{ij} Q_j.
+	\end{equation}
+\end{itemize}
 
 
 
@@ -311,10 +341,164 @@ El método de imágenes es un procedimiento para lograr este resultado sin resol
 
 
 \chapter{Campo Electrostático en Medios Dieléctricos y su Teoría Microscópica}
+Existen materiales conductoresy aislantes (dieléctricos)
+\begin{itemize}
+	\item Material dieléctrico ideal: material que no tiene cargas libres.
+	\item Bajo la presencia de un campo eléctrico externo: pueden tener pequeños desplazamientos.
+	\item Dieléctrico se polariza. Un dieléctrico polarizado es eléctricamente neutro, sin embargo produce un campo eléctrico en los puntos exteriores en interiores del dieléctrico. En un caso extermo, bajo un campo muy grande, ocurre la ionización. Un dipolo inducido $\vec{p} = \alpha \vec{E}$ donde $\alpha$ es la polarizabilidad atómica, depende de la estructura del átomo. Para moléculas es más complejo debido a que tienen direcciones preferenciales $\alpha \to \alpha _{ij}$.
+\end{itemize}
+
+\section{Polarización}
+Consideremos un pequeño volumen $\Delta V$ de un medio dieléctrico que como todo es eléctricamente neutro. Si el medio está polarizado: Momento dipolar eléctrico
+	\begin{equation}
+		\Delta \vec{p} = \int _{\Delta V} r\dd{q}.
+	\end{equation}
+$\Delta \vec{p}$ depende del tamao del elemento de volumen. Se introduce el momento dipolar eléctrico por unidad de volumen y se conoce como polarización eléctrica:
+\begin{equation}
+	P \equiv \frac{\Delta \vec{p}}{\Delta V}.
+\end{equation}
+Momento dipolar de una molécula
+\begin{equation}
+	\vec{p} _m = \int _{\text{milecula}} r\dd{q}.
+\end{equation}
 
 
 
+\subsection{Campo Fuera de un Medio Dieléctrico}
+Consideramos una porción finita de material dieléctrico polarizado. Esta polarización genera un campo eléctrico $\vec{E} \to \varphi$. Cada elemento de $\Delta V'$ se caracteriza por un momento dipolar $\Delta \vec{p} = P\Delta V'$ y tenemos $r \gg r'$. La contribución de las cargas en $\Delta V'$ al potencial está dada por:
+\begin{equation}
+	\Delta \varphi (r) = \kel \frac{\Delta p \cdot (r - r')}{\abs{r - r'}^3} = \kel \frac{P(r') \cdot (r - r') \Delta V'}{\abs{r - r'}^3}.
+\end{equation}
+El potencial total es la suma de todas las contribuciones de todas las partes del dieléctrico:
+\begin{equation}
+	\varphi (r) = \kel \int _{V_o} \frac{P(r') (r - r')}{\abs{r - r'}^3} \dd{V'}.
+\end{equation}
+Ahora buscamos encontrar $\vec{E}$
+\begin{equation}
+	\frac{r - r'}{\abs{r - r'}^3} = \nabla ^\prime \qty(\frac{1}{\abs{r - r'}}).
+\end{equation}
+Desarrollando la siguiente identidad: $\nabla ^\prime (f\vec{F}) = f\nabla ^\prime \cdot \vec{F} + \vec{F} \cdot \nabla ^\prime f.$ Se desarrolla la integral anterior, con ello se llega a 
+\begin{equation}
+	\varphi (r) = \kel \oint _{S_o} \frac{P \cdot \vu{n} \dd{a}}{\abs{r - r'}} + \kel \int _{V_o} \frac{(-\nabla ^\prime \cdot P) \dd{V}}{\abs{r - r'}}
+\end{equation}
+Con lo que se definen dos nuevas funciones escalares
+\begin{itemize}
+	\item $\sigma _p = P \cdot \vu{n}$.
+	\item $\rho _p = -\div{P}$.
+\end{itemize}
 
+\begin{itemize}
+	\item La densidad superficial de carga de polarización está dada por la componente de polarización normal a la superficie.
+	\item La densidad de carga de polarización volumétrica es una medida de la no uniformidad de la polarización dentro del material.
+\end{itemize}
+
+Luego, calculando el campo eléctrico
+\begin{equation}
+	\vec{E} = \kel \qty[\int _S \sigma _p \frac{r - r'}{\abs{r - r'}^3} \dd{a'} + \int _{V_o} \rho _p \frac{r - r'}{\abs{r - r'}^3} \dd{V'}].
+\end{equation}
+
+
+\subsection{Campo Eléctrico dentro de un Dieléctrico}
+En un dieléctrico la carga de prueba es comparable al tamaño de las moléculas. EL campo eléctrico dentro del dieléctrico debe tener las mismas propiedades. El campo eléctrico en un dieléctrico es igual al campo eléctrico dentro de una cavidad. \\
+
+La ley de Gauss en un dieléctrico viene dada por
+\begin{equation}
+	\oint (\ep \vec{E} + \vec{P}) \cdot \vu{n} \dd{a} = Q.
+\end{equation}
+donde el término $\vec{D} = \ep \vec{E} + \vec{P}$ se le denomina \textbf{desplazamiento eléctrico}. 
+
+
+\subsection{Suceptibilidad Dieléctrica y Constante Dieléctrica}
+La polarización de un medio dieléctrico ocurre en respuesta al campo eléctrico en el medio. El grado de polarización depende:
+\begin{itemize}
+	\item Campo eléctrico
+	\item Propiedades del material
+\end{itemize}
+A nivel macroscópico $F = P(E)$. En la mayoría de materiales $P$ se anula cuando $\vec{E} = 0$. Para materiales de este tipo y si son materiales siótropos, la polarización tendrá el mismo sentido que $\vec{E}$. 
+\begin{equation}
+	P = \chi (E) \vec{E} = \ep \chi _e \vec{E}.
+\end{equation}
+con esto se define $\varepsilon = \ep (1 - \chi _e)$.
+
+
+\section{Condiciones de Frontera para los Vectores de Campo}
+Variación de $\vec{E}$ y $\vec{D}$ al pasar por una zona interfacial entre dos medios. Considerando dos emdios encontacto y una densidad superficial de carga externa $\sigma$. Construir una pequeña superficie $S$: forma de caja de pastillas de altura despreciable. Entonces
+\begin{equation}
+	D_{2n} - D_{1n} = \sigma
+\end{equation}
+Observaciones
+\begin{itemize}
+	\item La discontinuidad en la componente normal $\vec{D}$ está dada por la densidad superficial de carga en la zona interfacial.
+	\item Si no hay carga en la zona interfacial la componente normal de $\vec{D}$ no es contínua.
+\end{itemize}
+Y por la ley de Gauss se concluye que la componente tangencial del campo eléctrico es continua.
+\dsnote{Después de toda esta parafernalia, el ejemplo clásico es el de la esfera dieléctrica en un campo eléctrico extermo, revisar el libro.}
+
+
+
+\section{Teoría Microscópica de los Dieléctricos}
+\subsection{Campo Molecular en un Dieléctrico: $E_m$}
+Es el campo eléctrico en una posición molecular del dieléctrico el cual es producido por todas las fuentes externas y por todas las moléculas polarizadas del dieléctrico con excepción de la molécula en el punto considerado. El dieléctrico se polariza al inducir un campo. Suponemos polarización uniforma $\div{\vec{P}} = 0$. El campo eléctrico en el centro de la cavidad puede expresarse como:
+\begin{equation}
+	\vec{E}_m = \vec{E} _x + \vec{E}_d + \vec{E} _s + \vec{E} ^\prime
+\end{equation}
+
+\begin{itemize}
+	\item $E_x$ campo eléctrico primario debido a los planos.
+	\item $E_d$ campo debido a la carga de polarización e la superficie.
+	\item $E_s$ campo debido a la carga de polarización en la superficie $S$.
+	\item $E^\prime$ campo generado por dipolos dentro de $S$.
+\end{itemize}
+
+
+\subsection{Moléculas Polares}
+\begin{itemize}
+	\item Momento dipolar permanente
+	\item Están formadas por al menos dos especcies distintas de átomos.
+	\item En ausencia de campo eléctrico por una porción macroscópica del dieléctrico polar no está polarizada: dipolos individuales orientados al azar.
+\end{itemize}
+Si el dieléctrico polar se somete a un campo eléctrico, los dipolos se alinean con el campo. Si el campo es lo suficientemente intenso, la polarización alcanza el vapor de saturación: 
+\begin{equation}
+	P_s = N\vec{p}_m
+\end{equation}
+Se requiere valores de campo muy intensos. Si la temperatura se eleva la polarización disminuye. Según la mecánica estadística, a una temperatura $T$, la probabilidad de encontrar una molécula con energía $E$ es:
+\begin{equation}
+	f(E) = \propto e^{-E/kT}
+\end{equation}
+La energía potencial de un dipolo permanente $p_o$ en un campo eléctrico es:
+\begin{equation}
+	u = -p_o \cdot E_m
+\end{equation}
+La energía cinética de las moléculas no dependen del campo, entonces se desprecia su contribución en la distribución. El moemtno diplar efectivo de un dipolo molecular es su componente en la dirección del campo: $p_o \cos{\theta}$. El valor promedio de la cantidad está dado por:
+\begin{equation}
+	\expval{x}  =\sum x_m p_m = \frac{\sum _m \chi _m e^{-\beta e_m}}{\sum _m e^{-\beta u_m}}.
+\end{equation}
+
+pasando a lo continuo
+\begin{equation}
+	\expval{p_o \cos{\theta}} = p_o \qty(-\frac{1}{y} + \coth{y})
+\end{equation}
+con $y = p_o \frac{E_m}{kT}$ y a esta fórmula se le conoce como \textbf{Fórmula de Lagevin}. y el momento dipolar efectivo promedio
+\begin{equation}
+	\expval{p_o \cos{\theta}} = \frac{p_o ^2 E_m}{3kT}.
+\end{equation}
+Polarizabilidad por orientación $\alpha = \frac{p_o ^2}{3kT}$.
+
+\begin{equation}
+	\alpha = \alpha _o + \frac{p_o ^2}{3kT}
+\end{equation}
+a esta se le conoce como la \textbf{ecuación de Langevin-Debye}.
+
+\subsection{Polarización Permanente: Ferroelectricidad}
+Sabemos que
+\begin{equation}
+	E_m = E + \frac{p}{3\ep}
+\end{equation}
+Generalmente $E_m = 0$ cuando $E = 0$. Existen casos en los cuales $E = 0$ y $E_m = 0$ y esto se satisface para:
+\begin{equation}
+	p_o = 0, \qquad \frac{N \alpha}{3\ep} = 1.
+\end{equation}
+la cual es la condición de polarización permanente.
 
 
 
@@ -322,6 +506,26 @@ El método de imágenes es un procedimiento para lograr este resultado sin resol
 
 
 \chapter{Energía Electrostática}
+Simplifica la resolución de algunos problemas. Y la contribución de energía de un sistema de cargas se divide en sus contribuciones cinética y potencial. \\
+Energía potencial de un grupo de cargas puntuales
+\begin{equation}
+	u = \frac{1}{2} \sum _{j=1} ^{m} q_i \varphi _j.
+\end{equation}
+Energía electrostática de una distribució de carga:
+\begin{align*}
+	u &= \frac{1}{2} \ep \qty[\oint _S E\varphi \dd{a} + \int _V E^2 \dd{V}]. \\
+	u &= \frac{1}{2} \int _V \rho (r) \varphi (r) \dd{V} + \frac{1}{2} \int _S \sigma (r) \varphi (r) \dd{a} + \frac{1}{2} \sum _j Q_j \varphi _j.
+\end{align*}
+
+
+
+
+
+
+
+
+
+
 
 
 
