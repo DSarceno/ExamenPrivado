@@ -519,21 +519,60 @@ Energía electrostática de una distribució de carga:
 
 
 
+\section{Condensadores}
+Los condensadores son componentes eléctricos que sirven para almacenar energía. Dos conductores que puedan almacenar cargas iguales pero opuestas con una diferencia de potencial entre sí. La relación entre la carga almacenada y el potencial asociado es la capacitancia
+\begin{equation}
+	C \equiv \frac{Q}{\Delta \varphi}.
+\end{equation}
+Cuya energía se puede expresar como:
+\begin{equation}
+	u = \frac{1}{2} Q \Delta \varphi = \frac{1}{2} C \Delta \varphi ^2
+\end{equation}
+Si los conductores que forman un condensador tienen formas geométricas sencillas, la capacitancia puede obtenerse analíticamente. Y para condensadores en circuitos paralelos y en serie\footnote{En paralelo se tiene la misma diferencia de potencial entre los nodos y para los circuitos en serie se conserva la carga.}
 
-
-
-
-
-
-
-
-
-
-
+\begin{align*}
+	C_{eq} &= C_1 + C_2, \qquad \text{Paralelo} \\
+	\frac{1}{C_{eq}} &= \frac{1}{C_1} + \frac{1}{C_2}, \qquad \text{Serie.}
+\end{align*}
 
 
 
 \chapter{Corriente Eléctrica}
+Carga en movimiento $\to$ corriente eléctrica. Proceso por el cual se transporta la carga $\to$ condicción. La corriente se define como la velocidad a la que se transporta la carga a través de una superficie dad e un sistema conductor
+\begin{equation}
+	I = \dv{Q}{t}.
+\end{equation}
+Por convención: el sentido en que se mueve los portadores positivos se toma como el sentido de la corriente. \\
+
+Cosas a notar:
+\begin{itemize}
+	\item En gases la conducción es más complicada, ya que las poblaciones d eportadores varían mucho con condiciones experimentales.
+	\item Al estar en equilibrio térico cada partícula tiene un movimiento aleatorio.
+	\item Líquidos y gases $\to$ movimientos hidrodinámicos.
+\end{itemize}
+
+\section{Densidad de Corriente}
+Consideremos un medio conductor con un solo tipo de portador de carga:
+\begin{itemize}
+	\item Sea $N$ un número de portadores de carga por unidad de volumen.
+	\item Asumimos una velocidad $v$ para los portadores de carga.
+\end{itemize}
+Se define la densidad de carga como
+\begin{equation}
+	\vec{J} = \sum _i N_i q_i v_i.
+\end{equation}
+Cuya integral para una superficie da como resultado la corriente
+\begin{equation}
+	I = -\oint _S \vec{J} \cdot \vu{n} \dd{a} = -\int _V \div{\vec{J}} \dd{V} = \int _V \pdv{\rho}{t} \dd{V}.
+\end{equation}
+Lo que implica y da como resultado la \textbf{ecuación de la continuidad} y representa la \textbf{conservación de la carga}
+\begin{equation}
+	\pdv{\rho}{t} + \div{\vec{J}} = 0.
+\end{equation}
+
+
+\section{Ley de Ohm}
+
 
 
 
