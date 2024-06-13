@@ -34,7 +34,7 @@ La divergencia produce un escalar, mide cuanto un vector se dispersa o sale de u
 \subsubsection{En Diferentes Sistemas de Coordenadas}
 \begin{align*}
 	\div{A} &= \frac{1}{r^2} \pdv{(r^2 A_r)}{r} + \frac{1}{r\sin{\theta}} \pdv{(\sin{\theta} A_\theta)}{\theta} + \frac{1}{r\sin{\theta}} \pdv{A_\phi}{\phi} \qquad \text{Coordenadas Esféricas} \\
-	\div{A} = \frac{1}{\rho} \pdv{(\rho A_\rho)}{\rho} + \frac{1}{\rho} \pdv{A_\phi}{\phi} + \pdv{A_z}{z} \qquad \text{Coordenadas Cilíndricas.}
+	\div{A} &= \frac{1}{\rho} \pdv{(\rho A_\rho)}{\rho} + \frac{1}{\rho} \pdv{A_\phi}{\phi} + \pdv{A_z}{z} \qquad \text{Coordenadas Cilíndricas.}
 \end{align*}
 
 
@@ -572,35 +572,383 @@ Lo que implica y da como resultado la \textbf{ecuación de la continuidad} y rep
 
 
 \section{Ley de Ohm}
+Para mantener una corriente se requiere de un campo eléctrico, por lo que la densidad de corriente es proporcional a la fuerza por unidad de carga
+\begin{align}
+    \vec{J} &\propto f \\
+    \vec{J} = gf &= g\frac{\vec{F}}{q} \\
+    \vec{J} &= g\vec{E}.
+\end{align}
+Donde $g$ es la conductividad. La ley de Ohm des esta forma es válida en medios lineales isótropos o medios óhmicos. Generalmente se usa el recíproco de $g$:
+\begin{equation}
+    \sigma = \frac{1}{g}.
+\end{equation}
+A lo cual se conoce como resistividad. Para un cable recto conductor y, utilizando la definición de corriente, se tiene
+\begin{equation}
+    \Delta \varphi = IR
+\end{equation}
+Y sabiendo que $P = \dv{W}{t}$, entonces
+\begin{equation}
+    P = I\Delta \varphi = I^2 R = \qty(\frac{\Delta \varphi ^2}{R}).
+\end{equation}
+
+\section{Corrientes Estacionarias en Medios Continuos}
+Consideremos un medio conductor óhmico (lineal), homogéneo, en condiciones de conducción en estado estacionario, es decir con densidad de cargo local en equilibrio:
+\begin{equation}
+    \pdv{\rho}{t} (x,y,z) = 0
+\end{equation}
+Por ende la ecuación de continuidad se reduce a:
+\begin{equation}
+    \div{\vec{J}} = \div{g\vec{E}} = 0
+\end{equation}
+Para un medio homogéneo, $g$ no depende de $E$:
+\begin{align*}
+    g\div{\vec{E}} &= 0 \\
+    \div{\vec{E}} &= -\laplacian{\varphi} = 0
+\end{align*}
+Por lo que el problema de conducción en estado estacionario puede resolverse. Se resuelve utilizando la siguientes condiciones de frontera:
+\begin{itemize}
+    \item Para estado estacionario: $\mqty{\div{\vec{J}} = 0 \\ J_{1n} = J_{2n}}$.
+    \item La componente normal debe ser continua $g_1 E_{1n} = g_2 E_{2n}$, análogo a $D_N$.
+    \item Puesto que el campo eléctrico es estático en cada medio $\mqty{\oint \vec{E} \cdot \dd{l} \\ E_{1t} = E_{2n}}$
+\end{itemize}
+Otra relación entre conducción y electrostática se da considerando dos electrodos metálicos en un medio infinito óhmico homogéneo de conductividad $g$. Los electrodos están a $\varphi _1$ y $\varphi _2$ respectivamente:
+\begin{equation}
+    I = \frac{\varphi _1 - \varphi_2}{R}
+\end{equation}
+reemplazando la definición de corriente en términos del campo eléctrico, se tiene
+\begin{equation}
+    RC = \frac{\varepsilon}{g}.
+\end{equation}
+
+\subsection{Aproximación al Equilibrio Electrostático}
+Para un conductor el equilibrio se alcanza en poco tiempo. Entre menos conductor el equilibrio se alcanza más lento. Consideremos un medio isótropo, homogéneo, caracterizado por $g$ y $E$. Con densidad volumétrica de carga $\rho _o (x,y,z)$. Si se aísla repentinamente de los campos aplicados
+\begin{equation}
+    \pdv{\rho}{t} + \frac{g}{\varepsilon} \rho = 0
+\end{equation}
+Resolvemos la ecuación diferencial, por lo que se tiene
+\begin{equation}
+    \rho = \rho _o e^{-\frac{g}{\varepsilon} t}.
+\end{equation}
 
 
+\section{Redes de Resistencias y Leyes de Kirchhoff}
+Los portadores de carga siguen una trayectoria de baja resistencia llamada circuito. 
+\begin{itemize}
+    \item Las fuerzas puramente electrostáticas no puede hacer circular una corriente en el circuito.
+    \item Se necesita una diferencia de potencial externa $\Delta \varphi$.
+\end{itemize}
+Para resistencias en serie y paralelo, se conserva la corriente y el potencial respectivamente, y con ello se tiene
+\begin{align}
+    R &= R_1 + R_2 \qquad \text{Serie} \\
+    \frac{1}{R} &= \frac{1}{R_1} + \frac{1}{R_2} \qquad \text{Paralelo}.
+\end{align}
+Cualquier sistema puede resolverse de forma sistemática por medio de las leyes de Kirchhoff:
+\begin{enumerate}
+    \item La suma algebraica de las diferencias de voltaje en cualquier malla\footnote{Trayectoria cerrada conductora en un circuito.} de la red es cero.
+        \begin{equation}
+            \sum \varphi _i = 0.
+        \end{equation}
+    \item La suma algebraica de las corrientes que circulan hacia un nodo\footnote{Pounto donde concurren tres o más conductores.} es cero.
+        \begin{equation}
+            \sum I_i = 0.
+        \end{equation}
+\end{enumerate}
+Interpretando las leyes de Kirchhoff
+\begin{enumerate}
+    \item Reafirmación de
+        \begin{equation}
+            \oint \vec{E} \cdot \dd{l} = 0.
+        \end{equation}
+    \item Enunciado formal de conservación de la carga
+        \begin{equation}
+            \div{\vec{J}} = 0.
+        \end{equation}
+\end{enumerate}
 
 
-
+\section{Teoría Microscópica de la Conducción}
+Consideremos una partícula libre de carga $q$ y masa $m$, bajo la influencia de una fuerza eléctrica local, su velocidad de deriva aumentará:
+\begin{equation}
+    m\dv{v}{t} = q\vec{E}.
+\end{equation}
+Si la partícula se encontrara en el vacío continuará acelerándose. En un medio material donde pasa una corriente constante la velocidad sería constante. Debe existir una fuerza debido al medio
+\begin{equation}
+    m\dv{v}{t} = q\vec{E} - Gv
+\end{equation}
+Para una $v$ constante: $v_d = \frac{g\vec{E}}{G}$. Y para el caso general
+\begin{equation}
+    v(t) = \frac{g}{G} E \qty(1 - e^{-\frac{Gt}{m}}).
+\end{equation}
+Para el estado estacionario: $v_d = q\frac{E}{G} = q\frac{\tau}{m} E$. Si hay varios tipos de portadores de carga
+\begin{equation}
+    g = \frac{\sum N_i q_i ^2 \tau _i}{m_i}
+\end{equation}
+donde $\tau$ es aproximadamente entre colisiones del electrón de conducción; por ende, el reocorrido libre medio del electrón es:
+\begin{equation}
+    l = v_t \tau.
+\end{equation}
+con $v_t \gg v_d$. Para los materiales de mayor conductividad eléctrica, sólo se considera un tipo de portador de carga, el electrón:
+\begin{align*}
+    J &= N_e e v_d \\
+    g &= N_e e^2 \frac{\tau}{m} = N_e e \frac{v_d}{E}
+\end{align*}
+con $\dfrac{v_d}{E}$ es la movilidad del electrón.
 
 
 
 
 \chapter{El Campo Magnético de Corrientes Estacionarias}
+Así como las cargas generan campos eléctricos, las corrientes generan campos magnéticos. Para esta sección haremos la densidad de carga y el campo eléctrico igual a cero, así solo nos concentramos en el campo magnético.
+
+\section{Ley de Ampére}
+La primera ecuación de la magnetostática es
+\begin{equation}
+    \curl{\vb{B}} = \mu _o \vb{J}
+\end{equation}
+esta es conocida como la \textbf{ley de Ampére}. Para el caso integral, tomamos una superficie abierta $S$ con borde $\partial S$. Se puede utilizar el teorema de Stockes para convertir la integral del rotacional a una integral de línea
+\begin{equation}
+    \int _S \curl{\vb{B}} \cdot \dd{\vb{S}} = \oint _{\partial S} \vb{B} \dot \dd{\vb{r}} = \muc \int _S \vb{J} \cdot \dd{\vb{S}}.
+\end{equation}
+por lo que
+\begin{equation}
+    \oint _{\partial S} \vb{B} \cdot \vb{r} = \muc I.
+\end{equation}
+
+\section{Vector Potencial}
+Para distribuciones de corrientes simples se sabe que se tiene
+\begin{equation}
+    \div{\vb{B}} = 0.
+\end{equation}
+Pero para corrientes más generales esto no es el caso. Para garantizar una solución a la ecuación anterior se escribe el campo magnético en términos de algún campo vectorial.
+\begin{equation}
+    \vb{B} = \curl{\vb{A}}.
+\end{equation}
+Utilizando propiedades de los operadores vectoriales, la ley de Ampére se vuelve
+\begin{equation}
+    \curl{\vb{B}} = -\laplacian{\vb{A}} + \grad{(\div{\vb{A}})} = \muc \vb{J}
+\end{equation}
+
+\subsection{Mono-polos Magnéticos}
+Pasamos muy rápido de la ley de Ampére a su representación en términos del potencial magnético, que no paramos a analizar la situación. Supongamos una especie de carga puntual $g$ sería fuente de campo magnético
+\begin{equation}
+    \vb{B} = \frac{g\vu{r}}{4\pi r^2}
+\end{equation}
+a esto se le conoce como \textit{mono-polo magnético}. Las ecuaciones de Maxwell dicen que esto no existe. Pero, qué tan tajante es esta conclusión? Estamos seguros qué no existen? En caso de que existan las ecuaciones de Maxwell no cambiarían significativamente, aunque la idea de $\vb{A}$ se perdería, pero, es esto algo tan importante? Pues en Mecánica Cuántica esto no es posible, existen propiedades que se pierden al perder $\vb{A}$ (buscar Aharonov-Bohm Effect). \\
+
+Y aún así, es posible que existan mono-polos magnéticos y tener una ''versión'' del vector $\vb{A}$ que permita la presencia de esta carga magnética, pero solo si esta esta relacionada a la carga del electrón de la siguiente forma
+\begin{equation}
+    ge = 2\pi \hbar n, \quad n \, \in \, \Z.
+\end{equation}
+Esta es conocida como \textit{La Condición de Cuantización de Dirac.}
+
+\subsection{Transformaciones de Gauge}
+La elección de $\vb{A}$ no es única: existen muchos de potenciales vectoriales que dan como resultado el mismo campo magnético. Esto es debido a que el rotacional del gradiente es cero. Esto significa que se puede agregar cualquier vector potencial de la forma $\nabla _\chi$ para alguna función $\chi$ y el campo magnético se mantiene igual
+\begin{equation}
+    \vb{A}^\prime = \vb{A} + \nabla _\chi \quad \Rightarrow \quad \curl{\vb{A}^\prime} = \curl{\vb{A}}.
+\end{equation}
+Un cambio del vector $\vb{A}$ como este se denomina \textit{transformación de gauge}.
+
+\begin{teorema}
+    Siempre se puede encontrar una transformación de auge $\chi$ tal que $\vec{A} ^\prime$ que satisface $\div{\vb{A}^\prime} = 0$. A esto se le conoce como \textit{Coulomb gauge}.
+\end{teorema}
+Si necesitamos $\div{\vb{A}^\prime} = 0$, solo necesitamos que nuestra transformación gauge obedesca
+\begin{equation}
+    \laplacian{\chi} = -\psi .
+\end{equation}
+La cual siempre tiene solución dado que es una ecuación de Poisson. Existe otra cantidad a la que se le conoce \textit{potencial escalar magnético}, $\Omega$. La idea detras del potencial es que podemos estar interesados en conocer el campo magnético en una región donde no haya corrientes y el campo eléctrico no cambie en el tiempo. En este caso debemos resolver $\curl{\vb{B}} = 0$, lo que se puede hacer teniendo
+\begin{equation}
+    \vb{B} = -\grad{\Omega}.
+\end{equation}
+Esto es solo válido en un número limitado de situaciones, esto gracias a la no existencia de cargas magnéticas.
+
+
+\subsection{Ley de Biot-Savart}
+Ahora utilizaremos el vector potencial para resolver para el campo magnético en la presencia de una distribución de corriente. Por ahora siempre diremos que trabajaremos en Coulomb gauge y nuestro vector potencial obedece que $\div{\vb{A}} = 0$. Entonces la ley de Ampére se vuelve lo siguiente
+\begin{equation}
+    \laplacian{\vb{A}} = -\muc \vb{J}.
+\end{equation}
+Utilizamos la solución más general, las funciones de Green, se tiene
+\begin{equation}
+    \vb{A} (x) = \frac{\muc}{4\pi} \int _V \dd ^3 x^\prime \qty(\frac{\vb{J} (\vx ^\prime)}{\abs{\vx - \vx ^\prime}})
+\end{equation}
+necesitamos recordar que el índice
+
+\subsubsection{El Campo Magnético}
+Del resultado anterior se tiene $\vb{B} = \curl{\vb{A}}$. Aplicando y recordando que $\nabla$ actúa sobre $\vx$. Encontramos
+\begin{equation}
+    \vb{B} (\vx) = \frac{\muc}{4\pi} \int _V \dd ^3 \vx ^\prime \frac{\vb{J} (\vx ^\prime) \times (\vx - \vx ^\prime)}{\abs{\vx - \vx^\prime}^3}
+\end{equation}
+Esta es conocida como la \textbf{Ley de Biot-Savart}. Esto describe el campo magnético de una densidad de corriente general. 
 
 
 
+\section{Dipolos Magnéticos}
+\subsection{Corriente en una Espira}
+Empezamos por un ejemplo clásico, una espira. Encontramos el campo magnético generado por una espira, utilizamos $\vb{r}$ en lugar de $\vx$. El vector potencial está como
+\begin{equation}
+    \vb{A} (\vb{r}) = \frac{\muc}{4\pi} \int _V \dd ^3 r^\prime \frac{\vb{J} (\vb{r^\prime})}{\abs{\vb{r} - \vb{r}^\prime}}
+\end{equation}
+Ahora, reemplazando por la corriente, se tiene
+\begin{equation}
+    \vb{A} (\vb{r}) = \frac{\muc I}{4\pi} \oint _C \frac{\dd{\vb{r}}^\prime}{\abs{\vb{r} - \vb{r} ^\prime}}
+\end{equation}
+Pensando como sería esto muy lejos de la espira, podemos expandir en Taylor el término de la integral y esto nos quedaría
+\begin{equation}
+    \vb{A} (\vb{r}) = \frac{\muc I}{4\pi} \oint _C \vb{r}^\prime \qty(\frac{1}{r} + \frac{\vb{r} \cdot \vb{r}^\prime}{r^3} + \cdots).
+\end{equation}
+\subsubsection{Momento Dipolar Magnético}
+Teniendo el vector de superficie
+\begin{equation}
+    \mathcal{\mathbf{S}} = \int _S \dd{\vb{S}}
+\end{equation}
+y dado que el primer término de la ecuación del potencial magnético se anula por la inexistencia de mono-polos, se tiene
+\begin{equation}
+    \vb{A} (\vb{r}) = \frac{\muc}{4\pi} \frac{\vb{m} \times \vb{r}}{r^3}
+\end{equation}
+y con esto, introducimos el \textit{momento dipolar magnético} 
+\begin{equation}
+    \vb{m} = I\mathcal{\mathbf{S}}.
+\end{equation}
+Y con un poco de álgebra se tiene
+\begin{equation}
+    \vb{B} (\vb{r}) = \frac{\muc}{4\pi} \qty(\frac{3(\vb{m} \cdot \vu{r}) \vu{r} - \vb{m}}{r^3}).
+\end{equation}
 
 
+\section{Fuerzas Magnéticas}
+Hasta ahora vimos que las corrientes producen campos magnéticos. Y sabemos que una partícula cargada con una velocidad $\vb{v}$ experimentará una fuerza
+\begin{equation}
+    \vb{F} = q\vb{v} \times \vb{B}.
+\end{equation}
+Esto significa que si una segunda corriente es situada en algún lugar de la vecindad de la primera, esta experimentará una fuerza de la otra.
 
+\subsection{Fuerza entre Corrientes}
+Para dos corrientes paralelas se tiene que la fuerza que siente una de ellas debido a la otra es
+\begin{equation}
+    \vb{F} = q\vb{v} \times \vb{B} = q\vb{v} \times \qty(\frac{\muc I_1}{2\pi d}) \mathbf{\otimes}.
+\end{equation}
+
+Y la fuerza por unidad de longitud es
+\begin{equation}
+    \vb{f} = -\qty(\frac{\muc I_1 I_2}{2\pi d}) \vu{x}.
+\end{equation}
+
+Y, de la ley de Biot-Savart se concluye que la forma general para la fuerza entre corrientes es
+\begin{equation}
+    \vec{F} = \frac{\muc}{4\pi} I_1 I_2 \oint _{C_1} \oint _{C_2} \dd{\vb{r}_2} \times \qty(\dd{\vb{r}_1} \times \frac{\vb{r}_2 - \vb{r}_1}{\abs{\vb{r}_2 - \vb{r}_1}^3}).
+\end{equation}
+En general, esta integral es ''tricky'' de resolver, pero si las corrientes están bien separadas es más sencillo expresar la fuerza en términos del momento dipolar magnético.
+
+
+\subsection{Fuerza y Energía de un Dipolo}
+Para encontrar esto se parte de
+\begin{equation}
+    \vb{F} = \int _V \dd ^3 r \vb{J} (\vb{r}) \times \vb{B} (\vb{r})
+\end{equation}
+\dsnote{luego de mucho cálculo se llega a }
+\begin{align}
+    \vb{F} &= \curl{(\vb{B} \times \vb{m})}, \\
+    \vb{F} = \grad{\vb{B} \cdot \vb{m}}.
+\end{align}
+Y sabiendo que toda fuerza se puede expresar como el gradiente de una función, la función del dipolo en el campo magnético es
+\begin{equation}
+    U = -\vb{B} \cdots \vb{m}.
+\end{equation}
+
+
+\subsection{Fuerza entre Dipolos}
+Tomando el caso en el que el campo magnético lo genera un dipolo $\vb{m} _1$. Sabemos que el campo magnético es de la forma
+\begin{equation}
+    \vb{B} (\vb{r}) = \frac{\muc}{4\pi} \qty(\frac{3(\vb{m}_1 \cdot \vu{r}) \vu{r} - \vb{m}_1}{r^3})
+\end{equation}
+Y, utilizando lo anteriormente encontrado, se tiene que la fuerza que siente el segundo dipolo es
+\begin{equation}
+    \vb{F} = \frac{\muc}{4\pi} \grad{\qty(\frac{3(\vb{m}_1 \cdot \vu{r}) (\vb{m}_2 \cdot \vu{r}) - \vb{m}_1 \cdot \vb{m}_2}{r^3})}
+\end{equation}
+donde $\vb{r}$ es el vector de $\vb{m}_1$ a $\vb{m}_2$. Y, notemos que la estructura de la fuerza es idéntica a la que hay entre dos dipolos eléctricos. Esto es particularmente satisfactorio dado que se utilizan dos métodos diferentes.
 
 
 
 \chapter{Propiedades Magnéticas de la Materia}
+\section{Magnetización}
+A diferencia de la polarización eléctrica que es casi siempre en dirección de $\vb{E}$, algunos materiales adquieren su magnetización paralela a $\vb{B}$ (\textbf{paramagnéticos}) y algunos opuesta a $\vb{B}$ (\textbf{diamagnéticos}); solo unas pocas sustancias (como el hierro) retienen su magnetización incluso después de que el campo externo sea removido, a estos se le conocen como \textbf{ferromagnéticos.}
+
+\subsection{Torques y Fuerzas en Dipolos Magnéticos}
+Así como los dipolos eléctricos sienten un torque, y esto sucede de igual forma para el campo magnético
+\begin{equation}
+	\vb{N} = \vb{m} \times \vb{B}.
+\end{equation}
+\dsnote{En Griffiths no se ve del todo bien esto, revisar la parte de torque magnético en Zemansky, está mas de ahuevo la figura ahí.}
+Y para un loop infinitesimal
+\begin{equation}
+	\vb{F} = \grad{\vb{m} \cdot \vb{B}}.
+\end{equation}
+
+
+\subsection{Magnetización}
+En presencia de un campo magnético la materia se \textbf{magnetiza}, por el análisis microscópico, se sabe que se tienen muchos minidipolos que resultan alineados en cierta dirección.
+\begin{equation}
+	\vb{M} = \text{ momento dipolar magnético por unidad de volumen.}
+\end{equation}
+En otras palabras
+\begin{equation}
+	\vb{M} = \frac{\Delta \vb{m}}{\Delta V}.
+\end{equation}
 
 
 
+\section{El Campo de un Objeto Magnetizado}
+\subsection{Límites de Corrientes}
+Suponga que se tiene una pieza de material magnetizado; su momento dipolar magnético por unidad de volumen $\vb{M}$. El vector potencial es
+\begin{equation}
+	\vb{A} (\vb{r}) = \frac{\muc}{4\pi} \int \frac{\vb{M} (\vb{r} ^\prime) \times \vu{r}}{r^2} \dd{\tau ^\prime}
+\end{equation}
+con $\dd{\tau ^\prime}$ es un diferencial de volumen. Reemplazando $\frac{\vu{r}}{r^2} = \nabla ^\prime (\frac{1}{r})$, lo que resulta en
+\begin{equation}
+	\vb{A} (\vb{r}) = \frac{\muc}{4\pi} \int \frac{1}{r} \qty[\nabla ^\prime \times \vb{M} (\vb{r}^\prime)] \dd{\tau ^\prime} + \frac{\muc}{4\pi} \oint \frac{1}{r} \qty[\vb{M} (\vb{r}^\prime \times \dd{a^\prime})]
+\end{equation}
+El primer término es el potencial de una corriente volumétrica
+\begin{equation}
+	\vb{J} _b = \curl{\vb{M}}
+\end{equation}
+y el segundo es el potencial de una corriente superficial
+\begin{equation}
+	\vb{K} _b = \vb{M} \times \vu{n}.
+\end{equation}
+Esto es el análogo a la carga de volumen y superficie de polarización $\rho _b = -\div{\vb{P}}$ y $\sigma _b = \vb{P} \cdot \vu{n}$. Con todo esto, podemos expresar el campo magnético como
+\begin{equation}
+	\vb{B} (\vb{r}) = -\muc \grad{\varphi (\vb{r})} + \muc \vb{M} (\vb{r})
+\end{equation}
+donde $\varphi (\vb{r})$ es el campo escalar magnético \dsnote{Anteriormente lo introduje como $\Omega$, pero cambié de libro.} Y tiene la siguiente forma
+\begin{equation}
+	\varphi (\vb{r}) = \frac{1}{4\pi} \int _{V_o} \vb{M} (\vb{r} ^\prime) \cdot \frac{\vb{r} - \vb{r} ^\prime}{\abs{\vb{r} - \vb{r} ^\prime}^3} \dd{v} ^\prime.
+\end{equation}
 
+\subsection{Potencial Escalar Magnético y Densidad de Polos Magnéticos}
+La expresión del potencial escalar magnético, es de forma parecida a la del potencial electrostático que provioene de un material dieléctrico polarizado. Utilizando la ecuación
+\begin{equation}
+	\frac{\vb{M} \cdot (\vb{r} - \vb{r}^\prime)}{\abs{\vb{r} - \vb{r} ^\prime}^3} = \vb{M} \cdot \nabla ^\prime \frac{1}{\abs{\vb{r} - \vb{r} ^\prime}} = \nabla ^\prime \cdot \frac{\vb{M}}{\abs{\vb{r} - \vb{r} ^\prime}} - \frac{1}{\abs{\vb{r} - \vb{r} ^\prime}} \nabla ^\prime \cdot \vb{M} .
+\end{equation}
+Y el potencial se reescribe como
+\begin{equation}
+	\varphi (\vb{r}) = \frac{1}{4\pi} \int _{S_o} \frac{\vb{M} \cdot \vu{n} \dd{a^\prime}}{\abs{\vb{r} - \vb{r}^\prime}} - \frac{1}{4\pi} \int _{V_o} \frac{\nabla ^\prime \cdot \vb{M}}{\abs{\vb{r} - \vb{r}^\prime}} \dd{v^\prime}.
+\end{equation}
+Con lo que se tiene
+\begin{description}
+	\item[Densidad de Polos Magnéticos: ] $\rho _M = -\nabla ^\prime \cdot \vb{M} (\vb{r} ^\prime)$.
+	\item[Densidad Superficial de la Intensidad de Polos Magnéticos: ] $\sigma _M (\vb{r} ^\prime) = \vb{M} (\vb{r}^\prime) \cdot \vu{n}$.
+\end{description}
 
-
-
-
-
+\section{Fuentes de Campo Magnético: Intensidad Magnética}
+Así como se tiene el desplazaiento eléctrico, definimos la \textbf{intensidad magnética} $\vb{H}$ como
+\begin{equation}
+	\vb{H} = \frac{1}{\muc} \vb{B} - \vb{M}.
+\end{equation}
+Combinando ecuaciones se tiene
+\begin{equation}
+	\vb{H} (\vb{r}) = \frac{1}{4\pi} \int _V \frac{\vb{J} \times (\vb{r} - \vb{r} ^\prime)}{\abs{\vb{r} - \vb{r} ^\prime}^3} \dd{v}^\prime - \grad{\varphi} (\vb{r}).
+\end{equation}
+Parece que no hemos ganado nada, dado que $\vb{H}$ aún depende de $\vb{M}$ a través de $\rho _m$ y $\sigma _m$. Más adelante se verá la relación entre esta nueva cantidad y la densidad de corriente. 
 
 
 
@@ -708,4 +1056,4 @@ Lo que implica y da como resultado la \textbf{ecuación de la continuidad} y rep
 
 
 
-%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%
