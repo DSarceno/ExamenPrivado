@@ -1,3 +1,4 @@
+
 \part{Electromagnetismo}
 
 \vspace*{\fill}
@@ -940,7 +941,7 @@ Con lo que se tiene
 \end{description}
 
 \section{Fuentes de Campo Magnético: Intensidad Magnética}
-Así como se tiene el desplazaiento eléctrico, definimos la \textbf{intensidad magnética} $\vb{H}$ como
+Así como se tiene el desplazamiento eléctrico, definimos la \textbf{intensidad magnética} $\vb{H}$ como
 \begin{equation}
 	\vb{H} = \frac{1}{\muc} \vb{B} - \vb{M}.
 \end{equation}
@@ -951,54 +952,302 @@ Combinando ecuaciones se tiene
 Parece que no hemos ganado nada, dado que $\vb{H}$ aún depende de $\vb{M}$ a través de $\rho _m$ y $\sigma _m$. Más adelante se verá la relación entre esta nueva cantidad y la densidad de corriente. 
 
 
+\section{Susceptibilidad y Permeabilidad Magnéticas e Histéresis}\footnote{En física, química y biología, la histéresis representa la tendencia de un material a conservar una de sus propiedades, en ausencia del estímulo que la ha generado.}
+Para resolver problemas en la teoría magnética es esencial tener una relación entre $\vb{B}$ y $\vb{H}$. Estas relaciones depende de la naturaleza del material magnético y se obtienen generalmente a partir de experimentos. \\
+
+En una extensa clase de materiales existe una relación aproximadamente lineal entre $\vb{M}$ y $\vb{H}$. Si el material es isótropo y también lineal.
+\begin{equation}
+    \vb{M} = \chi _m \vb{M}
+\end{equation}
+donde la cantidad escalar adimensional $\chi _m$ se llama \textit{susceptibilidad magnética}. Si $\chi _m$ es positiva, el material se llama \textit{paramagnético} y la inducción magnética se refuerza con la presencia del material. Si $\chi _m$ es negativa, el material es diamagnético y la inducción magnética se debilita con la presencia del material. Aunque $\chi _m$ es una función de la temperatura y a veces varía muy drásticamente con ella, generalmente puede decirse que, para materiales paramagnéticos y diamagnéticos, $\chi _m$ es bastante pequeña; es decir,
+\begin{equation}
+    \abs{\chi _m} \ll 1
+\end{equation}
+Una relación lineal entre $\vb{M}$ y $\vb{H}$ implica también una relación lineal entre $\vb{B}$ y $\vb{H}$:
+\begin{equation}
+    \vb{B} = \mu \vb{H}
+\end{equation}
+donde la permeabilidad $\mu$ se obtiene de la combinación de las ecuaciones
+\begin{equation}
+    \mu = \muc (1 + \chi _m)
+\end{equation}
+A veces se utiliza la \textit{permeabilidad relativa} en lugar de la permeabilidad $\frac{\mu}{\muc} = K_m$. Los materiales ferromagnéticos no son lineales, por lo que las ecuaciones anteriores no se aplican. \\
+
+
+\section{Condiciones en la Frontera sobre los Vectores de Campo}
+Ahora, como se hizo en electrostática, analizaremos como cambian los vectores $\vb{B}$ y $\vb{H}$ al pasar por una zona interfacial entre dos medios. Consideraremos dos medios en contacto, y realizando el análisis que se hizo en electrostática para medios dieléctricos, se tiene que la componente normal es continua
+\begin{equation}
+    \vb{B} _{2n} - \vb{B} _{1n} = 0.
+\end{equation}
+Y una condición de contorno del campo $\vb{H}$ puede obtenerse aplicando la ley de circuitos de Ampére. Con ello se obtiene
+\begin{align}
+    \qty(\vb{H}_2 - \vb{H}_1) &= \vb{j} \times \vu{n}_2 \\
+    \vu{n} _2 \times \qty(\vb{H} _2 - \vb{H} _1) &= \vb{j}.
+\end{align}
+
+
 
 
 \chapter{Inducción Electromagnética}
+\section{Inducción Electromagnética}
+\begin{tcolorbox}
+    Definiremos la \textit{fuerza electromotriz o fem}, alrededor de un circuito como
+    \begin{equation}
+        \oint _C \vb{E} \cdot \dd{\vb{l}} = \mathscr{E}.
+    \end{equation}
+\end{tcolorbox}
+Con los campos $E$ y $B$ estáticos, esta fem siempre fue cero. Ahora veremos el caso donde no es nula. Como ahora $E$ no puede definirse a partir de la ley de Coulomb, es válido preguntarnos cómo se define. Se define de forma tal que la fuerza de Lorentz es siempre la fuerza electromagnética que actúa sobre una carga de prueba $q$.
+\begin{equation}
+    \vb{F} = q\qty(\vb{E} + \vb{v} \times \vb{B})
+\end{equation}
+Los resultados de un gran número de los experimentos realizados pueden resumirse asociando una fem inducida
+\begin{equation}
+    \mathscr{E} = -\dv{\Phi}{t}
+\end{equation}
+con un cambio en el flujo magnético que atraviesa por un circuito. Se encuentra que este resultado, conocido como \textbf{ley de Faraday de la Inducción Electromagnética}, es independiente de la forma en que cambia el flujo; el valor de $\vb{B}$ en distintos puntos interiores del circuito puede cambiar de muchas maneras. \\
+
+Dadas las relaciones conocidas llegamos a la \textit{forma diferencial de la ley de Faraday}
+\begin{equation}
+    \curl{\vb{E}} = -\pdv{\vb{B}}{t}.
+\end{equation}
+
+\begin{tcolorbox}
+    \textbf{\textit{Ley de Lenz}}. En caso de que haya un cambio en un sistema magnético, sucede algo que tiene a oponerse al cambio.
+\end{tcolorbox}
+
+
+\section{Autoinductancia}
+El flujo magnético que atraviesa un circuito aislado depende de la forma geométrica del mismo y es linealmente dependiente de la intensidad de corriente en el circuito. Por tanto, para un circuito estacionario rígido, los únicos cambios de flujo resultan de cambios en la corriente
+\begin{equation}
+    \dv{\Phi}{t} = \dv{\Phi}{I} \dv{I}{t}.
+\end{equation}
+\begin{definition}
+    La autoinductancai se define como:
+    \begin{equation}
+        L = \dv{\Phi}{I}.
+    \end{equation}
+    Y la ecuación con mayor importancia práctica es:
+    \begin{equation}
+        \mathscr{E} = -L\dv{\Phi}{t}.
+    \end{equation}
+\end{definition}
 
 
 
+\section{Inductancia Mutua}
+Solo se han considerado circuitos aislados, de modo que todo el flujo que se debía a la corriente en el propio circuito. Esta restricción puede eliminarse si se supone que hay $n$ circuitos. Entonces, en cualquier caso, lineal o no lineal, se tiene
+\begin{equation}
+    M_{ij} = \dv{\Phi_{ij}}{I_j}
+\end{equation}
+se define como la \textit{inductancia mutua} entre el circuito $i$ y el circuito $j$.
 
 
+\section{La Fórmula de Neumann}
+Para dos circuitos rígidos estacionarias en un medio lineal, la inductancia mutua es
+\begin{equation}
+    M_{21} = \frac{\Phi _{21}}{I_1}
+\end{equation}
+Esta ecuación es válida simplemente porque $\Phi _{21}$ es proporcional a $I_1$, lo que hace que $\Phi _{21} /I_1$ y $\dv{\Phi _{21}}{I_1}$ sean iguales. Ene este caso, se puede usar la ecuación para calcular $M_{21}$. El flujo está dado por
+\begin{equation}
+    \Phi _{21} = \frac{\muc}{4\pi} I_1 \int _{S_2} \left\{ \oint _{C_1} \frac{\dd{I_1} \times (\vb{r} _2 - \vb{r}_1)}{\abs{\vb{r} _2 - \vb{r}_1}^3} \right\} \cdot \dd{a}_2
+\end{equation}
+Sin embargo,
+\begin{equation}
+    \oint _{C_1} \frac{\dd{\vb{l}} \times (\vb{r}_2 \times \vb{r}_1)}{\abs{\vb{r}_2 - \vb{r}_1}^3} = \nabla _2 \times \oint _{C_1} \frac{\dd{\vb{l}}_1}{\abs{\vb{r}_2 - \vb{r}_1}}
+\end{equation}
+Con esto y el teorema de Stokes, se tiene
+\begin{equation}
+    M_{21} = \frac{\muc}{4\pi} \oint _{C_2} \oint _{C_1} \frac{\dd{\vb{l}}_1 \cdot \dd{\vb{l}}_2}{\abs{\vb{r}_2 - \vb{r}_1}}
+\end{equation}
+que se llama \textit{fórmula de Neumann} para la inductancia mutua. La simetría mencionada anteriormente es evidente de la ecuación. La fórmula de Neumann es igualmente aplicable a la autoinductancia, en cuyo caso se expresa como
+\begin{equation}
+    M_{21} = \frac{\muc}{4\pi} \oint _{C_2} \oint _{C_1} \frac{\dd{\vb{l}}_1 \cdot \dd{\vb{l}}_1 ^\prime}{\abs{\vb{r}_1 - \vb{r}_1 ^\prime}}.
+\end{equation}
 
-
-
-
-
+\section{Inductancias en Serie y Paralelo}
+Podríamos proceder con una derivación basada simplemente en $\mathscr{E} = -L\dv{I}{t}$ y obtener fórmulas para la inductancia efectiva dejar de lado el hecho práctico de que un inductor siempre tiene cierta resistencia interna. Una inductancia perfecto es mucho más difícil de aproximar prácticamente que una capacidad perfecta o una resistencia perfecta. Por este motivo, las combinaciones en serie y paralelo, por ahora, contendrán siempre tanto resistencias como inductancias. Entonces, para una conexión en serie (se suman las caídas de potencial de cada elemento del circuito)
+\begin{align}
+    V &= R_1 I + L_1 \dv{I}{t} + M\dv{I}{t} + R_2 I + L_2 \dv{I}{t} + M\dv{I}{t} \\
+    V &= \qty(R_1 + R_2) I + \qty(L_1 + L_2 + 2M) \dv{I}{t}.
+\end{align}
+El nuevo circuito contendrá una resistencia con magnitud $(R_1 + R_2)$ en serie con una inductancia $L_1 + L_2 + 2M$. Una expresión alternativa de la inductancia mutua es:
+\begin{equation}
+    M = k\sqrt{L_1 L_2}, \qquad -1\leq k \leq 1
+\end{equation}
+La inductancia efectiva esta dada por
+\begin{equation}
+    L_{ef} = L_1 + 2k\sqrt{L_1 L_2} + L_2.
+\end{equation}
+Para el caso de circuitos en paralelo en los que las resistencias son despreciables, el voltaje es el mismo y por ende, la inductancia efectiva
+\begin{equation}
+    L_{ef} = \frac{L_1 L_2 - M^2}{L_1 + L_2 - 2M} \dv{I}{t}.
+\end{equation}
 
 
 
 
 \chapter{Energía Magnética}
+Establecer un campo magnético requiere un gasto de energía, lo cual se concluye directamente de la ley de inducción de Faraday. Si una fuente de voltaje $\mathscr{V}$ se aplica a un circuito, entonces la intensidad de corriente que pasa por el circuito puede expresarse con la ecuación
+\begin{equation}
+    \mathscr{V} + \mathscr{E} = IR
+\end{equation}
+donde $\mathscr{E}$ es la fem inducida y $R$ es la resistencia del circuito de corriente. Entonces se tiene
+\begin{equation}
+    \mathscr{V} \dd{q} = \mathscr{E} I\dd{t} + I^2 R \dd{t} = I\dd{\Phi} + I^2 R \dd{t}
+\end{equation}
+cuya última expresión se obtiene con la ayuda de la ley de Faraday. El último término representa la conversión irreversible de energía eléctrica en calor que se lleva a cabo el circuito, pero este término incluye todo el trabajo realizado por $\mathscr{V}$ sólo en los casos en los que el cambio de flujo sea cero. El otro término es el trabajo efectuado contra la fem inducida en el circuito. Es la parte del trabajo realizado por $\mathscr{V}$ que se invierte en alterar la estructura del campo magnético, con ello reescribimos
+\begin{equation}
+    \dd{W}_b = I\dd{\Phi}
+\end{equation}
+donde el subíndice $b$ indica que éste es el trabajo realizado por fuentes de energía eléctrica externas. 
 
 
+\section{Energía Magnética de Circuitos Acoplados}
+Si hay $n$ circuitos, entonces, según la ecuación anterior, el trabajo eléctrico hecho en contra de la fem inducidas está dado por
+\begin{equation}
+    \dd{W}_b = \sum _{i=1} ^n I_i \dd{\Phi}_i.
+\end{equation}
+En particular nos interesa el caso en el que los $\dd{\Phi _i}$ se producen por cambios de corriente en los mismos $n$ circuitos.
+\begin{equation}
+    \dd{\Phi}_i = \sum _{j=1} ^n \dv{\Phi _{ij}}{I_j} \dd{I_j} = \sum _{j=1} ^n M_{ij} \dd{I_j}.
+\end{equation}
+En caso de que sean circuitos rígidos y estacionarios, entonces no hay trabajo mecánico asociado a los cambios de flujo y el trabajo será igual al cambio en la energía magnética.
+\begin{equation}
+    U = \frac{1}{2} \sum _{i=1} ^n I_i \Phi _i
+\end{equation}
+La cual es la \textit{energía magnética} de $n$ circuitos acoplados y rígidos en medios lineales.
 
-
-
-
-
-
-
+\section{Densidad de Energía en el Campo Magnético}
+Es de interés una formulación alternativa de la energía magnética en función de los vectores de campo $\vb{B}$ y $\vb{H}$, porque proporciona una imagen en la que la energía se almacena en el campo magnético mismo. Tomando lo ya aprendido, otra forma de definir la energía
+\begin{equation}
+    U = \frac{1}{2} \int _V \vb{J} \cdot \vb{A} \dv{V}
+\end{equation}
+La última expresión puede transformarse aún más utilizando la ecuación de campo $\curl{\vb{H}} = \vb{J}$ y la identidad de la divergencia de un producto cruz, se tiene
+\begin{equation}
+    U = \frac{1}{2} \int _V \vb{H} \cdot \curl{\vb{A}} \dd{V} - \frac{1}{2} \int _S \vb{A} \times \vb{H} \cdot \vu{n} \dd{a},
+\end{equation}
+donde $S$ es la superficie que limita $V$. Eliminamos la integral de superficie extendiendo el volumen para que incluya todo el espacio, obtenemos
+\begin{equation}
+    U = \frac{1}{2} \int _V \vb{H} \cdot \vb{B} \dd{V}
+\end{equation}
+lo que da, claramente, como resultado lo siguiente
+\begin{equation}
+    u = \frac{1}{2} \vb{H} \cdot \vb{B}
+\end{equation}
+a lo que se conoce como \textit{densidad de energía} en un campo magnético.
 
 
 
 
 \chapter{Corrientes que Varían Lentamente}
+\section{Comportamiento Transitorio y en Estado Estacionario}
+Es conveniente analizar el comportamiento de los circuitos en dos fases, dependiendo de si es importante el comportamiento periódico o el no periódico. El comportamiento periódico se llama comportamiento \textit{en estado estacionario}, mientras que el no periódico se conoce como comportamiento \textit{transitorio}. Ambos aspectos se rigen por las mismas ecuaciones básicas integro-diferenciales; sin embargo, las técnicas elementales usadas para resolverlas son radicalmente distintas en los dos casos.
+
+\section{Leyes de Krichhoff}
+Volviendo a enunciar las conocidas leyes de Kirchhoff
+\begin{itemize}
+    \item \textit{Ley de Kirchhoff I.} La suma algebraica de las corrientes instantáneas que fluyen hacia un nodo es cero.
+    \item \textit{Ley de Kirchhoff II.} La suma algebraica de los voltajes aplicados instantáneos en una malla cerrada es igual a la suma algebraica de los contravoltajes instantáneos en la malla.
+\end{itemize}
+Para el circuito RLC más simple, el voltaje a lo largo del tiempo
+\begin{equation}
+    \mathscr{V} = RI + L\dv{I}{t} + \frac{1}{C} \int _{t_o} ^t I\dd{t}.
+\end{equation}
 
 
+\section{Comportamiento Transitorio Elemental}
+El único comportamiento transitorio que consideraremos aquí es el asociado a la aplicación repentina de un voltaje constante $\mathscr{V}$ a una red de resistores, condensadores e inductores, siendo el primer ejemplo el circuito $R-L$. Para este circuito la ecuación es
+\begin{equation}
+    \mathscr{V} = RI + L\dv{I}{t}
+\end{equation}
+después de haber cerrado el interruptor $S$. La solución para la corriente es
+\begin{equation}
+    I(t) = \frac{\mathscr{V}}{R} \qty[1 - Ke^{-\frac{tR}{L}}].
+\end{equation}
+Volviendo a la ecuación integro-diferencial, se deriva respecto al tiempo
+\begin{equation}
+    \dv{\mathscr{V}}{t} = R\dv{I}{t} + L\dv[2]{I}{t} + \frac{1}{C}
+\end{equation}
+tomando la derivada del voltaje igual a cero, se tiene la siguiente solución
+\begin{equation}
+    I = \{ Ae^{i\omega _n t} + Be^{-i\omega _n t} \} e^{-\frac{Rt}{2L}}
+\end{equation}
+donde
+\begin{equation}
+    \omega _n = \sqrt{\frac{1}{LC} - \frac{R^2}{4L^2}}
+\end{equation}
+por lo que
+\begin{equation}
+    I(t) = De^{-\frac{Rt}{2L}} \sin{\omega _n t}.
+\end{equation}
+
+\section{Comportamiento en Estado Estacionario de un Circuito en Serie Simple}
+Teniendo un circuito con el siguiente voltaje
+\begin{equation}
+    \mathscr{V} (t) = \mathscr{V}_o \cos{\omega t}.
+\end{equation}
+Este voltaje es la parte real de $\mathscr{V}_o e^{i\omega t}$, se desarrollará un método para encontrar la corriente física. Aplicamos al circuito un voltaje $\mathscr{V}_1 + i\mathscr{V}_2$, con esto se tiene
+\begin{equation}
+    \dv{\mathscr{V}_1}{t} + i\dv{\mathscr{V}_2}{t} = \qty(L\dv[2]{I_1}{t} + R\dv{I_1}{t} + \frac{I_1}{C}) + i\qty(L\dv[2]{I_2}{t} + R\dv{I_2}{t} + \frac{I_2}{C}).
+\end{equation}
+Usamos $\mathscr{V}_o e^{i\omega t}$ y la intensidad de corriente es $I_o e^{i\omega t}$, por lo que al reemplazar se tiene
+\begin{equation}
+    i\omega \mathscr{V}_o e^{i\omega t} = \qty[-\omega ^2 + i\omega + \frac{1}{C}] I_o e^{i\omega t}
+\end{equation}
+En donde $Z = R + i\omega L + \frac{1}{i\omega C}$ es la conocida como \textit{impedancia}. En esta la parte real es la resistencia \dsnote{la de toda la vida} y la parte imaginaria (\textit{reactancia} $X$) se divide en \textit{reactancia inductiva} $X_L$ y \textit{reactancia capacitiva} $X_C$. El hecho de que la impedancia sea compleja significa que la corriente no está en fase con el voltaje aplicado.
+
+\section{Conexión de Impedancias en Serie y en Paralelo}
+Así como ya se sabe, en serie el voltaje se suma, por ende, la impedancia efectiva es la suma de las impedancias
+\begin{equation}
+    Z = Z_1 + Z_2 + Z_3 + \cdots
+\end{equation}
+Es importante observar que las sumas de las impedancias son como números complejos
+\begin{align*}
+    Z &= Z_1 + Z_2 = (R_1 + R_2) + i(X_1 + X_2) \\
+    Z &= \abs{Z} e^{i\theta}, \qquad \abs{Z} = \qty[(R_1 + R_2)^2 + (X_1 + X_2)^2]^{1/2} \\
+    \theta &= \arctan{\frac{X_1 + X_2}{R_1 + R_2}}.
+\end{align*}
+Para las impedancias en paralelo el voltaje es el mismo, por ende
+\begin{equation}
+    \frac{1}{Z} = \frac{1}{Z_1} + \frac{1}{Z_2} + \dots
+\end{equation}
 
 
+\section{Potencia y Factores de Potencia}
+la potencia suministrada a un resistor puede determinarse multiplicando el voltaje a través de cada resistor por la corriente que pasa a través de él. Sin embargo, para el caso más general.
 
-
-
-
-
-
+\begin{tcolorbox}
+	Si $V(t)$ e $I(t)$ son el voltaje y la corriente complejos, como se muestra, entonces la \textit{potencia instantánea} es
+	\begin{equation}
+		P(t) = \Re{I(t)} \Re{V(t)}.
+	\end{equation}
+	La \textit{potencia media} es una cantidad más importante, obtenida al tomar el promedio durante un periodo completo o durante un tiempo muy largo. Si las fases se escogen de tal modo que $V_o$ sea real y, como de costumbre, $Z = Ze^{i\theta}$, entonces es inmediato ver que
+	\begin{equation}
+		\bar{P} = \overline{\Re{I(t)} \Re{V(t)}} = \frac{1}{2} \abs{I_o} \abs{V_o} \cos{\theta}.
+	\end{equation}
+\end{tcolorbox}
+Un factor un medio de la ecuación anterior representa el hecho de qeu el valor medio de $\sin ^2 {\omega t}$ o $\cos ^2 {\omega t}$ es un medio. EL otro factor interesante es el coseno de $\theta$, que tiene en cuenta el hecho de que la corriente y el voltaje no están en fase. El coseno de $\theta$ se llama frecuentemente \textit{factor de potencia} de un circuito de corriente alterna (CA)
+\begin{equation}
+	\overline{\Re{I_o e^{\omega t}} \Re{V_o e^{\omega t}}} = \frac{1}{2} \Re{I_o ^* V_o}.
+\end{equation}
+donde $I_o ^*$ es el conjugado de $I_o$. Entonces
+\begin{equation}
+	\bar{P} = \frac{1}{2} \frac{\abs{V_o}^2}{\abs{Z}^2} \Re{Z}
+\end{equation}
+Los valores eficaces del voltaje y de la corriente se definen normalmente como
+\begin{equation}
+	V_{ef} = \frac{\sqrt{2}}{2} \abs{V_o}, \qquad I_{ef} = \frac{\sqrt{2}}{2} \abs{I_o}
+\end{equation}
+La virtud de estas definiciones es que un $V_{ef}$ dado qeu se aplica a una resistencia disipa la misma potencia queun voltaje de la misma magnitud.
 
 
 
 
 
 \chapter{Ecuaciones de Maxwell}
+Ahora estamos listos para introducir la piedra angular de la teoría electromagnética, la llamada \textit{corriente de desplazamiento.} Aun cuando su efecto observable a veces es despresiable, es lo que completa esencialmente la teoría, y tiene un papel crucial en otros temas.
+
+\section{Generalización de la Ley de Ampére: Corriente de Desplazamiento}
 
 
 
@@ -1013,7 +1262,7 @@ Parece que no hemos ganado nada, dado que $\vb{H}$ aún depende de $\vb{M}$ a tr
 
 
 
-\chapter{Propagaricón de Ondas Monocromáticas}
+\chapter{Propagación de Ondas Monocromáticas}
 
 
 
