@@ -316,7 +316,7 @@ Cuando se tienen conductores con formas complicadas las soluciones analíticas q
 	\end{equation}
 	El potencial de cada uno de los conductores estará dado por:
 	\begin{equation}
-		\varphi _1 ^{(j)}, ldots, \varphi _N ^{(j)}
+		\varphi _1 ^{(j)}, \ldots, \varphi _N ^{(j)}
 	\end{equation}
 	Reexpresando la carga del $j-$ésimo
 	$$ \lambda Q_{jo}, \quad \lambda = \text{cte}, \quad \text{sadisface la ecuación de Laplace.} $$
@@ -1245,17 +1245,143 @@ La virtud de estas definiciones es que un $V_{ef}$ dado qeu se aplica a una resi
 
 
 \chapter{Ecuaciones de Maxwell}
-Ahora estamos listos para introducir la piedra angular de la teoría electromagnética, la llamada \textit{corriente de desplazamiento.} Aun cuando su efecto observable a veces es despresiable, es lo que completa esencialmente la teoría, y tiene un papel crucial en otros temas.
+Ahora estamos listos para introducir la piedra angular de la teoría electromagnética, la llamada \textit{corriente de desplazamiento.} Aun cuando su efecto observable a veces es despreciable, es lo que completa esencialmente la teoría, y tiene un papel crucial en otros temas.
 
 \section{Generalización de la Ley de Ampére: Corriente de Desplazamiento}
+\begin{tcolorbox}
+    La ley de Ampére ''corregida'' la podemos escribir de la siguiente forma
+    \begin{equation}
+        \curl{\vb{H}} = \vb{J} + \pdv{\vb{D}}{t}
+    \end{equation}
+    y nos referimos a la derivada respecto al tiempo de $\vb{D}$ como \textit{corriente de desplazamiento}.
+\end{tcolorbox}
+La introducción de la corriente de desplazamiento hace posible las ondas electromagnéticas, como veremos a continuación, y es la esencia de la gran contribución de Maxwell a la teoría electromagnético.
+
+\section{Ecuaciones de Maxwell y sus Bases Empíricas}
+Las ecuaciones de Maxwell en forma diferencial
+\begin{align}
+    \curl{\vb{H}} &= \vb{J} + \pdv{\vb{D}}{t} \label{ampere} \\
+    \curl{\vb{E}} &= - \pdv{\vb{B}}{t} \label{faraday} \\
+    \div{\vb{D}} &= \rho \label{gaussE} \\
+    \div{\vb{B}} &= 0. \label{gaussM}
+\end{align}
 
 
 
+\section{Energía Electromagnética}
+Ya se mostró que
+\begin{align}
+    U_E &= \frac{1}{2} \int _V \vb{E} \cdot \vb{D} \dd{V} \\
+    U_M &= \frac{1}{2} \int _V \vb{H} \cdot \vb{B} \dd{V}.
+\end{align}
+Si se hace el producto escalar de la ecuación \eqref{ampere} por $\vb{E}$ y la ecuación resultante se resta del producto escalar de la ecuación \eqref{faraday} por $\vb{H}$, la ecuación que se obtiene es
+\begin{equation}
+    \vb{H} \cdot \curl{\vb{E}} - \vb{E} \cdot \curl{\vb{H}} = -\vb{H} \cdot \pdv{\vb{B}}{t} - \vb{E} \cdot \pdv{\vb{D}}{t} - \vb{E} \cdot \vb{J}
+\end{equation}
+el laod izquierdo se convierte en una divergencia\footnote{Usando la identidad: $\div{F\times G} = G\cdot \curl{F} - F\cdot \curl{G}$.}, entonces
+\begin{equation}
+    \div{(\vb{E} \times \vb{H})} = -\vb{H} \cdot \pdv{\vb{B}}{t} - \vb{E} \cdot \pdv{\vb{D}}{t} - \vb{E} \cdot \vb{J}
+\end{equation}
+Si estamos en medios lineales y el desplazamiento eléctrico y la intensidad magnética se puede escribir como su constante por el campo respectivo, se tiene
+\begin{equation}
+    \div{\vb{E} \times \vb{H}} = -\pdv{t} \frac{1}{2} \qty(\vb{E} \cdot \vb{D} + \vb{B} \cdot \vb{H}) - \vb{J} \cdot \vb{E}.
+\end{equation}
+Realizando la integral, se tomarán las siguientes abreviaturas
+\begin{align}
+    \vb{S} &= \vb{E} \times \vb{H} \\
+    u &= \frac{1}{2} \qty(\vb{E} \cdot \vb{D} + \vb{B} \cdot \vb{H})
+\end{align}
+donde $\vb{S}$ se llama \textit{vector de Poyting}, entonces la ecuación anterior se reescribe como
+\begin{equation}
+    \div{\vb{S}} + \pdv{u}{t} = -\vb{J} \cdot \vb{E}.
+\end{equation}
+El término izquierdo es el trabajo realizado por el campo local sobre las partículas cargadas por unidad de volumen. También, $u$, se interpretó como la densidad de energía de los campos eléctricos y magnéticos. Si el trabajo es cero y la divergencia no es cero, se tiene
+\begin{equation}
+    \div{\vb{S}} + \pdv{u}{t} = 0.
+\end{equation}
+Dado que tiene la misma forma que una ecuación de continuidad, el término de la divergencia se toma con una razón de flujo de energía por unidad de área. Generalmente, $\vb{S} = \vb{E} \times \vb{H}$ se trata como el flujo local de energía por unidad de área.
 
+\section{La Ecuación de Onda}
+Tanto para $\vb{H}$ como para $\vb{E}$ se toma el rotacional de la ley de Ampére y la de Faraday. Con ello se tiene\footnote{Utilizando la identidad: $\curl{\curl} = \grad{\div} - \laplacian$}
+\begin{align}
+    \laplacian{\vb{H}} - \varepsilon \mu \pdv[2]{\vb{H}}{t} - g\mu \pdv{\vb{H}}{t} &= 0 \\
+    \laplacian{\vb{E}} - \varepsilon \mu \pdv[2]{\vb{E}}{t} - g\mu \pdv{\vb{E}}{t} &= 0
+\end{align}
+Las ecuaciones de onda deducidas antes rigen el campo electromagnético en un medio lineal homogéneo en el que la densidad de carga es cero, sea este medio conductor o no. Al resolver las ecuaciones de onda, debe tenerse especial cuidado en obtener soluciones a las ecuaciones de Maxwell.
 
+\section{Ondas Monocromáticas}
+Las ondas monocromáticas son ondas en las que todos los campos están caracterizados por una sola frecuencia. En este caso, podemos resolver la ecuación de onda del campo eléctrico para encontrarlo y utilizar las ecuaciones de Maxwell y las relaciones constitutivas para encontrar los otros campos. Se considera que la dependencia del campo con respecto al tiempo es $e^{-i\omega t}$, de modo que
+\begin{equation}
+    \vb{E} (\vb{r},t) = \vb{E} (\vb{r}) e^{-i\omega t}
+\end{equation}
+Supondremos que el medio es el espacio vacío, de modo que $g=0$. Entonces se tiene
+\begin{equation}
+    \dv{\vb{E} (z)}{z} + \frac{\omega}{c} \vb{E} = 0
+\end{equation}
+donde $\ep \muc = 1/c^2$. Se conoce la solución al armónico simple
+\begin{equation}
+    \vb{E} (\vb{r} ,t) = \vb{E}_o \cos{\omega (t \mp z/c)}.
+\end{equation}
 
+En un dieléctrico no magnético y no conductor tomamos $\varepsilon = K\ep$, entonces se tiene
+\begin{equation}
+    \kappa = \sqrt{K} \omega/c.
+\end{equation}
+Definiendo $n = \sqrt{K}$ como \textit{índice de refracción} del medio dieléctrico.
 
+\section{Condiciones de Frontera}
+\dsnote{Para ahorrarnos la demostración, se mostrará solo la tabla de interés.}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c||cccc}
+        $g$ & $E_t$ & $D_n$ & $H_t$ & $B_n$ \\
+        \hline
+        \hline
+        $g_1 = g_2 = 0$ & $E_{1t} = E_{2t}$ & $D_{1n} = D_{2n}$ & $H_{1t} = H_{2t}$ & $B_{1n} = B_{2n}$ \\ 
+        $g_2 = \infty$ & $E_{2t} = 0$ & $D_{2n} = 0$ & $H_{2t} = 0$ & $B_{2n} = 0$ \\
+         & $E_{1t} = 0$ & $D_{1n} = \sigma$ & $H_{1t} = j_\perp$ & $B_{1n} = 0$ \\
+        $g_1 ,g_2 \, \text{arb} \neq \infty$ & $E_{1t} = E_{2t}$ & $\qty(\varepsilon _1 + i\frac{g_1}{\omega}) E_{1n}$ & $H_{1t} = H_{2t}$ & $B_{1n} = B_{2n}$ \\
+         & & $= \qty(\varepsilon _2 + i\frac{g_2}{\omega}) E_{2n}$ & & \\
+    \end{tabular}
+    \caption{Condiciones de frontera.}
+    \label{tab:boundaryCond}
+\end{table}
 
+\section{Ecuación de Onda con Fuentes}
+Por lo que ya conocemos del campo magnético y la ecuación de faraday, se tiene
+\begin{equation}
+    \curl{\qty[\vb{E} + \pdv{\vb{A}}{t}]} = 0
+\end{equation}
+por lo que el término de dentro puede expresarse como el gradiente de un escalar
+\begin{equation}
+    \vb{E} = -\grad{\varphi} - \pdv{\vb{A}}{t}.
+\end{equation}
+Utilizando el mismo método que se utilizó anteriormente para  $\vb{H}$ y $\vb{E}$ se usa para $\vb{A}$
+\begin{equation}
+    -\laplacian{\vb{A}} + \varepsilon \mu \pdv[2]{\vb{A}}{t} + \grad{\div{\vb{A}}} + \varepsilon \mu \grad{\pdv{\varphi}{r}} = \mu \vb{J}.
+\end{equation}
+Se impone la llamada \textit{condición de Lorentz}
+\begin{equation}
+    \div{\vb{A}} + \varepsilon \mu \pdv{\varphi}{t} = 0
+\end{equation}
+se tiene una simplificación considerable. Si se satisface esta condición, entonces
+\begin{equation}
+    \laplacian{\vb{A}} - \varepsilon \mu \pdv[2]{\vb{A}}{t} = -\mu \vb{J}
+\end{equation}
+Y, con esto se tiene
+\begin{equation}
+    \laplacian{\varphi} - \varepsilon \mu \pdv[2]{\varphi}{t} = -\frac{1}{\varphi} \rho .
+\end{equation}
+
+Encontramos la solución \dsnote{Vease Reitz, p.410}
+\begin{equation}
+    \varphi (\vb{r} ,t) = \kel \int _V \frac{\rho (\vb{r} ^\prime, t^\prime)}{\abs{\vb{r} - \vb{r}^\prime}} \dd{v^\prime}
+\end{equation}
+donde $t^\prime = t - \frac{\abs{\vb{r} - \vb{r}^\prime}}{c}$ se llama \textit{tiempo de retardo}; $\varphi$ se llama \textit{potencial escalar retardado}. Ahora para el vector potencial
+\begin{equation}
+    \vb{A} (\vb{r} ,t) = \frac{\muc}{4\pi} \int _V \frac{\vb{J} (\vb{r}^\prime) ,t^\prime}{\abs{\vb{r} - \vb{r}^\prime}} \dd{v}^\prime
+\end{equation}
+que es el \textit{potencial vector retardado}.
 
 
 
@@ -1263,6 +1389,103 @@ Ahora estamos listos para introducir la piedra angular de la teoría electromagn
 
 
 \chapter{Propagación de Ondas Monocromáticas}
+El término \textit{propagación de ondas electromagnéticas} cubre un amplio espectro de fenómenos físicos tales como ondas, luz visible y rayos $X$. En el vacío, todas las ondas se propagan a la misma velocidad $c$, pero se distinguen entre sí por sus frecuencias.
+
+\section{Ondas Planas Monocromáticas en Medios no Conductores}
+Las soluciones más ''fáciles'' sonlas que se conocen como soluciones de onda plana. Una onda plana se define como una onda que, en un instante dado, presenta la misma fase en todos los puntos que están sobre cada plano perpendicular a alguna dirección específica. Si, por ejemplo, la dirección especificada esla dirección $z$, entonces $\vb{E}$ debe tener la misma fase en todos los puntos que tienen el mismo valor de $x$, esto es, en todos los puntos en un plano paralelo al plano $xy$. Supongamos que se tiene que construir una solución de onda plana con una direcciónd e propagación $\vb{u}$, donde $\vb{u}$ es un vector unitario. Entonces la variable $z$ en el exponente debe cambiarse por $\vb{u} \cdot \vb{r}$, la proyección de $\vb{r}$ en la dirección de $\vb{u}$. Por tanto, una onda plana con dirección de propagación $\vb{u}$ se representa como
+\begin{align*}
+	e^{-i(\omega t - \kappa \vb{u} \cdot \vb{r})}
+\end{align*}
+Definiremos un \textit{vector de propagación}
+\begin{align*}
+	\vb{\kappa} &= \kappa \vb{u}.
+\end{align*}
+La velocidad de propagación de una onda plana monocromática es precisamente la velocidad con la que se mueven los planos de fase constante. Obviamente, por fase constante queremos decir que
+\begin{equation}
+	\vb{\kappa} \cdot \vb{r} - \omega t = \text{ cte}
+\end{equation}
+Si $\vb{\kappa} \cdot \vb{r}$ se escribe como $\kappa \xi$, siendo $\kappa$ la magnitud de $\vb{\kappa}$ y $\xi$ como la proyección de $\vb{r}$ en la dirección $\vb{\kappa}$, entonces la ecuación anterior se convierte en 
+\begin{equation}
+	\kappa \xi - \omega t = \text{ cte}.
+\end{equation}
+Derivando con respecto al tiempo y utilizando $\kappa = \frac{n\omega}{c}$, encontramos la velocidad de fase
+\begin{equation}
+	v_p = \frac{c}{n}
+\end{equation}
+en el espacio libre $v_p = c$. \\
+
+
+Ahora tomando las ecuaciones de Maxwell para donde no hay distribuciones de carga ni de corrientes y la conductividad es $g=0$. Se tiene que $\pdv{t} = i\omega$ y $\nabla = i\vb{\kappa}$, por lo que, las ecuaciones de Maxwell para ondas planas se transforman en
+\begin{align}
+	\vb{\kappa} \cdot \vb{D} &= 0 \\
+	\vb{\kappa} \cdot \vb{B} &= 0 \\
+	\vb{\kappa} \times \vb{E} &= \omega \vb{B} \\
+	\vb{\kappa} \times \vb{H} &= -\omega \vb{D}.
+\end{align}
+
+\begin{tcolorbox}
+	Recordando las ecuaciones consitutivas para medios lineales
+	\begin{align}
+		\vb{D} &= \varepsilon \vb{E} \\
+		\vb{H} &= \frac{1}{\mu} \vb{B}.
+	\end{align}
+\end{tcolorbox}
+Consideramos tambíen que el medio es homogéneo e isótropo, de modo que $\varepsilon$ y $\mu$ son escalares constantes. Y todo será en medios no magnéticos
+\begin{align}
+	K\vb{\kappa} \cdot \vb{E} &= 0 \\
+	\vb{\kappa} \cdot \vb{B} &= 0 \\
+	\vb{\kappa} \times \vb{E} &= \omega \vb{B} \label{faraday2} \\
+	\vb{\kappa} \times \vb{B} &= -\frac{\omega}{c^2} K\vb{E}. \label{ampere2}
+\end{align}
+Priemro, si suponemos $K\neq 0$, vemos que $\vb{\kappa} \cdot \vb{E} = 0$ ; $\vb{\kappa}\ cdot \vb{B} = 0$ siempre. Ambos campos deben ser perpendiculares a $\vb{\kappa}$. Tal onda se llama \textit{onda transversal.} Aplicando el vector $\vb{\kappa}$ a \eqref{faraday2} y reemplazando \eqref{ampere2} y tomando la condición de ondas transversales
+\begin{equation}
+	K\frac{\omega ^2}{c^2} \vb{E} = \kappa ^2 \vb{E}.
+\end{equation}
+lo que es equivalente a la ecuación de onda para soluciones de la forma dada por la \eqref{ampere2}, con lo que se tiene
+\begin{equation}
+	\kappa = \sqrt{K} \frac{\omega}{c}
+\end{equation}
+esta relaciń, llamada \textit{relación de dispersión transversal}, determina la magnitud el vector de onda $\vb{\kappa}$ en términos de las $\omega$ y $K$ supuestas.
+
+
+\begin{tcolorbox}
+	Onda monocromática transversal que se propaga en dirección positiva de $\vb{u}$ está descrita por
+	\begin{equation}
+		\vb{E} (\vb{r},t) = \vu{E} e^{-i(\omega t -\vb{\kappa} \cdot \vb{r})}, \qquad \vb{B} (\vb{r},t) = \vu{B} e^{-i(\omega t - \vb{\kappa} \cdot \vb{r})}.
+	\end{equation}
+	La dirección $\vb{u}$ y la frecuencia $\omega$ son completamente arbitrarias. La amplitud $\vb{E}$ es arbitraria, excepto que debe ser perpendicular a $\vb{u}$: $\vb{u} \cdot \vb{E}$. Entonces $\vu{B}$ está completamente determinado en magnitud y dirección: 
+	\begin{equation}
+		\vu{B} = \frac{n}{c} \vb{u} \times \vu{E}.
+	\end{equation}
+	Para varias ondas, se tiene la superposición de ondas
+	\begin{equation}
+		\vb{E} (\vb{r},t) = \sum _i \vu{E} (\vb{\kappa} _i,\omega _i) \exp{-i(\omega _i t - \vb{\kappa}_i \cdot \vb{r})}
+	\end{equation}
+	Para una solucion que no sea periódica, la suma puede convertirse en una integral en donde la función $\vu{E} (\vb{\kappa},\omega)$ se llama \textit{transformada de Fourier}.
+\end{tcolorbox}
+
+
+
+
+
+
+
+\section{Polarización}
+Es una propiedad de las ondas que puede oscilar con más de una orientación. Esto se refiere normalmente a las llamadas ondas transversales. \\
+Descomponiendo el vector $\vb{E}$ como suma de un vector paralelo al plano de incidencia y un vector perpendicular a dicho plano
+\begin{equation}
+	\vb{E} = E_\parallel e^{i\theta_\parallel} \vu{u} _\parallel + E_\perp e^{i\theta_\perp} \vu{u}_\perp.
+\end{equation}
+Se realiza la diferencia $\theta _\parallel - \theta _\perp$ y según el resultado se tendrá:
+\begin{description}
+	\item[Polarización lineal: ] Si la diferencia es $0$ o un múltiplo entero de $\pi$.
+	\item[Polarización circular: ] Si la diferencia es un múltiplo entero impar de $\frac{\pi}{2}$. En este caso se cumple, además, que $E_\parallel = E_\perp$.
+	\item[Polarización elíptica: ] Para el resto de casos. Es posible conocer el sentido de giro de la polarización de la onda a partir de la diferencia anterior 
+	\begin{itemize}
+		\item Si $\theta _\parallel - \theta _\perp < 0$ se trata de \textit{polarización elíptica lovógira} o helicidad negativa (en contra de las agujas del reloj).
+		\item Si $\theta _\parallel - \theta _\perp > 0$ se trata de \textit{polarización elíptica dextrógira} o helicidad positiva (a favor de la agujas del reloj).
+	\end{itemize}
+\end{description}
 
 
 

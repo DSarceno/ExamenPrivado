@@ -1,25 +1,97 @@
 \part{Reducción de Datos}
 
-\chapter{Introducción al Cálculo de Probabilidades en Estadística}
+\vspace*{\fill}
 
+\begin{center}
+	\textit{''La estadística es la gramática de la ciencia.'' - karl Pearson.}
+\end{center}
 
+\vspace*{\fill}
 
-
-
-
+%\chapter{Introducción al Cálculo de Probabilidades en Estadística}
 
 
 \chapter{Incertezas}
-
-
 \section{Uso y Reporte de Incertezas}
+\begin{equation}
+	\boxed{ \text{valor medido de } x = x_{\text{mejor}} \pm \delta x .}
+\end{equation}
+Donde $\delta x$ siempre es positivo.
+
+\begin{tcolorbox}
+	\begin{center}
+		\textbf{Regla para Escribir incertezas}
+	\end{center}
+	Las incertezas debe, casi siempre, estar aproximadas a la cifra significativa.
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+	\begin{center}
+		\textbf{Regla para Escribir Respuestas}
+	\end{center}
+	La última cifra significativa en cualquier resultado debe tener el mismo orden de magnitud (en la misma posición decimal) que la incerteza.
+\end{tcolorbox}
+
+\begin{definition}
+	La discrepancia esta definida como la diferencia entre 2 valores medidos de la misma cantidad.
+\end{definition}
+
+\begin{definition}
+	$$\text{incerteza fraccionaria o relativa } = \frac{\delta x}{\abs{x_{\text{mejor}}}}.$$
+\end{definition}
+
+
 
 
 \section{Propagación de Incertezas}
 
+\subsection{La Regla de Raíz Cuadrada para un Experimento de Conteos}
+\begin{definition}
+	Si observamos la ocurrencias de un evento que pasa aleatoriamente peor con un promedio definido, si se tienen $\nu$ ocurrencias en un tiempo $T$, nuestra estimación para el promedio es
+	\begin{equation}
+		(\text{promedio de número de eventos en el tiempo } T) = \nu \pm \sqrt{\nu}.
+	\end{equation}
+\end{definition}
+
+\subsection{Reglas de Propagación de Error}
+La sreglas de propagación de error se refiere a uan situación en la cual encontramos varias cantidades $x,\ldots,w$ con incertezas $\delta x, \ldots ,\delta w$ y cuando usamos estos valores para calcular $q$. 
+\begin{tcolorbox}
+	\begin{description}
+		\item[Sumas y Restas: ] $q = x + \cdots + z - (u + \cdots + w)$, entonces
+			\begin{equation}
+				\delta q = \sqrt{\delta x ^2 + \cdots + \delta z ^2 + \delta u ^2 + \cdots + \delta w^2}.
+			\end{equation}
+		\item[Productos y Cocientes: ] Si $q = \frac{x\cdots z}{u \cdots w},$
+			\begin{equation}
+				\frac{\delta q}{\abs{q}} = \sqrt{\qty(\frac{\delta x}{x})^2 + \cdots + \qty(\frac{\delta z}{z})^2 + \qty(\frac{\delta u}{u})^2 + \cdots + \qty(\frac{\delta w}{w})^2}.
+			\end{equation}
+		\item[Incerteza de una Potencia: ] Si $n$ es un numero exacto $q = x^n$
+			\begin{equation}
+				\frac{\delta q}{\abs{q}} = \abs{n} \frac{\delta x}{\abs{x}}.
+			\end{equation}
+		\item[Incerteza de una función de una Variable: ] Si $q = q(x)$ es una función de $x$
+			\begin{equation}
+				\delta x = \abs{\dv{q}{x}} \delta x.
+			\end{equation}
+		o en caso de que $q$ sea muy complicada
+			\begin{equation}
+				\delta q = \abs{q(x_{best} + \delta x) - q(x_{best})}.
+			\end{equation}
+		\item[Fórmula General de la Propagación de Error: ] Si $q = q(x,\ldots ,z)$ es una función de $x,\ldots ,z$, entonces
+			\begin{equation}
+				\delta q = \sqrt{\qty(\pdv{q}{x} \delta x)^2 + \cdots + \pdv{q}{z} \delta z)^2}.
+			\end{equation}
+	\end{description}
+\end{tcolorbox}
+
+
+
+
+
+
 
 \section{Análisis Estadístico de Incertezas Aleatorias}
-
 
 
 
