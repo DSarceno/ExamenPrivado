@@ -5,45 +5,45 @@ The style file: plain.bst
 Database file #1: referencias.bib
 Warning--empty journal in moulton1952h
 Warning--empty journal in zettili2009quantum
-You've used 17 entries,
+You've used 18 entries,
             2118 wiz_defined-function locations,
-            566 strings with 5331 characters,
-and the built_in function-call counts, 3661 in all, are:
-= -- 320
-> -- 143
-< -- 1
-+ -- 59
-- -- 42
-* -- 140
-:= -- 634
-add.period$ -- 43
-call.type$ -- 17
-change.case$ -- 64
+            570 strings with 5484 characters,
+and the built_in function-call counts, 3925 in all, are:
+= -- 343
+> -- 156
+< -- 2
++ -- 65
+- -- 46
+* -- 155
+:= -- 679
+add.period$ -- 46
+call.type$ -- 18
+change.case$ -- 68
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 160
-empty$ -- 365
-format.name$ -- 42
-if$ -- 777
+cite$ -- 20
+duplicate$ -- 172
+empty$ -- 387
+format.name$ -- 46
+if$ -- 832
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 16
-newline$ -- 80
-num.names$ -- 34
-pop$ -- 142
+int.to.str$ -- 18
+missing$ -- 18
+newline$ -- 85
+num.names$ -- 36
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 54
+purify$ -- 58
 quote$ -- 0
-skip$ -- 125
+skip$ -- 133
 stack$ -- 0
-substring$ -- 85
-swap$ -- 16
-text.length$ -- 1
+substring$ -- 91
+swap$ -- 18
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
+type$ -- 56
 warning$ -- 2
-while$ -- 34
-width$ -- 19
-write$ -- 155
+while$ -- 36
+width$ -- 20
+write$ -- 166
 (There were 2 warnings)

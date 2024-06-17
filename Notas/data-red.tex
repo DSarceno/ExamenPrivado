@@ -266,11 +266,37 @@ Si $y$ se supone como un polinomio $y = A + Bx + \cdots + Hx^n$, entonces existe
 
 
 
+\section{Prueba Chi-Cuadrado para Distribuciones}
+\subsection{Definicicón de Chi-Cuadrado}
+Si se realizan $n$ mediciones para las cuales se sabe, o se puede calcular, los valores esperados y las desviaciones estándar, entonces, definimos $\chi ^2$ como
+	\begin{equation}
+		\chi ^2 = \sum _i ^n \qty(\frac{\text{Valor observado } - \text{ valor esperado}}{\text{desviación estándar}})^2.
+	\end{equation}
+Las $n$ mediciones son los números, $O_1 ,\ldots ,O_n$, de veces que el valor de una cantidad $x$ fue observado en cada una de las $n$ ''bins''. En este caso, el número esperado $E_k$ es determinado por la distribución propuesta de $x$, y la desviación estándar es $\sqrt{E_k}$; por lo tanto
+	\begin{equation}
+		\chi ^2 = \sum _{k=1} ^n \frac{(O_k - E_k)^2}{E_k}.
+	\end{equation}
+\begin{tcolorbox}
+	Si la distribución propuesta para $x$ es correcta, entonces $\chi ^2$ debería ser de orden $n$. Si $\chi ^2 \gg n$, la distribución propuesta es probablemente incorrecta.
+\end{tcolorbox}
 
+\subsection{Grados de Libertad y Chi-Cuadrado Reducido}
+Si se repetirá el momento muchas veces, el valor medio de $\chi ^2$ debería ser igual a $d$, el número de \textit{grados de libertad}, definido como
+	\begin{equation}
+		d = n - c,
+	\end{equation}
+donde $c$ es el número de \textit{restricciones}, el número de parámetros que se han tenido que calcular desde los datos para encontrar $\chi ^2$. Chi-Cuadrado reducido se define como
+	\begin{equation}
+		\overset{\sim}{\chi} ^2 = \chi ^2 /d.
+	\end{equation}
+Si la distribución propuesta es correcta, $\overset{\sim}{\chi} ^2$ debería de ser de orden $1$; si $\overset{\sim}{\chi} ^2 \gg 1$, los datos no se ajustan a la distribución propuesta satisfactoriamente.
 
-
-
-
+\subsection{Probabilidades para Chi-Cuadrado}
+Suponga que obtiene $\overset{\sim}{\chi} _o ^2$ de un experimento. Si $\overset{\sim}{\chi} _o ^2$ es apreciablemente mayor a $1$, se tienen razones para dudar de la distribución sobre la cual sus valores esperados $E_k$ están basados. Desde una tabla de probabilidades se puede encontrar
+	\begin{equation}
+		P(\overset{\sim}{\chi} ^2 \geq \overset{\sim}{\chi} _o ^2),
+	\end{equation}
+probabilidad de obtener un valor $\overset{\sim}{\chi} ^2$ tan grande como $\overset{\sim}{\chi} _o ^2$, asumiendo que la distribución esperada es la correcta. Si esta probabilidad es pequeña, tiene motivos para rechazar la distribución esperada; si es inferior al $5\%$, se rechazaría la distribución supuesta al nivel del $5\%$, o nivel significativo; si la probabilidad es inferior al $1\%$, se rechazaría la distribución al nivel del $1\%$, o nivel altamente significativo.
 
 
 
