@@ -86,64 +86,182 @@ La sreglas de propagación de error se refiere a uan situación en la cual encon
 \end{tcolorbox}
 
 
-
-
-
-
-
 \section{Análisis Estadístico de Incertezas Aleatorias}
-
-
-
+\subsection{Promedio o Media}
+\begin{tcolorbox}
+	\begin{description}
+		\item[La Media: ] El mejor valor estimado para $x$, es la media (en este caso: aritmética)
+			\begin{equation}
+				\bar{x} = \frac{1}{N} \sum _{i=1} ^N x_i.
+			\end{equation}
+		\item[Desviación Estandar: ] El promedio de las incertezas de las mediciones individuales
+			\begin{equation}
+				\sigma _x = \sqrt{\frac{1}{N - 1} \sum (x_i - \bar{x})^2}.
+			\end{equation}
+		Anteriormente el denominador se tomaba como $N$. Además, podemos identificar a $\sigma _x$ como la incerteza de cualquier medición de $x$, $\delta x = \sigma _x$, y podemos decir con un $68\%$ de confianza que cualquier mediciónd e $x$ caerá dentro de $\sigma _x$.
+		\item[Desviación Estandar de la Media: ] La incerteza de nuestro mejor valor (la media) es:
+			\begin{equation}
+				\sigma _{\bar{x}} = \frac{\sigma _x}{\sqrt{N}}.
+			\end{equation}
+		Si hay errores sistemáticos apreciables, entonces $\sigma _{\bar{x}}$ da la \textit{componente aleatoria} de la incerteza en nuestra mejor estimación de $x$
+			\begin{equation}
+				\delta x_{ran} = \sigma _{\bar{x}}.
+			\end{equation}
+		Si existe una forma para estimar la componente sistematica $\delta x_{sys}$, una rasonable (más no rigurosamente justificada) expresión para la incerteza total es la suma de los cuadrados entre ambas incertezas
+			\begin{equation}
+				\delta x_{tot} = \sqrt{\delta x_{ran}^2 + \delta x_{sys}^2}.
+			\end{equation}
+	\end{description}
+\end{tcolorbox}
 
 
 \chapter{La Distribución Normal}
+\section{Distribución Límite}
+		Si $f(x)$ es la distribución límite de una variable continua $x$, entonces
+			\begin{align*}
+				f(x) \dd{x} = \text{ probabilidad que cualesquiera de las mediciones caerá enre } x \text{ y } x+\dd{x}.
+			\end{align*}
+		y
+			\begin{align*}
+				\int _a ^b f(x) \dd{x} = \text{ probabilidad de que cualesquiera de las mediciones caiga entre } a \text{ y } b.
+			\end{align*}
+		La condición de normalización es
+			\begin{equation}
+				\int _{-\infty} ^\infty f(x) \dd{x} = 1,
+			\end{equation}
+		mientras que la media o valor esperado es
+			\begin{equation}
+				\bar{x} = \int _{-\infty} ^\infty xf(x) \dd{x}.
+			\end{equation}
+\section{Distribución Normal (o de Gauss)}
+Si las mediciones de $x$ estan sujetos a muchos pero pequeños errores aleatorios pero no sistemáticos, su distribución límite sera la \textit{distribución normal}:
+	\begin{equation}
+		G_{X,\sigma} (x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-(x - X)^2 /2\sigma ^2}, 
+	\end{equation}
+donde $X$ es el valor real d $x$, centro de la distribución y el valor medio después muchas mediciones. Y, $\sigma$ es el parámetro de ancho de la distribución y la desviación estándar luego de muchas mediciones. \\
 
+La probabilidad de una única medición de caer entre $t$ desviaciones estándar de $X$ es
+	\begin{equation}
+		P(x \leq \abs{t\sigma}) = \frac{1}{\sqrt{2\pi}} \int _{-t} ^t e^{-z^2 /2} \dd{z}.
+	\end{equation}
+Esta integral es normalmente llamada la función de error. Su valor como una función de $t$ es mostrado en tablas. En partícular, para $t = 1$ la probabilidad es de $68\%$.  \\
 
-
-
-
-
-
-
+Un valor aceptado de $x$ sera aquel que caiga a cierta cantidad de desviaciones estandar del centro de la distribución, es decir, con cierto porcentaje mayor a un umbral previamente designado.
 
 
 \chapter{Rechazo de Datos y la Media Ponderada}
 
+\section{Criterio de Chauvenet}
+Si se realizan $N$ mediciones $x_1 ,\ldots ,x_N$ de una única cantidad $x$, y si una de estas mediciones ($x_{sus}$) es sospechosamente diferente de las otras, el criterio de Chauvenet da una prueba para decidir si se acepta o no este dato sospechoso. Teniendo la desviación estándar y le media de las mediciones, encontraremos el número de desviaciones estándar por las cuales $x_{sus}$ difiere $\bar{x}$,
+	\begin{equation}
+		t_{sus} = \frac{\abs{x_{sus} - \bar{x}}}{\sigma _x}
+	\end{equation}
+Luego encontramos la probabilidad (asumiendo que los valores están normalmente distribuidos alrededor de $\bar{x}$ con ancho $\sigma _x$) de encontar este resultado tan desviado como $x_{sus}$, y el número de mediciones esperadas para desviarse esta cantidad es $n = N \times P(\text{fuera } t_{sus} \sigma)$. Si $n< \frac{1}{2}$, entonces de acuerdo al criterio de Chauvenet puedes rechazar el valor de $x_{sus}$. Dado que existen muchas objeciones al criterio de Chauvenet (especialmente cuando $N$ no es muy grande), esto solo debería ser utilizado como último recurso. Además, esto se pierde \dsnote{se va al carajo} si dos o más valores son sospechosos.
 
-
-
-
-
-
-
+\section{Media Ponderada}
+Si $x_1 ,\ldots ,x_N$ son mediciones de una cantidad $x$, con incertezas conocidas $\sigma _1,\ldots ,\sigma _N$, entonces el valor mejor estimado al valor real de $x$ es la media ponderada
+	\begin{equation}
+		x_{wav} = \frac{\sum w_i x_i}{\sum w_i},
+	\end{equation}
+donde als sumas son sobre todas las mediciones y los pesos son los reciprocos cuadrados de las incertezas correspondientes
+	\begin{equation}
+		w_i = \frac{1}{\sigma _i ^2}.
+	\end{equation}
+La incerteza de $x_{wav}$ es
+	\begin{equation}
+		\sigma _{wav} = \frac{1}{\sqrt{\sum w_i}}.
+	\end{equation}
 
 
 
 \chapter{Distribución Binomial y de Poisson}
+\section{La Distribución Binomial}
+Conseideraremos un experimento con varios posibles resultados y designamos los resultado (o resultados) particular en el que estamos interesados como un ''éxito''. Si la probabilidad de éxito en cualquier ensayo es $p$, entonces la probabilidad de $\nu$ éxitos en $n$ ensayos viene dada por la distribución binomial:
+	\begin{equation}
+		P(\nu \text{ éxitos en } n \text{ intentos}) = \binom{n}{\nu} p^\nu (1 - p)^{n - \nu},
+	\end{equation}
+Si repetimos el conjunto completo de $n$ ensayos muchas veces, esperamos que el número medio de éxitos es
+	\begin{equation}
+		\bar{\nu} = np
+	\end{equation}
+y su desviación estándar es
+	\begin{equation}
+		\sigma _\nu = \sqrt{np(1 - p)}.
+	\end{equation}
+
+\subsection{Aproximación Gaussiana a la Distribución Binomial}
+Cuando $n$ es grande, la distribución binomial $B_{n,p} (\nu)$ esta bien aproximada por la función de Gauss con la misma media y desviación estándar, esto es
+	\begin{equation}
+		B_{n,p} (\nu) \approx G_{X,\sigma} (\nu).
+	\end{equation}
 
 
+\section{Distribución de Poisson}
+La distribución de Poisson describe experimentos en los cuales se cuentan eventos que ocurren aleatoriamente pero a una tasa promedio definida. SI se cuentan durante un intervalo $T$, la probabilidad de observar $\nu$ eventos es dada por la función de Poisson
+	\begin{equation}
+		P_\mu (\nu) = e^{-\mu} \frac{\mu ^\nu}{\nu !},
+	\end{equation}
+donde el parámetro $\mu$ es el numero promedio esperado de eventos en el tiempo $T$: $\bar{\nu} = \mu$. Su desviación estándar es $\sigma _\nu = \sqrt{\mu}$.
 
-
-
-
-
+\subsection{Aproximación Gaussiana a la Distribución de Poisson}
+Cuando $\mu$ es grande, la distribución de Poisson se aproxima bien a una función Gaussiana con la misma media y desviación estandar:
+	\begin{equation}
+		P_{\mu} (\nu) \approx G_{X,\sigma} (\nu).
+	\end{equation}
 
 
 
 \chapter{Prueba Ji Cuadrado y Mínimos Cuadrados}
+\section{Mínimos Cuadrados}
+Se considerarán $N$ pares de mediciones $(x_1 ,y_1),\ldots ,(x_N ,y_N)$ de dos variables. El problema recae en encontrar los mejores valores de los parámetros de la curva que una gráfica $y$ vs $x$ se espera que ajuste.
 
+\subsection{Una Línea Recta; Ponderaciones Iguales}
+Si $y$ se espera que caiga en una línea recta $y = A + Bx$, si las medidas de $y$ tienen todas la misma incerteza, las mejores aproximaciones para las constantes son
+	\begin{equation}
+		A = \frac{\sum x^2 \sum y - \sum x \sum xy}{\Delta}
+	\end{equation}
+y
+	\begin{equation}
+		B = \frac{N\sum xy - \sum x \sum y}{\Delta},
+	\end{equation}
+donde $\Delta$ es
+	\begin{equation}
+		\Delta = N\sum x^2 - \qty(\sum x)^2.
+	\end{equation}
+Basados en las observaciones, la mejor estimación para las incertezas son
+	\begin{align}
+		\sigma _y &= \sqrt{\frac{1}{N - 2} \sum _{i=1} ^N (y_i - A - Bx_i)^2}, \\
+		\sigma _A &= \sigma _y \sqrt{\frac{\sum x^2}{\Delta}}, \\
+		\sigma _B &= \sigma _y \sqrt{\frac{N}{\Delta}}.
+	\end{align}
 
+\subsection{Línea Recta por el Origen; Ponderaciones Iguales}
+Si $y$ se espera que caiga en una línea recta que atraviese el origen $y = Bx$, si las mediciones de $y$ todas tienen la misma incerteza, la mejor estimación para las constantes es
+	\begin{equation}
+		B = \frac{\sum xy}{\sum x^2}.
+	\end{equation}
+Basados en las observaciones, las incertezas son
+	\begin{align}
+		\sigma _y &= \sqrt{\frac{1}{N - 1} \sum (y_i - Bx_i)^2}, \\
+		\sigma _B &= \frac{\sigma _y}{\sqrt{\sum x^2}}.
+	\end{align}
 
+\subsection{Ajuste Ponderado para una Línea Recta}
+Si $y$ se espera que sea una línea recta, y los valores medidos de $y$ tienen diferentes y conocidas incertezas $\sigma _i$, introducimos las ponderaciones $w_i = \frac{1}{\sigma _i ^2}$, las mejores estimaciones de las constantes son
+	\begin{align}
+		A &= \frac{\sum wx^2 \sum wy - \sum wx \sum wxy}{\Delta}, \\
+		B &= \frac{\sum w \sum wxy - \sum wx \sum wy}{\Delta}, \\
+		\Delta &= \sum w \sum wx^2 - \qty(wx)^2.
+	\end{align}
 
+Cuyas incertezas son
+	\begin{align}
+		\sigma _A &= \sqrt{\frac{\sum wx^2}{\Delta}}, \\
+		\sigma _B &= \sqrt{\frac{\sum w}{\Delta}}.
+	\end{align}
 
-
-
-
-
-
-
-
+\subsection{Otras Curvas}
+Si $y$ se supone como un polinomio $y = A + Bx + \cdots + Hx^n$, entonces existe un método análogo, pero las ecuaciones son bastante engorrosas. También curvas de la forma $y = A f(x) + \cdots + Hk(x)$, donde las funciones son conocidas, existe un método análogo también. Otra forma es linearizar el problema; por ejemplo, para una función exponencial, su ''linearización'' es $z = \ln{y} = \ln{A} + Bx$.
 
 
 
