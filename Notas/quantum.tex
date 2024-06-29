@@ -373,7 +373,7 @@ Dado el postulado 1 de la mecánica cuántica y sabiendo que todo ket representa
     $$ \pk = \sum _x c_x \ket{x}, $$
 para índice continuo
     $$ \pk = \int \dd{x} \psi (x) \ket{x} $$
-    $$ \pk = \int \dd{x} \bra{x} \psi ^* (x) $$
+    $$ \bra{\psi} = \int \dd{x} \bra{x} \psi ^* (x) $$
     
 \subsection{Interpretación de $\psi (x)$}
 En las integrales, al igual que las sumatorias usan variables mudas
@@ -477,7 +477,7 @@ Ahora pasaremos del intervalo $[-T/2,T/2]$ a toda la recta real $(-\infty ,\inft
     $$ \psi (x) = \frac{1}{\sqrt{2\pi \hbar}} \int _{-\infty} ^\infty \dd{p} e^{\frac{ipx}{\hbar}} \overset{\sim}{\psi} (p). $$
 
 \subsection{Transformada de Fourier}
-    $$ \overset{\psi}{\sim} (p) = \frac{1}{\sqrt{2\pi \hbar}} \int _{-\infty} ^\infty \dd{x} e^{-\frac{ipx}{\hbar}} \psi (x). $$
+    $$ \psim (p) = \frac{1}{\sqrt{2\pi \hbar}} \int _{-\infty} ^\infty \dd{x} e^{-\frac{ipx}{\hbar}} \psi (x). $$
 
 \begin{figure}[H]
     \centering
@@ -539,7 +539,7 @@ Debido a que $\{ \ket{\vec{x}} \}$ es una base ortonormal
     \item[Propiedad 21: ] $[X_j, P_k] = i\hbar \delta _{jk} I$. 
     \item[Propiedad 22: ] $[X_j ,P_j ^n] = i\hbar n P^{n - 1}$.
     \item[Propiedad 23: ] Sean $A,B,C$ operadores y $b,c$ números complejos.
-        $$ [A,bB + cC] = b[A,B] + C[A,C]. $$
+        $$ [A,bB + cC] = b[A,B] + c[A,C]. $$
     \item[Propiedad 24: ] Sea $F(P_j) = \sum _{n=0} ^\infty a_n P_j ^n$ entocnes
         $$ [X_j ,F(P_j)] = i\hbar F' (P_j). $$
 \end{description}
@@ -1115,7 +1115,7 @@ La base de kets propios $\{ \ket{\upuparrows}, \ket{\updownarrows}, \ket{\downup
 								 0 & 1 & 1 & 0 \\
 								 0 & 0 & 0 & 0).
 \end{align}
-Encontramos los kets propios de $J^2$, los cuales forman la siguiente base $\{ \ket{\upuparrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} + \ket{\downuparrows}, \ket{downdownarrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} - \ket{\downuparrows}) \}$.
+Encontramos los kets propios de $J^2$, los cuales forman la siguiente base $\{ \ket{\upuparrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} + \ket{\downuparrows}, \ket{\downdownarrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} - \ket{\downuparrows}) \}$.
 \begin{equation}
 	\qty(J^2)_\delta = \mqty(2\hbar ^2 & 0 & 0 & 0 \\
 							 0 & 2\hbar ^2 & 0 & 0 \\
@@ -1127,7 +1127,7 @@ Encontramos los kets propios de $J^2$, los cuales forman la siguiente base $\{ \
 Recordemos el postulado 5: Cuando medimos un observable, el estado del sistema cambia (colapsa) a un estado propio del observable, correspondiente al valor propio que medimos.
 
 \paragraph{Observación: }
-Al medir el momentum angular total $J^2$ de un sistema de dos partículas con spín $1/2$ estas partículas quedan entrelazadas en estado propio correspondiente al valor propio que medimos. Cuando medimos $J^2$ obtenemos $2\hbar ^2$ o cero. Si medimos $2\hbar ^2$ para $J^2$ el sistema queda en algún estado generado por los kets propios correspondientes $\{ \ket{\upuparrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} + \ket{\downuparrows}, \ket{downdownarrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} - \ket{\downuparrows}) \}$. Pero si cuando medimos $J^2$ obtenemos cero el sistema de las dos partículas está en el estado 
+Al medir el momentum angular total $J^2$ de un sistema de dos partículas con spín $1/2$ estas partículas quedan entrelazadas en estado propio correspondiente al valor propio que medimos. Cuando medimos $J^2$ obtenemos $2\hbar ^2$ o cero. Si medimos $2\hbar ^2$ para $J^2$ el sistema queda en algún estado generado por los kets propios correspondientes $\{ \ket{\upuparrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} + \ket{\downuparrows}, \ket{\downdownarrows}, \frac{1}{\sqrt{2}} (\ket{\updownarrows} - \ket{\downuparrows}) \}$. Pero si cuando medimos $J^2$ obtenemos cero el sistema de las dos partículas está en el estado 
 	$$ \pk = \frac{1}{\sqrt{2}} \ket{\upuparrows} - \frac{1}{\sqrt{2}} \ket{\downdownarrows} $$
 donde a los coeficientes se les conocen como \textbf{Coeficientes de Clebsh-Gordan}. Si estamos en el estado $\pk$ y a continuación medimos $S_{1z}$ podríamos obtener $\pm \frac{\hbar}{2}$. Un resultado del entrelazamiento es el siguiente:
 
@@ -1178,7 +1178,7 @@ Por el momento se le dará preferencia al punto de vista activa, con el cual vam
 			\begin{align}
 				L_z &= XP_y - YP_x \\
 				L_x &= YP_z - ZP_y \\
-				L_y &= ZP_x - XP_x 
+				L_y &= ZP_x - XP_z 
 			\end{align}
 		y
 			\begin{align*}
@@ -1249,6 +1249,117 @@ La representación delos ket propios $\ket{l,m}$, cuando $l$ es entero, respecto
 	\begin{equation}
 		\braket{r,\theta ,\phi}{l,m} = Y_l ^m (\theta ,\phi).
 	\end{equation}
+
+\section{Generalidades del Momentum Angular}
+Podemos definir el momentum angular orbital como:
+\begin{equation}
+	L_i = r_j p_k \epsilon _{ijk}
+\end{equation}
+donde $\epsilon _{ijk}$ es el tensor de Levi-Civita, $r_j$ son las componentes del vector posición, y $p_k$ son las componentes del momentum lineal. \\
+
+\dsnote{La siguiente explicación es complemento de lo ya visto, explicado un poco más a profundidad.} \\
+
+
+En la mecánica cuántica, el operador $\hat{J}_z$ es uno de los componentes del momento angular total y tiene una forma estándar bien definida cuando actúa sobre los estados propios de $\hat{J}^2$ y $\hat{J}_z$. 
+
+El operador $\hat{J}_z$ actúa sobre un estado propio $\ket{j, m}$ del momento angular total $\hat{J}^2$ y de su componente $\hat{J}_z$ de la siguiente manera:
+
+\begin{equation}
+\hat{J}_z \ket{j, m} = \hbar m \ket{j, m}
+\end{equation}
+
+Aquí:
+- $j$ es el número cuántico total del momento angular.
+- $m$ es el número cuántico magnético, que puede tomar valores en el rango $-j, -j+1, \ldots, j-1, j$.
+- $\hbar$ es la constante de Planck reducida.
+
+En este contexto, la "forma estándar" de $\hat{J}_z$ simplemente significa que cuando $\hat{J}_z$ opera sobre el estado $\ket{j, m}$, produce el valor $\hbar m$ multiplicado por el mismo estado $\ket{j, m}$. Este operador es diagonal en la base de estados propios $\ket{j, m}$.
+
+Por lo tanto, la forma estándar del operador $\hat{J}_z$ se expresa en términos de su acción sobre los estados base del momento angular total:
+
+\begin{equation}
+\hat{J}_z \ket{j, m} = \hbar m \ket{j, m}
+\end{equation}
+
+Para calcular el valor esperado de $\hat{J}_y^2$ en un estado propio $\ket{j, m}$ del operador de momento angular total $\hat{J}$, primero necesitamos recordar algunas propiedades fundamentales del momento angular en mecánica cuántica.
+
+Los operadores $\hat{J}_x$, $\hat{J}_y$ y $\hat{J}_z$ satisfacen la siguiente relación para el operador cuadrado del momento angular total $\hat{J}^2$:
+
+\begin{equation}
+\hat{J}^2 = \hat{J}_x^2 + \hat{J}_y^2 + \hat{J}_z^2
+\end{equation}
+
+Dado que $\hat{J}^2$ y $\hat{J}_z$ son simultáneamente diagonales en la base $\ket{j, m}$, tenemos las siguientes relaciones:
+
+\begin{equation}
+\hat{J}^2 \ket{j, m} = \hbar^2 j(j+1) \ket{j, m}
+\end{equation}
+
+\begin{equation}
+\hat{J}_z \ket{j, m} = \hbar m \ket{j, m}
+\end{equation}
+
+Por lo tanto, el valor esperado de $\hat{J}^2$ y $\hat{J}_z^2$ en el estado $\ket{j, m}$ son:
+
+\begin{equation}
+\langle j, m | \hat{J}^2 | j, m \rangle = \hbar^2 j(j+1)
+\end{equation}
+
+\begin{equation}
+\langle j, m | \hat{J}_z^2 | j, m \rangle = \hbar^2 m^2
+\end{equation}
+
+Para encontrar el valor esperado de $\hat{J}_y^2$, usamos la relación:
+
+\begin{equation}
+\hat{J}^2 = \hat{J}_x^2 + \hat{J}_y^2 + \hat{J}_z^2
+\end{equation}
+
+Tomando el valor esperado de ambos lados en el estado $\ket{j, m}$:
+
+\begin{equation}
+\langle j, m | \hat{J}^2 | j, m \rangle = \langle j, m | \hat{J}_x^2 | j, m \rangle + \langle j, m | \hat{J}_y^2 | j, m \rangle + \langle j, m | \hat{J}_z^2 | j, m \rangle
+\end{equation}
+
+Reemplazando los valores esperados conocidos:
+
+\begin{equation}
+\hbar^2 j(j+1) = \langle j, m | \hat{J}_x^2 | j, m \rangle + \langle j, m | \hat{J}_y^2 | j, m \rangle + \hbar^2 m^2
+\end{equation}
+
+Dado que $\hat{J}_x$ y $\hat{J}_y$ son componentes equivalentes del momento angular en términos de simetría, se cumple que:
+
+\begin{equation}
+\langle j, m | \hat{J}_x^2 | j, m \rangle = \langle j, m | \hat{J}_y^2 | j, m \rangle
+\end{equation}
+
+Definimos el valor esperado común como $\langle j, m | \hat{J}_x^2 | j, m \rangle = \langle j, m | \hat{J}_y^2 | j, m \rangle = \langle j, m | \hat{J}_\perp^2 | j, m \rangle$. Por lo tanto, la ecuación se simplifica a:
+
+\begin{equation}
+\hbar^2 j(j+1) = 2 \langle j, m | \hat{J}_\perp^2 | j, m \rangle + \hbar^2 m^2
+\end{equation}
+
+Resolviendo para $\langle j, m | \hat{J}_y^2 | j, m \rangle$:
+
+\begin{equation}
+2 \langle j, m | \hat{J}_y^2 | j, m \rangle = \hbar^2 \left[ j(j+1) - m^2 \right]
+\end{equation}
+
+\begin{equation}
+\langle j, m | \hat{J}_y^2 | j, m \rangle = \frac{\hbar^2}{2} \left[ j(j+1) - m^2 \right]
+\end{equation}
+
+Por lo tanto, el valor esperado de $\hat{J}_y^2$ en el estado $\ket{j, m}$ es:
+
+\begin{equation}
+\langle j, m | \hat{J}_y^2 | j, m \rangle = \frac{\hbar^2}{2} \left[ j(j+1) - m^2 \right]
+\end{equation}
+
+
+
+
+
+
 
 
 
