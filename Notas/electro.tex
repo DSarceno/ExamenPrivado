@@ -143,7 +143,7 @@ donde $\mathcal{O}$ es el punto de referencia. Notemos que
 	\item EL sistema de referencia es fundamental.
 	\item El potencial obedece el principio de superposición.
 	\begin{equation}
-		\varphi (r) = \kel \sum_{i=1} ^N \frac{q_i}{\abs{r - r_i}} + \kel \int _V \frac{\rho (r')}{\abs{r-r'}} \dv{V'} + \kel \int _S \frac{\sigma (r')}{\abs{r - r'}} \dd{a'}.
+		\varphi (r) = \kel \sum_{i=1} ^N \frac{q_i}{\abs{r - r_i}} + \kel \int _V \frac{\rho (r')}{\abs{r-r'}} \dd{V'} + \kel \int _S \frac{\sigma (r')}{\abs{r - r'}} \dd{a'}.
 	\end{equation}
 \end{enumerate}
 
@@ -529,7 +529,14 @@ Cuya energía se puede expresar como:
 \begin{equation}
 	u = \frac{1}{2} Q \Delta \varphi = \frac{1}{2} C \Delta \varphi ^2
 \end{equation}
-Si los conductores que forman un condensador tienen formas geométricas sencillas, la capacitancia puede obtenerse analíticamente. Y para condensadores en circuitos paralelos y en serie\footnote{En paralelo se tiene la misma diferencia de potencial entre los nodos y para los circuitos en serie se conserva la carga.}
+Si los conductores que forman un condensador tienen formas geométricas sencillas, la capacitancia puede obtenerse analíticamente. \\
+
+Densidad de Energía:
+\begin{equation}
+	\mathcal{U} = \frac{1}{2} \ep E_o ^2 = \frac{1}{2} \ep \qty(\frac{Q}{\ep A})^2 = \frac{1}{2} \frac{Q^2}{\ep A^2}.
+\end{equation}
+
+Y para condensadores en circuitos paralelos y en serie\footnote{En paralelo se tiene la misma diferencia de potencial entre los nodos y para los circuitos en serie se conserva la carga.}
 
 \begin{align*}
 	C_{eq} &= C_1 + C_2, \qquad \text{Paralelo} \\
@@ -1489,7 +1496,10 @@ Se realiza la diferencia $\theta _\parallel - \theta _\perp$ y según el resulta
 
 
 
-
+\chapter{Formularios}
+Formularios proporcionados por los catedráticos: Dr. Rodrigo Sacahuí y Lic. Héctor Pérez
+\includepdf[pages=-, scale=0.9]{./img/formulario_electro1.pdf}
+\includepdf[pages=-, scale=0.9]{./img/formulario_electro2.pdf}
 
 
 
